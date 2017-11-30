@@ -11,7 +11,255 @@
   max-width: 1920px;
   min-width: 1000px;
   background: transparent url("../img/gb.png") repeat scroll center center;
-  height: 500px;
+  height: 100%;
+  padding-top: 30px;
+}
+.main_box .first_box {
+  width: 1000px;
+  height: 730px;
+  margin: 0 auto;
+  background: transparent url("../img/first_bg.png") repeat scroll center center;
+}
+.main_box .first_box .first_title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #7d4923;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+.main_box .first_box .first_body {
+  width: 960px;
+  margin: 0 auto;
+  background: #fff5e9;
+  height: 340px;
+}
+.main_box .first_box .first_footer {
+  font-size: 16px;
+  color: #7d4923;
+  width: 930px;
+  margin: 26px auto 0;
+  line-height: 28px;
+}
+
+.first_body .main_contain {
+  width: 930px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-top: 40px;
+}
+.first_body .main_contain .pro {
+  width: 310px;
+  float: left;
+  line-height: 48px;
+  text-align: center;
+  font-size: 24px;
+  color: #7d4923;
+}
+.first_body .main_contain .pro .mun {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ff4d49;
+}
+.first_body .main_contain .pro .mun span {
+  font-size: 18px;
+  font-weight: normal;
+}
+.first_body .first_btn {
+  width: 400px;
+  height: 90px;
+  margin: 50px auto 30px;
+  background: #ff4d49;
+  font-size: 36px;
+  line-height: 90px;
+  color: #fff;
+  text-align: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.second_box {
+  width: 1000px;
+  margin: 65px auto 150px;
+  background: #fff;
+}
+.second_box .second_title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #7d4923;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+.second_box .second_pic {
+  background: transparent url("../img/ranking.png") repeat scroll center center;
+  width: 933px;
+  height: 233px;
+  margin: 33px auto 0;
+}
+.second_box .my_rank_box {
+  width: 960px;
+  height: 155px;
+  background: #fffdf2;
+  margin: 40px auto 10px;
+  overflow: hidden;
+}
+.second_box .my_rank_box .rank_left {
+  float: left;
+  width: 330px;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+.second_box .my_rank_box .rank_left img {
+  width: 42px;
+  height: 41px;
+  display: block;
+  float: left;
+  margin: 0 20px 0 0;
+}
+.second_box .my_rank_box .rank_left div {
+  font-size: 24px;
+  color: #7d4923;
+  width: 260px;
+  float: left;
+  height: 56px;
+  margin-top: 10px;
+}
+.second_box .my_rank_box .rank_right {
+  float: right;
+  margin-right: 50px;
+}
+.second_box .my_rank_box .rank_right .second_btn {
+  width: 290px;
+  height: 70px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: #ff4d49;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  line-height: 70px;
+  margin-top: 42px;
+  cursor: pointer;
+}
+.second_box .my_rank_box .rank_right .login_num_box {
+  width: 400px;
+  float: right;
+}
+.second_box .my_rank_box .rank_right .login_num_box .login_num {
+  text-align: right;
+  margin-top: 12px;
+  color: #7d4923;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 56px;
+}
+.second_box .my_rank_box .rank_right .login_num_box .login_num span {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.ranking_title {
+  width: 960px;
+  height: 70px;
+  background: #fffdf2;
+  margin: 10px auto 4px;
+  overflow: hidden;
+  text-align: center;
+  line-height: 70px;
+  font-size: 24px;
+  color: #7d4923;
+}
+.ranking_title .ranking_pai {
+  float: left;
+  width: 200px;
+}
+.ranking_title .ranking_user {
+  float: left;
+  width: 380px;
+}
+.ranking_title .ranking_lei {
+  float: left;
+  width: 380px;
+}
+
+.ranking_body {
+  width: 960px;
+  background: #fffdf2;
+  margin: 0 auto;
+}
+.ranking_body .ranking_num {
+  max-height: 560px;
+}
+.ranking_body .ranking_num .body_box {
+  height: 56px;
+  overflow: hidden;
+  text-align: center;
+  line-height: 56px;
+  font-size: 20px;
+  color: #7d4923;
+}
+.ranking_body .ranking_num .body_pai {
+  float: left;
+  width: 200px;
+}
+.ranking_body .ranking_num .body_pai .num_ex {
+  background: #ffd7a8;
+  border-radius: 3px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin: 13px auto;
+}
+.ranking_body .ranking_num .body_user {
+  float: left;
+  width: 380px;
+}
+.ranking_body .ranking_num .body_lei {
+  float: left;
+  width: 380px;
+}
+.ranking_body .ranking_no {
+  height: 360px;
+}
+.ranking_body .ranking_no img {
+  width: 181px;
+  height: 144px;
+  margin: 0 auto;
+  display: block;
+  padding-top: 100px;
+}
+.ranking_body .ranking_no .ranking_text {
+  padding-top: 30px;
+  text-align: center;
+  color: #7d4923;
+  font-size: 36px;
+}
+.ranking_body .ranking_btn {
+  width: 960px;
+  margin: 0 auto;
+  height: 103px;
+  background: #fffdf2;
+}
+.ranking_body .ranking_btn .ranking_go {
+  width: 247px;
+  height: 65px;
+  background: transparent url("../img/btn.png") repeat scroll center center;
+  margin: 42px auto;
+  cursor: pointer;
+}
+
+.last_text {
+  width: 900px;
+  margin: 20px auto;
+  background: #fffdf2;
+  font-size: 16px;
+  color: #7d4923;
+  padding: 40px 0 40px 60px;
+  line-height: 28px;
 }
 
 /*# sourceMappingURL=cut.css.map */
