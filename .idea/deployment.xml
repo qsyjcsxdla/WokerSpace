@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="tomcat">
+    <serverData>
+      <paths name="tomcat">
+        <serverdata>
+          <mappings>
+            <mapping deploy="../WokerSpace" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2e0df4fc-6a99-47e9-911f-5e7fe397f1a4" name="tomcat" url="http://192.168.0.108:1234/WokerSpace">
+        <fileTransfer port="0" mountedRoot="C:\Users\fcy\Desktop\apache-tomcat-8.0.35\webapps\WokerSpace" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
