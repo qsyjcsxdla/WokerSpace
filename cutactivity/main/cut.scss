@@ -18,7 +18,10 @@ $fffdf2:#fffdf2;
   min-width: 1000px;
   background: rgba(0, 0, 0, 0) url("../img/gb.png") repeat scroll center center;
   height: 100%;
-  padding-top: 30px;
+  padding:{
+    top:30px;
+    bottom: 20px;
+  }
   .first_box{
     width: 1000px;
     height: 730px;
@@ -270,6 +273,30 @@ $fffdf2:#fffdf2;
         height: 30px;
         line-height: 30px;
         margin: 13px auto;
+      }
+      .num_ef{
+        background: url("../img/first.png");
+        border-radius: 3px;
+        width: 31px;
+        height: 50px;
+        line-height: 30px;
+        margin: 3px auto;
+      }
+      .num_es{
+        background: url("../img/second.png");
+        border-radius: 3px;
+        width: 31px;
+        height: 50px;
+        line-height: 30px;
+        margin: 3px auto;
+      }
+      .num_et{
+        background: url("../img/third.png");
+        border-radius: 3px;
+        width: 31px;
+        height: 50px;
+        line-height: 30px;
+        margin: 3px auto;
       }
     }
     .body_user{

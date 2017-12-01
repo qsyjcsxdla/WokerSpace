@@ -174,11 +174,11 @@
             <div class="first_title">返现又双叒来啦</div>
             <div class="first_body">
                 <div class="main_contain">
-                    <div class="pro">我的累计投资额<br><span class="mun">1000000<span>元</span></span></div>
-                    <div class="pro">剩余可兑换累积投资额<br><span class="mun">1000000<span>元</span></span></div>
-                    <div class="pro">剩余可兑换现金<br><span class="mun">1000000<span>元</span></span></div>
+                    <div class="pro">我的累计投资额<br><span class="mun" id="mun1">1000000<span>元</span></span></div>
+                    <div class="pro">剩余可兑换累积投资额<br><span class="mun" id="mun2">1000000<span>元</span></span></div>
+                    <div class="pro">剩余可兑换现金<br><span class="mun" id="mun3">1000000<span>元</span></span></div>
                 </div>
-                <div class="first_btn">立即兑换</div>
+                <div class="first_btn" id="first_btn">立即兑换</div>
             </div>
             <div class="first_footer">
                 活动规则： <br>
@@ -201,11 +201,11 @@
                     <img src="img/qian.png">
                     <div>我的累计年化投资金额</div>
                 </div>
-                <div class="rank_right">
-                    <div class="second_btn" >登录后查看</div>
-                    <div class="login_num_box" style="display: none">
-                        <div class="login_num">2000<span>&nbsp;名</span></div>
-                        <div class="login_num">100000.99<span>&nbsp;元</span></div>
+                <div class="rank_right" >
+                    <div class="second_btn" id="second_btn" onclick="">登录后查看</div>
+                    <div class="login_num_box" id="login_num_box">
+                        <div class="login_num" id="rank_num"><span>&nbsp;名</span></div>
+                        <div class="login_num" id="rank_money"><span>&nbsp;元</span></div>
                     </div>
                 </div>
             </div>
@@ -215,59 +215,15 @@
                 <div class="ranking_lei">累计年化投资额</div>
             </div>
             <div class="ranking_body">
-                <div class="ranking_num" style="display: none" >
-                    <div class="body_box">
-                        <div class="body_pai"><div class="num_ex">1</div></div>
+                <div class="ranking_num"  >
+                    <!--<div class="body_box">
+                        <div class="body_pai"><div class="num_ef">1</div></div>
                         <div class="body_user">135****135</div>
                         <div class="body_lei">10000.00元</div>
-                    </div>
-                    <div class="body_box">
-                        <div class="body_pai"><div class="num_ex">1</div></div>
-                        <div class="body_user">135****135</div>
-                        <div class="body_lei">10000.00元</div>
-                    </div>
-                    <div class="body_box">
-                        <div class="body_pai"><div class="num_ex">1</div></div>
-                        <div class="body_user">135****135</div>
-                        <div class="body_lei">10000.00元</div>
-                    </div>
-                    <div class="body_box">
-                        <div class="body_pai"><div class="num_ex">1</div></div>
-                        <div class="body_user">135****135</div>
-                        <div class="body_lei">10000.00元</div>
-                    </div>
-                    <div class="body_box">
-                        <div class="body_pai"><div class="num_ex">1</div></div>
-                        <div class="body_user">135****135</div>
-                        <div class="body_lei">10000.00元</div>
-                    </div>
-                    <div class="body_box">
-                        <div class="body_pai"><div class="num_ex">1</div></div>
-                        <div class="body_user">135****135</div>
-                        <div class="body_lei">10000.00元</div>
-                    </div>
-                    <div class="body_box">
-                        <div class="body_pai"><div class="num_ex">1</div></div>
-                        <div class="body_user">135****135</div>
-                        <div class="body_lei">10000.00元</div>
-                    </div>
-                    <div class="body_box">
-                        <div class="body_pai"><div class="num_ex">1</div></div>
-                        <div class="body_user">135****135</div>
-                        <div class="body_lei">10000.00元</div>
-                    </div>
-                    <div class="body_box">
-                        <div class="body_pai"><div class="num_ex">1</div></div>
-                        <div class="body_user">135****135</div>
-                        <div class="body_lei">10000.00元</div>
-                    </div>
-                    <div class="body_box">
-                        <div class="body_pai"><div class="num_ex">1</div></div>
-                        <div class="body_user">135****135</div>
-                        <div class="body_lei">10000.00元</div>
-                    </div>
+                    </div>-->
+
                 </div>
-                <div class="ranking_no"   >
+                <div class="ranking_no"  style="display: none" >
                     <img src="img/song.png">
                     <div class="ranking_text">还未有用户上榜</div>
                 </div>
@@ -287,25 +243,232 @@
         </div>
     </div>
 </div>
+<div class="bg-alertt hide" id="bg_alertt" ></div>
 <script>
-    function forlogin(){
-        $('#bg_alertt').show();
-        var htmlA = '';
-        htmlA+='<div class="alert_gift_box2  " id="unlogin_btn" >';
-        htmlA+='<div class="alert_red_close_box relative">';
-        htmlA+='<div class="alert_red_close absolute pointer"></div></div>';
-        htmlA+='<div class="alert_gift1_pic "><img src="${STATIC_RESOURCES_URL}/activity/redcash/img/song4.png" style="width: 100%"></div>';
-        htmlA+='<div class="alert_gift_text2">';
-        htmlA+='您还未登录，请先登录';
-        htmlA+=' </div>';
-        htmlA+=' <div class="alert_gift_btn2 pointer f-16 " id="login_btn" onclick="forLogin()"> 立即登录</div>';
-        htmlA+=' </div>';
-        $('body').append(htmlA);
+    var root='${pageContext.request.contextPath }';
+    $(function(){
+        ForLogin();
+        forRank();
+        userRank();
 
+    })
+
+    $('#first_btn').click(function(){
+        if($('#userId').val()==null||$('#userId').val()==' '||$('#userId').val().length<1){
+            unlogin(1,1)
+        }else{
+            var money=parseInt($('#mun3').html());
+            if((money-0)<8){
+                unlogin(2,2)
+            }else{
+                duihuanalert(1,1,0,money);
+                $('#btn_sure').click(function(){
+                    forRedcash();
+                })
+                $('.alert_gift_btn4').click(function(){
+                    $('.alert_gift_box').remove();
+                    $('#bg_alertt').hide();
+                })
+            }
+        }
+
+
+    })
+
+
+    function ForLogin(){//用户总投资额   剩余可兑换累计投资额    剩余可兑换金额
+        $.ajax({
+            url: "draw2.json",
+            data:{
+                userId:$('#userId').val(),
+                actId:5,
+                auth:1
+            },
+            dataType: "json",
+            type:'get',
+            success: function (json){
+                if(json.code=="000000"){//登录
+                    var data=json.data
+                    $('#mun1').html(data.investMoney+'<span>&nbsp;元</span>');
+                    $('#mun2').html(data.surplusMoney+'<span>&nbsp;元</span>');
+                    $('#mun3').html(data.surplusCash+'<span>&nbsp;元</span>');
+                } else if(json.code=="900002"){ //未登录
+                    $('#mun1,#mun2,#mun3').html('--'+'<span>&nbsp;元</span>');
+                }
+            }
+        })
+    }
+
+    function forRedcash(){//立即兑换按钮
+        $.ajax({
+            url: "draw3.json",
+            data:{
+                userId:$('#userId').val(),
+                actId:5,
+                auth:1
+            },
+            dataType: "json",
+            type:'get',
+            success: function (json){
+                if(json.code=="900002"){ //未登录
+                    unlogin(1,1)
+
+                }else if(json.code=="000000"){//兑换成功
+                    $('.alert_gift_box').remove();
+                    duihuanalert(0,2,1)
+                }else if(json.code=="500000"||json.code=="900015"){//用户还未投资及用户兑换金额不足
+                    unlogin(2,2)
+                }else if(json.code=="900013"){
+                    console.log(json.msg)
+                }
+
+            }
+        })
+    }
+
+    function forRank(){//用户周排名  年化投资额的查询
+        $.ajax({
+            url: "draw4.json",
+            data:{
+                userId:$('#userId').val(),
+                actId:5,
+                auth:1
+            },
+            dataType: "json",
+            type:'get',
+            success: function (json){
+                if(json.code=="900002"){ //未登录
+                    $('#second_btn').show();
+                    $('#login_num_box').hide();
+                }else if(json.code=="000000"){//登录
+                    $('#second_btn').hide();
+                    $('#login_num_box').show();
+                    var data=json.data;
+                    if(data==' '||data==null||data.length<1){
+                        $('#rank_num').html('--'+'<span>&nbsp;名</span>')
+                        $('#rank_money').html('--'+'<span>&nbsp;元</span>')
+                    }else{
+                        $('#rank_num').html(data.id+'<span>&nbsp;名</span>')
+                        $('#rank_money').html(data.annualMoney+'<span>&nbsp;元</span>')
+                    }
+                }
+            }
+        })
+    }
+
+    function userRank(){//周排行榜查询
+        $.ajax({
+            url: "draw5.json",
+            data:{
+                userId:$('#userId').val(),
+                actId:5
+            },
+            dataType: "json",
+            type:'get',
+            success: function (json){
+                if(json.code=="000000"){ //查询成功
+                    var data=json.data;
+                    if(data&&data.length>0){
+                        $('#ranking_num').show();
+                        $('#ranking_no').hide();
+                        var data=json.data;
+                        var htmlA=' ';
+                        for(var i=0; i<data.length; i++){
+                            htmlA+='<div class="body_box">';
+                            htmlA+=' <div class="body_pai"><div class="num_ex">'+data[i].id+'</div></div>';
+                            htmlA+='<div class="body_user">'+data[i].phone+'</div>';
+                            htmlA+='<div class="body_lei">'+data[i].annualMoney+'元</div>';
+                            htmlA+='</div>';
+                        }
+                        $('#ranking_num').append(htmlA);
+
+                        $('#ranking_num').find('.body_box').eq(0).find('.num_ex').removeClass('num_ex').addClass('num_ef').html(' ');
+                        $('#ranking_num').find('.body_box').eq(1).find('.num_ex').removeClass('num_ex').addClass('num_es').html(' ');
+                        $('#ranking_num').find('.body_box').eq(2).find('.num_ex').removeClass('num_ex').addClass('num_et').html(' ');
+                    }else{
+                        $('#ranking_num').hide();
+                        $('#ranking_no').show();
+                    }
+
+                }
+            }
+        })
+    }
+
+
+    function unlogin(o,a) {//
+        $('#bg_alertt').show();
+        var htmlU='';
+        htmlU+='<div class="alert_gift_box2">';
+        htmlU+='<div class="alert_red_close_box relative">';
+        htmlU+='<div class="alert_red_close absolute pointer"></div></div>';
+        htmlU+='<div class="alert_gift1_pic "><img src="img/song4.png" style="width: 100%"></div>'
+        htmlU+=' <div class="alert_gift_text2">';
+        if(o==1){
+            htmlU+='您还未登录，请先登录'
+        }else if(o==2){
+            htmlU+='很抱歉，您暂无现金可兑换<br>快去投资吧！'
+        }
+        htmlU+='</div>';
+        if(a==1){
+            htmlU+='<div class="alert_gift_btn2 pointer f-16 " id="login_btn" onclick="forLogin(this)"> 立刻登录</div>'
+        }else if(a==2){
+            htmlU+=' <div class="alert_gift_btn2 pointer f-16  " id="invist_btn" onclick="forInviest(this)"> 立即投资</div>'
+        }
+        htmlU+='</div>'
+        $('body').append(htmlU);
         $('.alert_red_close').click(function(){
             $('.alert_gift_box2').remove();
             $('#bg_alertt').hide();
         })
+    }
+
+    function duihuanalert(o,a,b,s) {//确定兑换、复制、兑换是否成功弹框
+        $('#bg_alertt').show();
+        var htmlC='';
+        htmlC+='<div class="alert_gift_box" >';
+        htmlC+=' <div class="alert_gift_pic relative">';
+        htmlC+='<img src="';
+        if(o==0){
+            htmlC+='img/right_ok.png';
+        } else if(o==1) {
+            htmlC+='img/wrong_no.png';
+        }
+        htmlC+='" style="width: 100%">';
+        htmlC+='</div>';
+        htmlC+=' <div class="alert_gift_text">';
+        if(a==1){
+            htmlC+='您确定兑换<span style="color:#ff0909">'+s+'元现金</span>吗？';
+        }else if(a==2){
+            htmlC+='您已兑换成功！<br>现金已发送至您的账户中';
+        }
+        htmlC+='</div>';
+        if(b==0){
+            htmlC+='<div class="alert_btn_box hidden ">';
+            htmlC+='<div class="alert_gift_btn3  f-16 float-left pointer" id="btn_sure"> 确定</div>';
+            htmlC+='<div class="alert_gift_btn4  f-16 float-right pointer"> 取消</div>';
+            htmlC+='</div>';
+        } else if(b==1) {
+            htmlC+='<div class="alert_gift_btn pointer f-18" id="gift_sure"> 确定</div>';
+        }
+        htmlC+='</div>';
+        $('body').append(htmlC);
+        $('#gift_sure').click(function(){
+            $('.alert_gift_box').remove();
+            $('#bg_alertt').hide();
+            ForLogin();
+        })
+    }
+
+
+
+    function forLogin(){
+        window.location.href=root+'/activity/201712int/home.do';
+    }
+    function forInviest(){
+        window.open(root+'/invest/directProject/home.html');
+        $('.alert_gift_box2').remove();
+        $('#bg_alertt').hide();
     }
 </script>
 

@@ -10,9 +10,23 @@
     width: 100%;
     z-index: 900;
 }
+.alert_gift_box {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0128b3;
+    height: 290px;
+    left: 50%;
+    margin-left: -205px;
+    margin-top: -145px;
+    position: fixed;
+    top: 50%;
+    width: 410px;
+    z-index: 902;
+}
 .alert_gift_box2 {
     background: #fff none repeat scroll 0 0;
     border-radius: 10px;
+    box-shadow: 0 0 10px #0128b3;
     height: 290px;
     left: 50%;
     margin-left: -185px;
@@ -21,6 +35,51 @@
     top: 50%;
     width: 370px;
     z-index: 902;
+}
+.alert_gift_box3 {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0128b3;
+    height: 390px;
+    left: 50%;
+    margin-left: -235px;
+    margin-top: -195px;
+    position: fixed;
+    top: 50%;
+    width: 470px;
+    z-index: 902;
+}
+.alert_gift_pic {
+    height: 80px;
+    margin: 0 auto;
+    padding-top: 40px;
+    width: 80px;
+}
+.alert_gift_pic1 {
+    background: rgba(0, 0, 0, 0) url("../img/wrong_no.png") no-repeat scroll center bottom;
+    height: 40px;
+    margin: 0 auto;
+    padding-top: 40px;
+    width: 40px;
+}
+.alert_gift_text {
+    color: #414141;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 14px auto 0;
+    text-align: center;
+    text-indent: 20px;
+    width: 280px;
+}
+.alert_gift_btn {
+    background: #0128b3 none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #fff;
+    height: 36px;
+    line-height: 36px;
+    margin: 20px auto;
+    text-align: center;
+    width: 102px;
 }
 .alert_red_close {
     background: rgba(0, 0, 0, 0) url("../img/close1.png") no-repeat scroll center center;
@@ -34,39 +93,17 @@
     padding-top: 30px;
     width: 117px;
 }
+.alert_gift2_pic {
+    margin: 0 auto;
+    padding-top: 55px;
+    width: 140px;
+}
 .alert_gift_text2 {
     color: #414141;
     font-size: 18px;
     margin: 15px auto 0;
     text-align: center;
     width: 260px;
-}
-.alert_gift_btn2 {
-    background: #f66034 none repeat scroll 0 0;
-    border-radius: 5px;
-    color: #fff;
-    height: 36px;
-    line-height: 36px;
-    margin: 20px auto;
-    text-align: center;
-    width: 110px;
-}
-.alert_gift_box3 {
-    background: #fff none repeat scroll 0 0;
-    border-radius: 10px;
-    height: 390px;
-    left: 50%;
-    margin-left: -235px;
-    margin-top: -195px;
-    position: fixed;
-    top: 50%;
-    width: 470px;
-    z-index: 902;
-}
-.alert_gift2_pic {
-    margin: 0 auto;
-    padding-top: 55px;
-    width: 140px;
 }
 .alert_gift_text3 {
     color: #414141;
@@ -84,8 +121,32 @@
     text-align: center;
     width: 380px;
 }
+.alert_gift_btn2 {
+    background: #0128b3 none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #fff;
+    height: 36px;
+    line-height: 36px;
+    margin: 20px auto;
+    text-align: center;
+    width: 110px;
+}
+.alert_btn_box {
+    height: 36px;
+    margin: 30px auto;
+    width: 270px;
+}
+.alert_gift_btn3 {
+    background: #0128b3 none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #fff;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    width: 100px;
+}
 .alert_gift_btn33 {
-    background: #f66034 none repeat scroll 0 0;
+    background: #0128b3 none repeat scroll 0 0;
     border-radius: 5px;
     color: #fff;
     font-size: 18px;
@@ -94,4 +155,55 @@
     margin: 0 auto;
     text-align: center;
     width: 100px;
+}
+.alert_gift_btn4 {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #0128b3;
+    border-radius: 5px;
+    color: #0128b3;
+    height: 34px;
+    line-height: 36px;
+    text-align: center;
+    width: 98px;
+}
+.alert_gift_box4 {
+    background: rgba(255, 255, 255, 0) none repeat scroll 0 0;
+    height: 460px;
+    left: 50%;
+    margin-left: -235px;
+    margin-top: -230px;
+    position: fixed;
+    top: 50%;
+    width: 470px;
+    z-index: 902;
+}
+.alert_gift3_pic {
+    margin: 0 86px 0 76px;
+    padding-top: 55px;
+    width: 308px;
+}
+.alert_gift_text4 {
+    color: #fff;
+    font-size: 24px;
+    line-height: 36px;
+    margin: 15px auto 0;
+    text-align: center;
+    width: 380px;
+}
+.alert_gift_btn5 {
+    background: #0128b3 none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #fff;
+    height: 36px;
+    line-height: 36px;
+    margin: 30px auto;
+    text-align: center;
+    width: 100px;
+}
+.alert_gift_btn, .alert_gift_btn2, .alert_gift_btn3, .alert_gift_btn5, .alert_gift_btn33:hover {
+    background: #5b2dff none repeat scroll 0 0;
+    cursor: pointer;
+}
+.alert_gift_btn4:hover {
+    cursor: pointer;
 }

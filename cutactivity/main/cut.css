@@ -11,7 +11,8 @@
   min-width: 1000px;
   background: transparent url("../img/gb.png") repeat scroll center center;
   height: 100%;
-  padding-top: 30px; }
+  padding-top: 30px;
+  padding-bottom: 20px; }
   .main_box .first_box {
     width: 1000px;
     height: 730px;
@@ -182,6 +183,27 @@
         height: 30px;
         line-height: 30px;
         margin: 13px auto; }
+      .ranking_body .ranking_num .body_pai .num_ef {
+        background: url("../img/first.png");
+        border-radius: 3px;
+        width: 31px;
+        height: 50px;
+        line-height: 30px;
+        margin: 3px auto; }
+      .ranking_body .ranking_num .body_pai .num_es {
+        background: url("../img/second.png");
+        border-radius: 3px;
+        width: 31px;
+        height: 50px;
+        line-height: 30px;
+        margin: 3px auto; }
+      .ranking_body .ranking_num .body_pai .num_et {
+        background: url("../img/third.png");
+        border-radius: 3px;
+        width: 31px;
+        height: 50px;
+        line-height: 30px;
+        margin: 3px auto; }
     .ranking_body .ranking_num .body_user {
       float: left;
       width: 380px; }
