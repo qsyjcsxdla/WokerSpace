@@ -1,32 +1,30 @@
 {
-  "code": "900002",
+  "code": "000000",
   "data": [
     {
-      "id":"1",
-      "phone":"135****1325",
-      "annualMoney":"1000"
+      "id": "1",
+      "phone": "135****1325",
+      "annualMoney": "1000"
     },
     {
-      "id":"2",
-      "phone":"135****1325",
-      "annualMoney":"1000"
+      "id": "2",
+      "phone": "135****1325",
+      "annualMoney": "1000"
     },
     {
-      "id":"3",
-      "phone":"135****1325",
-      "annualMoney":"1000"
+      "id": "3",
+      "phone": "135****1325",
+      "annualMoney": "1000"
     },
     {
-      "id":"4",
-      "phone":"135****1325",
-      "annualMoney":"1000"
+      "id": "4",
+      "phone": "135****1325",
+      "annualMoney": "1000"
     },
     {
-      "id":"5",
-      "phone":"135****1325",
-      "annualMoney":"1000"
+      "id": "5",
+      "phone": "135****1325",
+      "annualMoney": "1000"
     }
-
   ]
-
 }

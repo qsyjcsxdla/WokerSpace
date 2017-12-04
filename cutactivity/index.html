@@ -223,7 +223,7 @@
                     </div>-->
 
                 </div>
-                <div class="ranking_no"  style="display: none" >
+                <div class="ranking_no" style="display: none"   >
                     <img src="img/song.png">
                     <div class="ranking_text">还未有用户上榜</div>
                 </div>
@@ -247,9 +247,10 @@
 <script>
     var root='${pageContext.request.contextPath }';
     $(function(){
+        userRank();
         ForLogin();
         forRank();
-        userRank();
+
 
     })
 
@@ -359,19 +360,16 @@
     function userRank(){//周排行榜查询
         $.ajax({
             url: "draw5.json",
-            data:{
-                userId:$('#userId').val(),
-                actId:5
-            },
+            data:{ },
             dataType: "json",
             type:'get',
             success: function (json){
                 if(json.code=="000000"){ //查询成功
                     var data=json.data;
+                    console.log(data.length)
                     if(data&&data.length>0){
                         $('#ranking_num').show();
                         $('#ranking_no').hide();
-                        var data=json.data;
                         var htmlA=' ';
                         for(var i=0; i<data.length; i++){
                             htmlA+='<div class="body_box">';
@@ -380,6 +378,7 @@
                             htmlA+='<div class="body_lei">'+data[i].annualMoney+'元</div>';
                             htmlA+='</div>';
                         }
+                        console.log(htmlA)
                         $('#ranking_num').append(htmlA);
 
                         $('#ranking_num').find('.body_box').eq(0).find('.num_ex').removeClass('num_ex').addClass('num_ef').html(' ');
