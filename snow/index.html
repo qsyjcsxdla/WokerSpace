@@ -4,54 +4,154 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>圣诞节动态下雪页面雪花飘落代码 </title>
     <meta name="viewport" content="width=device-width">
+    <link href="css/common.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.10.2.min.js" type=""></script>
     <script type="text/javascript" src="js/jquery.let_it_snow.js"></script>
+    <link href="css/liang.css" rel="stylesheet">
     <style  type="text/css">
-        .music{
-            width: 48px;
-            height: 48px;
-            z-index: 100;
-            position: relative;
-            left: 20%;
-            top:20%;
-            display: block;
-        }
-       .rotate{
-            -webkit-animation: rotate 3s linear infinite;
-            -moz-animation: rotate 3s linear infinite;
-            -o-animation: rotate 3s linear infinite;
-            animation: rotate 3s linear infinite;}
-        @-webkit-keyframes rotate{from{-webkit-transform: rotate(0deg)}
-            to{-webkit-transform: rotate(360deg)}
-        }
-        @-moz-keyframes rotate{from{-moz-transform: rotate(0deg)}
-            to{-moz-transform: rotate(359deg)}
-        }
-        @-o-keyframes rotate{from{-o-transform: rotate(0deg)}
-            to{-o-transform: rotate(359deg)}
-        }
-        @keyframes rotate{from{transform: rotate(0deg)}
-            to{transform: rotate(359deg)}
-        }
     </style>
-
-
 </head>
-<body onload="init()" style="position: relative">
-<!—可以添加controls属性来显示浏览器自带的播放用的控制条。 -->
-<video id="video1" src="audio/Jingle_Bells.mp3" autoplay loop >
-    您的浏览器不支持video元素
-</video><br/>
-<img  src="images/music.png" class="button1 music" onclick="play()"  alt="">
-<img  src="images/music.png" class="button2 music" onclick="pause()" alt="">
-
-
-<canvas width="100%" height="100%" class="snow" ></canvas>
-<canvas width="100%" height="100%" class="flake"></canvas>
-
-<div style="text-align:center;">
+<body onload="init()" class="">
+<div class="relative" style="">
+    <div class="absolute total_contain" >
+        <div class="contain_box" >
+            <div  class="content_box" >
+                <div class=" tree_box relative" id="animate" >
+                    <img src="../snow/images/tree.png" style="display: block; margin: 0 auto;" class="re" >
+                    <div class="breathe-btn3  total_style breathe-btn absolute " style="left:48.5%;top:0;" ></div>
+                    <div class="breathe-btn1  total_style breathe-btn absolute" style="left:40%;top:19%;"></div>
+                    <div class="breathe-btn2  total_style breathe-btn absolute" style="left:35%;top:50%;"></div>
+                    <div class="breathe-btn4 total_style breathe-btn absolute" style="left:50%;top:60%;"></div>
+                    <div class="breathe-btn5  total_style breathe-btn absolute" style="left:80%;top:80%;"></div>
+                    <div class="breathe-btn6 total_style breathe-btn absolute" style="left:11%;top:73%;"></div>
+                   <!-- <div class="breathe-btn7  total_style breathe-btn absolute" style="left:30%;top:64%;"></div>-->
+                    <div class="breathe-btn9  total_style breathe-btn absolute" style="left:67%;top:70%;"></div>
+                    <div class="breathe-btn8 total_style breathe-btn absolute" style="left:35%;top:35%;"></div>
+                    <div class="breathe-btn11  total_style breathe-btn absolute" style="left:42%;top:68%;"></div>
+                    <div class="breathe-btn10 total_style breathe-btn absolute" style="left:50%;top:22.8%;"></div>
+                    <div class="breathe-btn13  total_style breathe-btn absolute" style="left:17%;top:83%;"></div>
+                    <div class="breathe-btn14  total_style breathe-btn absolute" style="left:65%;top:44%;"></div>
+                    <div class="breathe-btn15  total_style breathe-btn absolute" style="left:57%;top:18%;"></div>
+                    <div class="breathe-btn16  total_style breathe-btn absolute" style="left:25%;top:55%;"></div>
+                </div>
+            </div>
+            <div  class="yao btn_yao">摇一摇</div>
+        </div>
+    </div>
+    <div class="absolute music_box" >
+        <video id="video1" src="audio/Jingle_Bells.mp3" autoplay loop >
+            您的浏览器不支持video元素
+        </video><br/>
+        <img  src="images/music.png" class="button1 music" onclick="play()"  alt="">
+        <img  src="images/music.png" class="button2 music" onclick="pause()" alt="">
+    </div>
+    <div class="absolute canvas" style="z-index: 2" >
+        <canvas width="100%" height="100%" class="snow" ></canvas>
+        <canvas width="100%" height="100%" class="flake"></canvas>
+    </div>
 </div>
+
+<script>
+    var getRandomColor = function(){  //随机颜色
+        var rgba='rgba(' +parseInt( Math.random()*255)  + ', '+parseInt( Math.random()*255)   +', '+parseInt( Math.random()*255) +',1)';
+        return rgba
+    }
+    $(function(){
+        var i= 0, arr = [];
+        do {
+            var t = getRandomColor();
+            var r = getAccessibleColor(t);
+            console.log(t, r);
+            if (r == true) {
+                i++;
+                arr.push(t);
+                var du=Math.ceil(Math.random()*3);
+                var time=parseInt(Math.random()*1200+1000);
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                var keyFrames = '\
+            @-webkit-keyframes breathe'+i+'{\
+            0% {\
+            box-shadow: 0 1px 2px '+t+';\
+            }\
+            100% {\
+             border: 5px solid '+t+';\
+             box-shadow: 0 0 50px 20px '+t+';\
+            }\
+            }'
+                style.innerHTML = keyFrames;
+                $('.breathe-btn'+i).css(
+                        {'background':t,
+                            'border':'5px solid '+t,
+                            'box-shadow':' 0 0 0 2px '+t,
+                            'animation-name': 'breathe'+i,
+                            'width':du,
+                            'height':du,
+                            'animation-duration':time+'ms'
+                        }).append(style);
+            }
+        } while (i < 14);
+
+        /*var breathebtn=$('.breathe-btn');
+        for(var i=1; i<=breathebtn.length; i++){
+            var t = getRandomColor();
+            var r = getAccessibleColor(t);
+            console.log(t, r);
+            var du=Math.ceil(Math.random()*3);
+            var time=parseInt(Math.random()*1200+1000);
+            if (r == true) {
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                var keyFrames = '\
+            @-webkit-keyframes breathe'+i+'{\
+            0% {\
+            box-shadow: 0 1px 2px '+t+';\
+            }\
+            100% {\
+             border: 5px solid '+t+';\
+             box-shadow: 0 0 50px 20px '+t+';\
+            }\
+            }'
+                style.innerHTML = keyFrames;
+                $('.breathe-btn'+i).css(
+                        {'background':t,
+                            'border':'5px solid '+t,
+                            'box-shadow':' 0 0 0 2px '+t,
+                            'animation-name': 'breathe'+i,
+                            'width':du,
+                            'height':du,
+                            'animation-duration':time+'ms'
+                        }).append(style);
+            }
+        }*/
+    })
+
+    var $animate = $('#animate');
+    var $btn = $('.yao');
+    $btn.click(function(){
+        $animate.addClass('swing animated infinite');
+        setTimeout(removeClass, 1000);
+    });
+    function removeClass(){
+        $animate.removeClass().addClass('relative tree_box');
+    }
+    function getAccessibleColor(rgb) {
+        var rgb=rgb.slice(5,-3).split(',');
+            console.log(rgb)
+        let [ r, g, b ] = rgb;
+        let colors = [r / 255, g / 255, b / 255];
+
+        let c = colors.map((col) => {
+            if (col <= 0.03928) {
+                return col / 12.92;
+            }
+            return Math.pow((col + 0.055) / 1.055, 2.4);
+        });
+        let L = (0.2126 * c[0]) + (0.7152 * c[1]) + (0.0722 * c[2]);
+        return (L > 0.179) ? true : false;
+    }
+</script>
 <script  type="text/javascript">
     var video;
     function init()
