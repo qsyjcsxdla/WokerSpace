@@ -1,0 +1,891 @@
+
+<!DOCTYPE html>
+<head lang="en">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chorme=1">
+    <meta name="full-screen" content="yes">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport">
+    <title>女人节</title>
+    <link href="https://static.wjdai.com/wjdai-web/css/common.css" rel="stylesheet">
+    <link href="css/ddan.css" rel="stylesheet">
+    <script src="https://static.wjdai.com/wjdai-web/js/jquery-1.10.2.min.js"></script>
+
+</head>
+<body>
+<input type="hidden" id="baseURL" value="${pageContext.request.contextPath }"/>
+<input type="hidden" id="baseUrl" value="${pageContext.request.contextPath }"/>
+<input type="hidden" id="base_url" value="${pageContext.request.contextPath }"/>
+<input type="hidden" id="userId" value="${user.user.userId }"/>
+<input type="hidden" id="uid" value="${paramData.uid[0]}"/>
+<input type="hidden" id="iId" value="${paramData.iId[0]}"/>
+<input type="hidden" id="puid" value="${paramData.puid[0]}"/>
+<input type="hidden" id="tag" value="${paramData.tag[0]}"/>
+<input type="hidden" id="isLogin" value="${user.user}"/>
+<!-- 头部 -->
+<!-- 中间内容 -->
+<div class='all'>
+    <!-- banner -->
+    <div class='banner relative'>
+        <!--计算器-->
+      <!-- <img class='countimg absolute pointer' src='img/jisuan1.png'/>
+        &lt;!&ndash;倒计时&ndash;&gt;
+        <div class="countDownBlock absolute" id="countDownBlock"><span class="txttimeshow" id="txttimeshow"></span></div>
+        <span id="txttime" class="txttime hide"></span>-->
+    </div>
+    <!-- 欢迎夺宝迎新年 -->
+    <div class='content-box'>
+        <div class='substance relative'>
+            <div class='dabs absolute'>
+                <div class='duobao-box relative'>
+                    <a href='javascript:void(0);' id='indianna_btn' class='c-fff f-18 bold'></a>
+                    <!-- 攻略 -->
+                </div>
+                <div class='yearh_txt'>
+                    <p>年化投资额须大于100元才能参加活动，年化投资额每满100元产生1个夺宝码</p>
+                    <p>天标：年化投资额=（投资额*投资天数）/365</p>
+                    <p>月标：年化投资额=（投资额*投资月数）/12</p>
+                </div>
+            </div>
+            <!-- 夺宝码内容开始 -->
+            <div class='code-box rad-10'>
+                <div class='codex'>
+                    <!-- 投资项目列表区域 -->
+                    <!--  <div class='tz-list'>
+                        <ul class='investlist'></ul>
+                    </div>-->
+                    <div class='tz-list'>
+                        <ul class='investlist1'></ul>
+                    </div>
+
+                    <!-- 获奖列表滚动区域 -->
+                    <div class='gundong'></div>
+                    <div class='marquee hide'></div>
+                    <!-- 活动规则区域 -->
+                    <div class='rule-box mt-50'>
+                        <div class='rule_title relative pl-40'><img class='imgabs1 absolute' src='img/rule.png'/>活动规则</div>
+                        <p>1、年化投资额每满100元产生1个抽奖号码</p>
+                        <p>2、用户在活动页面选择相应奖品夺宝后，请在30分钟内完成投资，超出30分钟需重新选择奖品</p>
+                        <p>3、用户投资金额大于奖池剩余金额时，剩余金额部分获得该奖品夺宝码，超出部分计入最大奖（国色天香奖）奖池；若多个用户同时参与，最先完成投资的用户获得该奖品夺宝码，其余投资计入最大奖奖池</p>
+                        <p>4、若相应奖品奖池满额，即达到抽奖条件；活动结束时奖池金额未满，则不达到抽奖条件，该奖池作废</p>
+                        <p>5、未通过活动页面投资的，投资额默认计入最大奖（国色天香奖）奖池</p>
+                        <p>6、抽奖于3月14日统一进行，用户可在万家贷官网、app上查看抽奖结果。奖品于抽奖后10个工作日内发出</p>
+                    </div>
+                    <!-- 幸运号码计算规则区域 -->
+                    <div class='lucky-box mt-50'>
+                        <div class='lucky_title relative pl-40'><img class='imgabs1 absolute' src='img/jisuan.png'/>幸运号码计算规则</div>
+                        <div class='formulas rad-5 mb-20 bold'>幸运号码计算公式=【（数值A+数值B）&#247; 夺宝码个数  】 取余数+10000001</div>
+                        <p><span class='lucky_title1'>数值A</span>=该商品满额后夺宝时间的最后50条记录的相应值之和</p>
+                        <p><span class='lucky_title1'>数值B</span>=3月13日中国福利彩票“重庆时时彩”期号001的揭晓结果，24小时内该期“重庆时时彩”揭晓结果仍未公布，<br/>则默认“重庆时时彩”揭晓结果00000</p>
+                        <p><span class='lucky_title1'>夺宝码个数</span>=该商品的夺宝码总个数</p>
+                        <p>注 : 如遇福彩中心通讯故障，无法获取上述期数的中国福利彩票“重庆时时彩”揭晓结果，且24小时内该期“重庆时时彩”揭晓结果仍未公布，则默认“重庆时时彩”揭晓结果为00000</p>
+                    </div>
+                    <!-- 截止商品最后参与记录区域 -->
+                    <div class='record-box rad-10 hide'>
+                        <div class='welfare relative'>
+                            <span class='left_btn btnname rad-5 absolute'></span>
+                            <div class='welfarebox relative'>
+                                <ul class='welfare_list absolute'></ul>
+                            </div>
+                            <span class='right_btn btnname rad-5 absolute'></span>
+                        </div>
+                        <div class='timebox'>
+                            <div class='retime-box'>
+                                <p>截至该商品最后夺宝时间【<span class='deadline_box'></span>】的最后参与时间</P>
+                                <table class='tabtop'><tbody><tr><th>时间</th><th>相应值</th><th>手机号</th></tr></tbody></table>
+                                <div class='tablist_box'>
+                                    <div class='list_box'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 活动说明区域 -->
+            <div class='state-box pl-25 pb-100 mt-35'>
+                <div class='state_title c-fff relative pl-40'><img class='imgabs absolute' src='img/state.png'/>活动说明</div>
+                <p>1、参与用户必须为万家金融注册用户</p>
+                <p>2、本活动的最终解释权归万家金融所有，如有疑问请联系在线客服或者拨打客服热线 : 400-698-0607</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='bg-alertt hide'></div>
+<!-- 年化投资额计算器弹窗区域 -->
+<div class='counter-box hide'>
+    <div class='counter'>
+        <span class='extreme_btn1 absolute c-fff'>×</span>
+        <img class='jsimg_block' src='img/jst.png'/>
+        <div class='invest_count'>
+            <table>
+                <tr>
+                    <td>请输入投资金额</td>
+                    <td><input class='inputxt' id='invest_txt' type='text' placeholder='请输入投资金额' maxlength='7'/></td>
+                    <td>元</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+						<span class='relative'>
+							<span class='check check1'>
+								<img src='img/radio2.png'/>
+							</span>按天计算
+						</span>
+                        <span class='relative'>
+							<span class='check2'>
+								<img src='img/radio1.png'/>
+							</span>按月计算
+						</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>请输入投资期限</td>
+                    <td><input class='inputxt' id='date_txt' type='text' placeholder='请输入1-365' maxlength='4'/></td>
+                    <td class='diedate'>天</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan='2'>
+                        <div class='dcol'>
+                            <em>年化投资额&nbsp;</em><em id='annual_invest'>0</em><em>&nbsp;元</em>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- 夺宝码、中奖码弹窗区域 -->
+<div class='winning-box hide'>
+    <div class='winning'>
+        <span class='extreme_btn absolute c-fff'>×</span>
+        <ul class='lotterylist'>
+            <li class='lottery_active'><a href='javascript:void(0);'>我的夺宝码</a></li>
+            <li><a href='javascript:void(0);'>我的中奖码</a></li>
+        </ul>
+        <!-- 我的夺宝码 -->
+        <div class='getbig-box getbig-box_1 relative'>
+            <div class=' lofty'>
+                <div class='huo_get'>
+                    <div class='getbig-box_1'>
+                        <div class='getprize1'></div>
+                    </div>
+                </div>
+                <!-- 没有数据显示的空页面 -->
+                <div class="kongb hide">
+                    <img src="img/wjdai3.png" class="imgshow">
+                </div>
+            </div>
+            <!-- 我的中奖码 -->
+            <div class='lofty hide'>
+                <div class='getbig-box getbig-box_2'>
+                    <div class='getprize-box'>
+                        <div class='getprize2'>
+                            <div class='awardlist'></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 没有数据显示的空页面 -->
+                <div class="kongb hide">
+                    <img src="img/wjdai1.png" class="imgshow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='tip-box hide'>
+    <div class='drawred3'>
+        <span class='close_btn1 absolute c-fff f-22'>×</span>
+        <div class='wenxin f-16 c-fff'>温馨提示</div>
+        <p class='f-16'>系统繁忙，请刷新页面重新夺宝！</p>
+        <a href='javascript:void(0)' class='sure_btn f-16 c-fff rad-20'>确定</a>
+    </div>
+</div>
+<!-- 底部 -->
+
+</body>
+<script>
+    $(function(){
+        if($('.tablist').is(":visible").length=='0'||$('.tablist').length=='0'){
+            $('.code-box').css('height','1900px');
+        }
+        //时间接口
+        $.ajaxJson({
+            url: $('#baseUrl').vals() + "/interface/20170308/getCountDown.html",
+            data:{uid:$('#uid').val()},
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                var intDiff=parseInt(data.Countdowntime);
+                $("#txttime").html(intDiff);
+            },
+            error: function(){
+                console.log('链接超时,请刷新！');
+            }
+        });
+        //活动是否开始状态接口(1)
+        Forlogin();
+        function Forlogin(){
+            var isend;
+            $.ajaxJson({
+                url: $('#baseUrl').vals() + "/interface/20170308/activityIsStart.html",
+                data:{uid:$('#uid').val()},
+                dataType: "json",
+                success: function (data) {
+                    if (data.isend == "0") {//活动即将开始
+                        $('#indianna_btn').text('查看我的夺宝码');
+                        isend=0;
+                    }else if(data.isend == "1"){//活动进行中
+                        $('#indianna_btn').text('查看我的夺宝码');
+                        isend=1;
+                    }else if(data.isend == "2"){//活动已结束
+                        $('#indianna_btn').text('查看我的中奖码');
+                        isend=2;
+                    }else if(data.isend == "4"){//活动已结束,不能进
+                        $('#indianna_btn').text('查看我的中奖码');
+                        window.location.href='http://www.wjdai.com/';
+                    }
+                    $.ajaxJson({
+                        url: $('#baseUrl').vals() + "/interface/20170308/getWomensDaylist.html",
+                        data:{uid:$('#uid').val()},
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.map) {
+                                $('.investlist1').html('');
+                                $.each(data.map,function(i, n){
+                                    var proj=data.map[i],proj_id;
+                                    if(proj.prizeName.indexOf('iPad')>-1){
+                                        proj_id=1;
+                                    }else if(proj.prizeName.indexOf('吊坠')>-1){
+                                        proj_id=2;
+                                    }else if(proj.prizeName.indexOf('香水')>-1){
+                                        proj_id=3;
+                                    }else if(proj.prizeName.indexOf('口红')>-1){
+                                        proj_id=4;
+                                    }else if(proj.prizeName.indexOf('返现')>-1){
+                                        proj_id=5;
+                                    }
+                                    var li='';
+                                    if(i=='prize1'||i=='prize2'){
+                                        li+='<li class="lis"><div class="lihua_t"><div class="t_left">'
+                                                +'<img src="img/'+proj_id+'.png"/></div>'
+                                                +'<div class="t_right"><div class="prizename1 f-16 c-fff">'+proj.channelName+'</div>'
+                                                +'<p class="pname">'+proj.prizeName+'</p>'
+                                                +'<div class="renshu"><p>已参与<span class="ation_num">'+proj.num+'</span>人次</span></p><p>剩余年化投资额<span class="ation_num">'+proj.surplusInvestment+'</span>元</span></p></div>'
+                                                +'<div class="progress-box1"><div class="bar1 rad-10 relative"><div class="barimg absolute" style="left:'+proj.progress+'">'+proj.progress+'</div><div class="jindu rad-10">'
+                                                +'<div class="progress-bar rad-10" style="width:'+proj.progress+'"></div></div></div></div></div></div>';
+                                        if(isend=='2'){
+                                            li+='<a href="javascript:void(0);" class="invest-btn invest_btn1 rad-5" data-prizeId="'+proj.prizeId+'">已结束</a></li>';
+                                        }else if(isend=='1'){
+                                            if(proj.status=='1'){
+                                                li+='<a href="javascript:void(0);" class="invest-btn invest_btn4 rad-5" data-prizeId="'+proj.prizeId+'">已满额</a></li>';
+                                            }else if(proj.status=='0'){
+                                                li+='<a href="javascript:void(0);" class="invest-btn invest_btn2 diately_btn rad-5" data-prizeId="'+proj.prizeId+'">立即夺宝</a></li>';
+                                            }
+                                        }else if(isend=='0'){
+                                            li+='<a href="javascript:void(0);" class="invest-btn invest_btn3 rad-5" data-prizeId="'+proj.prizeId+'">即将开始</a></li>';
+                                        }
+                                        $('.investlist1').append(li);
+                                    }else if(i=='prize3'||i=='prize4'||i=='prize5'){
+                                        li+='<li class="relative liw">'
+                                                +'<div class="prizename f-16 c-fff">'+proj.channelName+'</div>'
+                                                +'<div class="spoil"><img src="img/'+proj_id+'.png"/>'
+                                                +'<p>'+proj.prizeName+'</p></div>'
+                                                +'<div class="progress-box"><div class="bar rad-10 relative"><div class="barimg absolute" style="left:'+proj.progress+'">'+proj.progress+'</div>'
+                                                +'<div class="jindu rad-10"><div class="progress-bar rad-10" style="width:'+proj.progress+';"></div></div></div>'
+                                                +'<div class="people"><span class="people-l">已参与<span class="ation_num">'+proj.num+'</span>人次</span>'
+                                                +'<span class="people-r">剩余年化投资额<span class="ation_num">'+proj.surplusInvestment+'</span>元</span></div>';
+                                        if(isend=='2'){
+                                            li+='<a href="javascript:void(0);" class="invest-btn invest_btn1 rad-5" data-prizeId="'+proj.prizeId+'">已结束</a></div></li>';
+                                        }else if(isend=='1'){
+                                            if(proj.status=='1'){
+                                                li+='<a href="javascript:void(0);" class="invest-btn invest_btn4 rad-5" data-prizeId="'+proj.prizeId+'">已满额</a></li>';
+                                            }else if(proj.status=='0'){
+                                                li+='<a href="javascript:void(0);" class="invest-btn invest_btn2 diately_btn rad-5" data-prizeId="'+proj.prizeId+'">立即夺宝</a></li>';
+                                            }
+                                        }else if(isend=='0'){
+                                            li+='<a href="javascript:void(0);" class="invest-btn invest_btn3 rad-5" data-prizeId="'+proj.prizeId+'">即将开始</a></div></li>';
+                                        }
+                                        $('.investlist1').append(li);
+                                    }
+                                    //立即夺宝
+                                    if($('#isLogin').val()==''||$('#isLogin').val()==null){
+                                        $('.diately_btn').attr('href',$("#baseURL").val() + "/activity/wisdom/home.do");
+                                        var invest_size=$('.invest-btn').length;
+                                        for(var l=0;l<invest_size;l++){
+                                            var progress=parseInt($('.invest-btn').eq(l).parent().find('.barimg').text());
+                                            if(progress=='100'){
+                                                $('.invest-btn').eq(l).attr('href','javascript:void(0);').removeClass('diately_btn');
+                                            }
+                                        }
+                                    }else{
+                                        var invest_size=$('.invest-btn').length;
+                                        for(var l=0;l<invest_size;l++){
+                                            var progress=parseInt($('.invest-btn').eq(l).parent().find('.barimg').text());
+                                            if(progress=='100'){
+                                                $('.invest-btn').eq(l).attr('href','javascript:void(0);').removeClass('diately_btn');
+                                            }
+                                        }
+                                        $('.diately_btn').click(function(){
+                                            $.ajax({
+                                                url:$('#baseUrl').vals() + "/interface/20170308/setLmmediately.html",
+                                                method:'post',
+                                                dataType:'json',
+                                                data:{prizeid:$(this).attr('data-prizeId')},
+                                                success:function(data){
+                                                    if(data.isok == "ok"){
+                                                        window.location.href=$('#baseURL').val()+"/invest/directProject/home.html";
+                                                    }else if(data.isok == "no"){
+                                                        $('.bg-alertt').show();
+                                                        $('.tip-box').show();
+                                                    }
+                                                }
+                                            });
+                                        })
+                                    }
+                                });
+                            }
+                        },
+                        error: function(){
+                            console.log('链接超时,请刷新！');
+                        }
+                    });
+                },
+                error: function(){
+                    console.log('链接超时,请刷新！');
+                }
+            });
+            timer = setTimeout(Forlogin, 1000);
+        }
+        //首页 滚动夺宝码列表	(3)
+        Marquee();
+        function Marquee(){
+            $.ajaxJson({
+                url: $('#baseUrl').vals() + "/interface/20170308/getScrollList.html",
+                data:{uid:$('#uid').val()},
+                dataType: "json",
+                success: function (data) {
+                    if (data.Scrolllist) {//没有夺宝码
+                        var Scroll_len=data.Scrolllist.length;
+                        if(Scroll_len<=0 || Scroll_len=='' || Scroll_len==null){
+                            $(".gundong").show().text("智慧女人绽放一生，你值得更美！").css({
+                                'text-align':'center',
+                                'padding-left':'0px'
+                            });
+                            $('.marquee').hide();
+                        }else if(0<Scroll_len=='2'){
+                            $('.marquee').hide();
+                            $('.gundong').show().html('').css({
+                                'text-align':'left',
+                                'padding-left':'60px'
+                            });
+                            $.each(data.Scrolllist,function(i, n){
+                                var scroll=data.Scrolllist[i];
+                                var marqu_span = '<span class="prizespan"><span class="phone c-fff mr-3">'+scroll.userPhome+'</span>'
+                                        +'<span class="c-fff">获得</span>'
+                                        +'<span class="awardname c-fff">'+scroll.prizeChannel+'</span>'
+                                        +'<span class="getnum">'+scroll.num+'个夺宝号</span></span>';
+                                $(".gundong").append($(marqu_span));
+                            });
+                        }else{
+                            $('.marquee').show();
+                            $('.gundong').hide().html('');
+                            var marqu_span='';
+                            marqu_span+='<marquee class="marquee_box" behavior="scroll" direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrolldelay="10">';
+                            $.each(data.Scrolllist,function(i, n){
+                                var scroll=data.Scrolllist[i];
+                                marqu_span += '<span class="prizespan"><span class="phone c-fff mr-3">'+scroll.userPhome+'</span>'
+                                        +'<span class="c-fff">获得</span>'
+                                        +'<span class="awardname c-fff">'+scroll.prizeChannel+'</span>'
+                                        +'<span class="getnum">'+scroll.num+'个夺宝号</span></span>';
+                            });
+                            marqu_span+='</marquee>';
+                            $(".marquee").html(marqu_span);
+                        }
+                    }
+                },
+                error: function(){
+                    console.log('链接超时,请刷新！');
+                }
+            });
+        }
+        //首页 满额列表(4)
+        getFullList();
+        function getFullList(){
+            $.ajaxJson({
+                url: $('#baseUrl').vals() + "/interface/20170308/getFullList.html",
+                data:{uid:$('#uid').val()},
+                dataType: "json",
+                success: function (data) {
+                    if (data.fulist) {
+                        if(data.fulist.length>0){
+                            for(var j=0;j<data.fulist.length;j++){
+                                var ul_b='<ul class="tablist hide"></ul>';
+                                var deadline='<span class="deadline"></span>';
+                                $('.list_box').append($(ul_b));
+                                $('.deadline_box').append($(deadline));
+                            }
+                            $(".tablist:first-child").show().siblings().hide();
+                            $.each(data.fulist,function(i, n){
+                                var fulist=data.fulist[i];
+                                //左右满额列表
+                                var welfare_li='<li>'+fulist.prizeChannel+'</li>';
+                                $('.welfare_list').append($(welfare_li));
+                                $('.deadline').eq(i).text(fulist.investmentTime);
+                                //分页满额列表
+                                if(fulist.relist==''||fulist.relist==null||fulist.relist=='undefined'){
+
+                                }else{
+                                    var _t = "";
+                                    $.each(fulist.relist,function(k, value){
+                                        var relist=fulist.relist[k];
+                                        _t+='<li><span>'+fulist.relist[k].investmentTime+'<em class="jiantou">&rarr;</em></span>'
+                                                +'<span>'+relist.timeCorresponding+'</span>'
+                                                +'<span>'+relist.userPhome+'</span></li>';
+                                    });
+                                    $('.tablist').eq(i).html(_t);
+                                }
+                            });
+                            $('.deadline').eq(0).show().siblings().hide();//夺宝时间
+                            $('.welfare_list li').eq(0).addClass('sst').siblings().removeClass('sst');
+                            if($('.tablist').length>0||$('.tablist').is(':visible').length>0){
+                                for(var kkk=0;kkk<$('.tablist').length;kkk++){
+                                    if($('.tablist').eq(0).find('li').length>10||$('.tablist').eq(0).find('li').length=='0'){
+                                        $('.code-box').css('height','2455px');
+                                    }else if(0<$('.tablist').eq(index).find('li').length<10||$('.tablist').eq(index).find('li').length=='10'){
+                                        $('.code-box').css('height',2180+$('.tablist').eq(kkk-1).find('li').length*50+'px');
+                                    }
+                                }
+                            }
+                            $('.record-box').show();
+                            var gshu=$('.welfare_list li').length;
+                            if(gshu>5){
+                                $('.right_btn').css('background','url(${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/redright.png) no-repeat center');
+                            }
+                            $('.welfare_list li').click(function(){
+                                var index = $(this).index();
+                                $('.deadline').eq(index).show().siblings().hide();
+                                $('.tablist').eq(index).show().siblings().hide();
+                                $(this).addClass('sst').siblings().removeClass('sst');
+                                var lensize=$('.tablist').eq(index).find('li');
+                                if(lensize==''||lensize==null||lensize=='undefined'||lensize.length>10||lensize.length=='0'){
+                                    $('.code-box').css('height','2455px');
+                                }else if(0<$('.tablist').eq(index).find('li').length<10||$('.tablist').eq(index).find('li').length=='10'){
+                                    $('.code-box').css('height',2210+$('.tablist').eq(index).find('li').length*50+'px');
+                                }
+                                if(index<=4){
+                                    $('.welfare_list').css('left','0px');
+                                }
+                            });
+                            //左右按钮
+                            var gshu=$('.welfare_list li').length;
+                            $('.right_btn').bind('click',function(){
+                                if(gshu>5){
+                                    var index = $('.welfare_list li.sst').index();
+                                    var position_left=parseInt($('.welfare_list').css('left'));
+                                    $(this).css('background','url(${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/redright.png) no-repeat center');
+                                    $('.left_btn').css('background','url(${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/redleft.png) no-repeat center');
+                                    if (index < ($('.welfare_list li').length - 1)) {
+                                        index++;
+                                        var it=index+1;
+                                        $('.welfare_list li').eq(index).addClass('sst').siblings().removeClass('sst');
+                                        $('.deadline').eq(index).show().siblings().hide();
+                                        $('.tablist').eq(index).show().siblings().hide();
+                                        var lensize=$('.tablist').eq(index).find('li');
+                                        if(lensize==''||lensize==null||lensize=='undefined'||lensize.length>10||lensize.length=='0'){
+                                            $('.code-box').css('height','2455px');
+                                        }else if(0<$('.tablist').eq(index).find('li').length<10||$('.tablist').eq(index).find('li').length=='10'){
+                                            $('.code-box').css('height',2210+$('.tablist').eq(index).find('li').length*50+'px');
+                                        }
+                                        if(it>5&&it<$('.welfare_list li').length-1){
+                                            position_left=position_left-177;
+                                            $('.welfare_list').stop().animate({left:position_left+'px'},10);
+                                        }else if(it==$('.welfare_list li').length){
+                                            $(this).css('background','url(${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/grayright.png) no-repeat center');
+                                            $('.left_btn').css('background','url(${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/redleft.png) no-repeat center');
+                                            $('.welfare_list').stop().animate({left:-(177*($('.welfare_list li').length-5))+'px'},10);
+                                        }
+                                    } else if(index=$('.welfare_list li').length){
+                                        $(this).css('background','url(${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/grayright.png) no-repeat center');
+                                        $('.left_btn').css('background','url(${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/redleft.png) no-repeat center');
+                                        return false;
+                                    }
+                                }else{return false;}
+                            });
+                            $('.left_btn').bind('click',function(){
+                                if(gshu>5){
+                                    var index = $('.welfare_list li.sst').index();
+                                    var position_left=parseInt($('.welfare_list').css('left'));
+                                    $(this).css('background','url(${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/redleft.png) no-repeat center');
+                                    $('.right_btn').css('background','url(${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/redright.png) no-repeat center');
+                                    if (index <=0) {
+                                        $(this).css('background','url(${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/grayleft.png) no-repeat center');
+                                        $('.right_btn').css('background','url(${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/redright.png) no-repeat center');
+                                        return false;
+                                    } else{
+                                        index--;
+                                        var iw=index+1;
+                                        $('.welfare_list li').eq(index).addClass('sst').siblings().removeClass('sst');
+                                        $('.deadline').eq(index).show().siblings().hide();
+                                        $('.tablist').eq(index).show().siblings().hide();
+                                        var lensize=$('.tablist').eq(index).find('li');
+                                        if(lensize==''||lensize==null||lensize=='undefined'||lensize.length>10||lensize.length=='0'){
+                                            $('.code-box').css('height','2455px');
+                                        }else if(0<$('.tablist').eq(index).find('li').length<10||$('.tablist').eq(index).find('li').length=='10'){
+                                            $('.code-box').css('height',2210+$('.tablist').eq(index).find('li').length*50+'px');
+                                        }
+                                        if(iw>5&&iw<$('.welfare_list li').length-1){
+                                            position_left=position_left+177;
+                                            $('.welfare_list').stop().animate({left:position_left+'px'},10);
+                                        }else if(iw=='5'){
+                                            $('.welfare_list').stop().animate({left:'0px'},10);
+                                        }else if(iw<=1){
+                                            $(this).css('background','url(${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/grayleft.png) no-repeat center');
+                                            $('.right_btn').css('background','url(${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/redright.png) no-repeat center');
+                                            return false;
+                                        }
+                                    }
+                                }else{return false;}
+                            });
+                        }else{
+                            $('.welfare_list').html('');
+                            $('.code-box').css('height','1900px');
+                            $('.record-box').hide();
+                        }
+                    }
+                },
+                error: function(){
+                    console.log('链接超时,请刷新！');
+                }
+            });
+        }
+        //初始状态下--查看我的夺宝码/中奖码
+        if($('#isLogin').val()==''||$('#isLogin').val()==null){
+            $('#indianna_btn').attr('href',$("#baseURL").val() + "/activity/wisdom/home.do");
+            $('.contRight a:first').attr('href',$("#baseURL").val() + "/activity/wisdom/home.do");
+        }else{
+            $('#indianna_btn').attr('href','javascript:void(0);');
+            $('#indianna_btn').click(function(){
+                $('.bg-alertt').show();
+                $('.winning-box').show();
+                $('.lotterylist li:first').addClass('lottery_active').siblings().removeClass('lottery_active');
+                $('.getbig-box .lofty').eq(0).show().siblings().hide();
+                var wid=$(window).width();
+                if(1200<wid<1600){
+                    $('.winning').css("top","3%");
+                }
+                if(wid>1600){
+                    $('.winning').css("top","12%");
+                }
+                //夺宝码
+                $.ajaxJson({
+                    url: $('#baseUrl').vals() + "/interface/20170308/activityIsStart.html",
+                    data:{"uid":$('#uid').val()},
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.isend == "0") {//活动即将开始
+                            $('.huo_get').hide().next().show().find('img').attr('src','img/wjdai0.png');
+                        }else{
+                            $.ajaxJson({
+                                url: $('#baseUrl').vals() + "/interface/20170308/getmycode.html",
+                                data:{uid:$('#uid').val()},
+                                type: "get",
+                                dataType: "json",
+                                success: function (data) {
+
+                                    if (data.mylist.length>0) {
+                                        $('.huo_get').show().next().hide();
+                                        var code_s='';
+                                        $.each(data.mylist,function(i, n){
+                                            var mylist=data.mylist[i];
+                                            code_s+='<div class="cord"><div class="prize_t">'
+                                                    +'<span class="prize_tname bold">'+mylist.channelname+'</span>'
+                                                    +'</div><div class="prize_count mt-15">';
+                                            for(var k=0;k<mylist.codelist.length;k++){
+                                                code_s+='<span>'+mylist.codelist[k]+'</span>';
+                                            }
+                                            code_s+='</div></div>';
+                                        });
+                                        $('.getprize1').html(code_s);
+                                    }else{//没有夺宝码
+                                        $('.huo_get').hide().next().show().find('img').attr('src','img/wjdai3.png');
+                                    }
+                                },
+                                error: function(){
+                                    console.log('链接超时,请刷新！');
+                                }
+                            });
+                        }
+                    }
+                });
+
+                //中奖码
+                $.ajaxJson({
+                    url: $('#baseUrl').vals() + "/interface/20170308/getMyWinningCode.html",
+                    data:{uid:$('#uid').val()},
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.winningStart == "0") {//未开奖
+                            $('.getbig-box_2').hide().next().show().find('img').attr('src','img/wjdai1.png');
+                        }else if(data.winningStart == "1"){//已开奖
+                            if(data.mwclist.length>0){
+                                $('.getbig-box_2').show().next().hide();
+                                var award_tab='';
+                                $.each(data.mwclist,function(i, n){
+                                    var mycodelist=data.mwclist[i];
+                                    var mycodelist_pid;
+                                    if(mycodelist.prizename.indexOf('iPad')>-1){
+                                        mycodelist_pid=1;
+                                    }else if(mycodelist.prizename.indexOf('吊坠')>-1){
+                                        mycodelist_pid=2;
+                                    }else if(mycodelist.prizename.indexOf('香水')>-1){
+                                        mycodelist_pid=3;
+                                    }else if(mycodelist.prizename.indexOf('口红')>-1){
+                                        mycodelist_pid=4;
+                                    }else if(mycodelist.prizename.indexOf('返现')>-1){
+                                        mycodelist_pid=5;
+                                    }
+                                    award_tab+= '<div class="awardlist_box">'
+                                            +'<span><img src="img/'+mycodelist_pid+'.png"></span>'
+                                            +'<span class="c-fff f-18"><em class="bold">'+mycodelist.channelname+'</em><em>（'+mycodelist.prizename+'）</em>&nbsp;:&nbsp;<em class="bold">'+mycodelist.number+'</em></span></div>';
+                                });
+                                $('.awardlist').html(award_tab);
+                            }else{
+                                $('.getbig-box_2').hide().next().show().find('img').attr('src','img/wjdai2.png');
+                            }
+                        }
+                    },
+                    error: function(){
+                        console.log('链接超时,请刷新！');
+                    }
+                });
+            });
+        }
+        $(window).resize(function() {
+            var wid=$(window).width();
+            if(1200<wid<1600){
+                $('.winning').css("top","3%");
+            }
+            if(wid>1600){
+                $('.winning').css("top","12%");
+            }
+        });
+        //切换我的夺宝码、中奖码
+        $('.lotterylist li').click(function(){
+            var index=$(this).index();
+            $(this).addClass('lottery_active').siblings().removeClass('lottery_active');
+            $('.getbig-box .lofty').eq(index).show().siblings().hide();
+        });
+
+    })
+   /* $(function(){
+        //倒计时逻辑
+        var k = $('.txttime').length;
+        fill2 = function (a) {
+            var s = "" + a;
+            return s.length < 2 ? "0" + a : s;
+        };
+        fill3 = function (a, i) {
+            var s = "" + a;
+            return (s.length < 2 ? "0" + a : s).split("")[i];
+        };
+        var _tn = 0, _ts = 0, t_t = 0;
+        txttimeshow = function (mt, i) {
+            var ms = parseInt(mt % 1000 / 10);
+            mt = parseInt(mt / 1000);
+            var s = mt % 60;
+            mt = parseInt(mt /= 60);
+            var m = mt % 60;
+            mt = parseInt(mt /= 60);
+            var h = mt % 24;
+            d = parseInt(mt / 24);
+            $(".txttimeshow").eq(i - 1).html('<span class="txtime">'
+                    + '<span class="jjj">' + fill3(h, 0) + '</span>' + '<span class="jjj">' + fill3(h, 1) + '</span>'+'<span class="dred"></span>'
+                    + '<span class="jjj">' + fill3(m, 0) + '</span>' + '<span class="jjj">' + fill3(m, 1) + '</span>'+'<span class="dred"></span>'
+                    + '<span class="jjj">' + fill3(s, 0) + '</span>' + '<span class="jjj">' + fill3(s, 1) + '</span>');
+        };
+
+        for (var i = 0; i < k; i++) {
+            var v_t = parseInt($(".txttime").eq(i - 1).text() + "000");
+            _ts = new Date();
+            txttimeshow(v_t, i);
+            $(".txttime").eq(i - 1).text(v_t);
+        }
+        timer2 = setInterval(function () {
+            for (var i = 0; i < k; i++) {
+                var t = parseInt($(".txttime").eq(i - 1).text()), _tn = new Date();
+                t = t - _tn.getTime() + _ts.getTime();
+                t = t < 0 ? 0 : t;
+                if (t <= 10) {
+                    $('#countDownBlock').hide();
+                    clearInterval(timer2);
+                } else if (t < 210 * 1000) {
+                }
+                txttimeshow(t, i);
+            }
+        }, 10);
+    })*/
+</script>
+<script>
+    function ttttt(total,a){
+        var total1 = total;
+        if (total.indexOf('.') != -1) {
+            $('#annual_invest').text((parseFloat(total1)).toFixed(2));
+        } else{
+            $('#annual_invest').text((parseFloat(total)));
+        }
+    }
+    $(function(){
+        $('.ft-page1').css('margin-left',(924-$('.ft-page1').width())/2);
+        $('.countimg').hover(function(){
+            $(this).attr('src','img/jisuan2.png');
+        },function(){
+            $(this).attr('src','img/jisuan1.png');
+        });
+        $('.countimg').click(function(){
+            $('.bg-alertt').show();
+            $('.counter-box').show();
+            $('#invest_txt,#date_txt').val('');
+            $('#annual_invest').text('0');
+            $('.check1').find('img').attr('src','${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/radio2.png');
+            $('.check2').find('img').attr('src','${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/radio1.png');
+        });
+        $('.extreme_btn1').click(function(){
+            $('.bg-alertt').hide();
+            $('.counter-box').hide();
+        });
+        $('.close_btn1').click(function(){
+            $('.bg-alertt').hide();
+            $('.tip-box').hide();
+        });
+        //夺宝攻略弹窗
+        $('.strategy_btn').click(function(){
+            $('.bg-alertt').show();
+            $('.guide-box').show();
+        });
+        $('.closeimg_btn').click(function(){
+            $('.bg-alertt').hide();
+            $('.guide-box').hide();
+        });
+        $('.extreme_btn').click(function(){
+            $('.bg-alertt').hide();
+            $('.winning-box').hide();
+        });
+        //计算器输入内容校验	/^[\+\-]?\d*?\.?\d*?$/
+        var regnum='',regnum1='',Reg=/^[\+\-]?\d*?\.?\d*?$/,Reg1=/^\d{0,11}$/;
+        //第一个文本
+        $("#invest_txt").keyup(function() {
+            if (Reg.test($(this).val())){
+                regnum = $(this).val();
+                var a =parseFloat(regnum);
+                var d=parseInt($('#date_txt').val());//投资金额
+                if($('.check1').hasClass('check')||$('.check2').hasClass('check')){
+                    if ($('.check1').hasClass('check')) {
+                        if($('#date_txt').val()==''||$('#date_txt').val()==null||$('#date_txt').val().length<=0||$(this).val()==''||$(this).val()==null){
+                            $('#annual_invest').text('0');
+                        }else{
+                            var total = ((a * d )/ 365).toString();
+                            ttttt(total,a);
+                        }
+                    }else{
+                        if($('#date_txt').val()==''||$('#date_txt').val()==null||$('#date_txt').val().length<=0||$(this).val()==''||$(this).val()==null){
+                            $('#annual_invest').text('0');
+                        }else{
+                            var total = ((a * d ) / 12).toString();
+                            ttttt(total,a);
+                        }
+                    }
+                    if ($('.check2').hasClass('check')) {
+                        if($('#date_txt').val()==''||$('#date_txt').val()==null||$('#date_txt').val().length<=0||$(this).val()==''||$(this).val()==null){
+                            $('#annual_invest').text('0');
+                        }else{
+                            var total = ((a * d )/ 12).toString();
+                            ttttt(total,a);
+                        }
+                    }else{
+                        if($('#date_txt').val()==''||$('#date_txt').val()==null||$('#date_txt').val().length<=0||$(this).val()==''||$(this).val()==null){
+                            $('#annual_invest').text('0');
+                        }else{
+                            var total = ((a * d ) / 365).toString();
+                            ttttt(total,a);
+                        }
+                    }
+                }else{
+                    $('#annual_invest').text('0');
+                }
+            }else{
+                $(this).val(regnum);
+            }
+        });
+        //第二个文本
+        $("#date_txt").keyup(function() {
+            if(Reg1.test($(this).val())){
+                regnum1 = $(this).val();
+                var a =parseFloat(regnum1);
+                var d=parseInt($('#invest_txt').val());//投资金额
+                if($('.check1').hasClass('check')||$('.check2').hasClass('check')){
+                    if ($('.check1').hasClass('check')) {
+                        if($('#invest_txt').val()==''||$('#invest_txt').val()==null||$('#invest_txt').val().length<=0||$(this).val()==''||$(this).val()==null){
+                            $('#annual_invest').text('0');
+                        }else{
+                            var total = ((a * d )/ 365).toString();
+                            ttttt(total,a);
+                        }
+                    }else{
+                        if($('#invest_txt').val()==''||$('#invest_txt').val()==null||$('#invest_txt').val().length<=0||$(this).val()==''||$(this).val()==null){
+                            $('#annual_invest').text('0');
+                        }else{
+                            var total = ((a * d ) / 12).toString();
+                            ttttt(total,a);
+                        }
+                    }
+                    if ($('.check2').hasClass('check')) {
+                        if($('#invest_txt').val()==''||$('#invest_txt').val()==null||$('#invest_txt').val().length<=0||$(this).val()==''||$(this).val()==null){
+                            $('#annual_invest').text('0');
+                        }else{
+                            var total = ((a * d )/ 12).toString();
+                            ttttt(total,a);
+                        }
+                    }else{
+                        if($('#invest_txt').val()==''||$('#invest_txt').val()==null||$('#invest_txt').val().length<=0||$(this).val()==''||$(this).val()==null){
+                            $('#annual_invest').text('0');
+                        }else{
+                            var total = ((a * d ) / 365).toString();
+                            ttttt(total,a);
+                        }
+                    }
+
+                }else{
+                    $('#annual_invest').text('0');
+                }
+            }else{
+                $(this).val(regnum1);
+            }
+        });
+        $('.check1').click(function(){
+            $(this).addClass('check');
+            $('.check2').removeClass('check');
+            $('#date_txt').attr("placeholder","请输入1-365");
+            $('.diedate').text('天');
+            $('#annual_invest').text('0');
+            $('#date_txt').val('');
+            $('#invest_txt').val('');
+            $(this).find('img').attr('src','${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/radio2.png');
+            $('.check2').find('img').attr('src','${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/radio1.png');
+        });
+        $('.check2').click(function(){
+            $(this).addClass('check');
+            $('.check1').removeClass('check');
+            $('#date_txt').attr("placeholder","请输入1-12");
+            $('.diedate').text('月');
+            $('#annual_invest').text('0');
+            $('#date_txt').val('');
+            $('#invest_txt').val('');
+            $(this).find('img').attr('src','${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/radio2.png');
+            $('.check1').find('img').attr('src','${STATIC_RESOURCES_URL}/img/activity/Newyear/pc/activity1/radio1.png');
+        });
+    })
+</script>
+</html>
