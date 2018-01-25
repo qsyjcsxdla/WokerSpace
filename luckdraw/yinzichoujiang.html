@@ -1,0 +1,1575 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta name="robots" content="none"/>
+  <meta name="format-detection" content="telephone=no, email=no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="万家贷">
+  <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport" id="viewport">
+  <title></title>
+ <!-- <link rel="shortcut icon" href="https://api.wjdai.com/Skins/images/ico.ico">
+  <link rel="stylesheet" href="/Skins/css/common.css">
+  <script type="text/javascript" src="/Skins/js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="/Skins/js/jquery.data.resource.js"></script>
+  <script type="text/javascript" src="/Skins/js/underscore-min.js"></script>
+  <script type="text/javascript" src="/Skins/js/app-api.js"></script>-->
+
+  <link rel="shortcut icon" href="https://api.wjdai.com/Skins/images/ico.ico">
+  <link href="https://api.wjdai.com/Skins/css/common.css" rel="stylesheet">
+  <script type="text/javascript" src="https://api.wjdai.com/Skins/js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="https://api.wjdai.com/Skins/js/jquery.data.resource.js"></script>
+  <script type="text/javascript" src="https://api.wjdai.com/Skins/js/underscore-min.js"></script>
+  <script type="text/javascript" src="https://api.wjdai.com/Skins/js/app-api.js"></script>
+
+  <script type="text/javascript">
+    (function () {
+      // deicePixelRatio ：设备像素
+      var scale = 1 / devicePixelRatio;
+      //设置meta 压缩界面 模拟设备的高分辨率
+      //document.querySelector('meta[name="viewport"]').setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+      //debounce 为节流函数，自己实现。或者引入underscoure即可。
+      var reSize = _.debounce(function () {
+//        var deviceWidth = document.documentElement.clientWidth > 1300 ? 1300 : document.documentElement.clientWidth;
+        var deviceWidth = document.documentElement.clientWidth > 640 ? 640 : document.documentElement.clientWidth;
+        //按照640像素下字体为100px的标准来，得到一个字体缩放比例值 6.4
+        document.documentElement.style.fontSize = (deviceWidth / 6.4) + 'px';
+      }, 50);
+      window.onresize = reSize;
+      reSize();
+    })();
+  </script>
+  <style>
+    button,
+    html input[type=button],
+    input[type=reset],
+    input[type=submit] {
+      -webkit-appearance: button;
+      cursor: pointer
+    }
+
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    *:before,
+    *:after {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+      background-color: #f3f6fb;
+    }
+
+    body {
+      position: relative;
+    }
+
+    .all {
+      min-width: 320px;
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: .18rem;
+      background: #341b77;
+      clear: both;
+    }
+
+    ._display-flex {
+      display: flex;
+      display: -webkit-flex;
+    }
+
+    ._flex-none {
+      flex: none;
+      -webkit-flex: none;
+    }
+
+    ._flex-auto {
+      flex: auto;
+      -webkit-flex: auto;
+    }
+
+    ._rad-8 {
+      border-radius: .08rem;
+      -moz-border-radius: .08rem;
+      -webkit-border-radius: .08rem;
+      -ms-border-radius: .08rem;
+      -o-border-radius: .08rem;
+    }
+
+    /*顶部导航栏*/
+    ._header-wrap {
+      width: 100%;
+      height: auto;
+      padding: 0 0.3rem;
+      background: #FFF;
+      border-bottom: 1px solid #d2d2d2;
+      position: relative;
+    }
+
+    ._header-wrap ._header {
+      height: 0.70rem;
+      line-height: 0.70rem;
+    }
+
+    ._header-wrap ._header ._back-icon {
+      display: block;
+      width: 0.52rem;
+      height: 0.52rem;
+      border: 0;
+      margin-top: 0.09rem;
+    }
+
+    ._header-wrap ._header ._xmxq {
+      font-size: 0.2573rem;
+      color: #000;
+      text-align: center;
+      /*font-weight: bold;*/
+    }
+
+    ._header-wrap ._top_right {
+      display: block;
+      font-size: 0.2315rem;
+      color: #000;
+      width: 0.52rem;
+      height: 0.52rem;
+      margin-top: 0.09rem;
+      line-height: 0.52rem;
+      text-align: right;
+    }
+
+    /*弹框*/
+    .alert {
+      display: none;
+      overflow: hidden;
+      color: #333;
+      font-size: .24rem;
+      line-height: .34rem;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      z-index: 1001;
+      border-radius: .1rem;
+      -webkit-border-radius: .1rem;
+    }
+
+    .alert .close-btn {
+      position: absolute;
+      bottom: .1rem;
+      left: 50%;
+      width: .7rem;
+      height: .7rem;
+      background: url(img/guanbi.png) no-repeat;
+      background-size: cover;
+      margin-left: -.4rem;
+    }
+
+    .alert-bg {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background-color: rgba(0, 0, 0, .8);
+    }
+
+    .alert {
+      width: 6.4rem;
+      min-height: 4.4rem;
+      margin-top: -4rem;
+      margin-left: -3.2rem;
+      padding-bottom: 1.4rem;
+      font-size: .3rem;
+      line-height: .56rem;
+    }
+
+    .alert.alert-result {
+      background: url(img/alert-result-top.png) no-repeat top center;
+      background-size: 100% auto;
+      padding-top: 2.4rem;
+      top: 0;
+      margin-top: 0;
+    }
+
+    .alert.alert-result .info {
+
+    }
+
+    .alert.alert-result .info #rname {
+
+    }
+
+    .alert.alert-result #rname > span {
+      font-size: .52rem;
+      line-height: .7rem;
+      font-weight: bold;
+    }
+
+    .alert .content {
+      width: 5.4rem;
+      min-height: 3.4rem;
+      text-align: center;
+      background: #fff;
+      border-radius: .1rem;
+      box-shadow: 0 0.03rem 0.24rem #f66034;
+      margin: .2rem auto;
+      position: relative;
+      color: #FDAC6E;
+      overflow: hidden;
+    }
+
+    .alert.alert-gologin .content {
+      background: #fff;
+      border-radius: .1rem;
+      padding-bottom: .24rem;
+    }
+
+    .alert.alert-result .content {
+      background: initial;
+      box-shadow: initial;
+      color: #ffe915;
+      line-height: .4rem;
+      padding-top: 1rem;
+      font-size: .34rem;
+    }
+
+    .alert.alert-nochance .content,
+    .alert.alert-rules .content,
+    .alert.alert-guides .content {
+      box-shadow: initial;
+      color: #333;
+      font-size: .22rem;
+      padding-bottom: .2rem;
+    }
+
+    .alert .alert-title {
+      background: #341B77;
+      color: #fff;
+      text-align: center;
+      margin-bottom: .3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: .73rem;
+      line-height: .73rem;
+    }
+
+    .alert .alert-title > span {
+      width: 36%;
+      text-align: center;
+      font-size: .26rem;
+    }
+
+    .alert .alert-title-icon {
+      display: inline-block;
+      width: .64rem;
+      height: .52rem;
+    }
+
+    .alert .qg-pic {
+      display: block;
+      height: 1.7rem;
+      margin: .26rem auto .2rem;
+      position: relative;
+      /*top: -.4rem;*/
+    }
+
+    .alert .alert-btn {
+      outline: 0;
+      display: block;
+      font-size: .24rem;
+      width: 1.96rem;
+      height: .57rem;
+      line-height: .57rem;
+      text-align: center;
+      color: #7607e4;
+      background-color: #fff;
+      border: solid 1px #7606e4;
+      margin: .1rem auto .2rem;;
+      border-radius: .1rem/.11rem .11rem .1rem .1rem;
+    }
+
+    .alert.alert-nochance .alert-btn {
+      margin: .4rem auto;
+    }
+
+    .alert .confirm-btn {
+      background: #fff;
+      border: 1px solid #FF923B;
+      color: #FF923B;
+    }
+
+    .alert .alert-btn-group {
+      width: 100%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .alert.alert-result .alert-btn-group {
+      margin-top: .4rem;
+      width: 80%;
+    }
+
+    .alert.alert-result .confirm-btn {
+      width: 1.73rem;
+      height: .64rem;
+      line-height: .64rem;
+      border-radius: .11rem .10rem .10rem .11rem/.10rem;
+      background-color: #341b77;
+      background-image: -webkit-linear-gradient(bottom, #862ffd 1%, #a67fff);
+      background-image: -moz-linear-gradient(bottom, #862ffd 1%, #a67fff);
+      background-image: -o-linear-gradient(bottom, #862ffd 1%, #a67fff);
+      background-image: -ms-linear-gradient(bottom, #862ffd 1%, #a67fff);
+      background-image: linear-gradient(to top, #862ffd 1%, #a67fff);
+      color: #fff;
+      border: 0;
+    }
+
+    .alert.alert-result .nowtz-btn {
+      width: 1.73rem;
+      height: .64rem;
+      line-height: .64rem;
+      border-radius: .11rem .10rem .10rem .11rem/.10rem;
+      background-color: #fff;
+      background-image: -webkit-linear-gradient(bottom, #fd962f 1%, #fed06f 99%);
+      background-image: -moz-linear-gradient(bottom, #fd962f 1%, #fed06f 99%);
+      background-image: -o-linear-gradient(bottom, #fd962f 1%, #fed06f 99%);
+      background-image: -ms-linear-gradient(bottom, #fd962f 1%, #fed06f 99%);
+      background-image: linear-gradient(to top, #fd962f 1%, #fed06f 99%);
+      color: #844501;
+      border: 0;
+    }
+
+    /*活动规则*/
+    .act-info {
+      width: 4.6rem;
+      margin: 0 auto .3rem;
+      text-align: justify;
+      color: #333;
+      font-size: .2rem;
+      line-height: .32rem;
+    }
+
+    .act-info .title {
+      font-size: .24rem;
+      line-height: .48rem;
+    }
+
+    .act-info .title > div {
+      width: 1.62rem;
+      height: .44rem;
+      -webkit-border-radius: .19rem/.22rem;
+      -moz-border-radius: .19rem/.22rem;
+      border-radius: .19rem/.22rem;
+      background-color: #cc323a;
+      color: #ffdf64;
+      text-align: center;
+      line-height: .44rem;
+      padding-left: .1rem;
+    }
+
+    .act-info .item {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .act-info .item a {
+      color: #333;
+    }
+
+    .btn {
+      display: block;
+      background: #CCD0F3;
+      color: #4E5382;
+      border-radius: .08rem;
+      width: 4.5rem;
+      height: .7rem;
+      margin: .1rem auto;
+      text-align: center;
+      line-height: .7rem;
+      font-size: .28rem;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .loading {
+      width: 100%;
+      height: 3rem;
+    }
+
+    .loading > span {
+      width: 100%;
+      height: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: .4rem;
+    }
+
+    #notices {
+      text-align: center;
+      font-size: .2rem;
+      line-height: .28rem;
+      color: #fed26e;
+      width: 90%;
+      margin: .4rem auto 0;
+      line-height: .4rem;
+    }
+
+    .box-top {
+      width: 100%;
+    }
+
+    .box-top > img {
+      margin-top: -.6rem;
+    }
+
+    .box {
+      width: 6.4rem;
+      margin: 0 auto .3rem;
+      position: relative;
+      top: -1.9rem;
+    }
+
+    .b1, .b3, .b2 {
+      position: relative;
+      width: 6.4rem;
+      z-index: 500;
+      margin: auto;
+    }
+
+    .b1 {
+      overflow: hidden;
+    }
+
+    .b2 {
+      background: url(img/box-middle.png) repeat-y;
+      background-size: 100% auto;
+      position: relative;
+      top: 0;
+      z-index: 600;
+      margin-top: -1px;
+    }
+
+    .b3 {
+      margin-top: -1px;
+    }
+
+    .sbg {
+      outline-width: 0px;
+      vertical-align: top;
+    }
+
+    .box ._top_btns {
+      position: relative;
+      top: -.4rem;
+      width: 5.32rem;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .box ._top_btn {
+      font-size: .2rem;
+      color: #a0550b;
+      width: .83rem;
+      height: .62rem;
+      border-radius: .1rem .11rem .11rem .1rem/.1rem .1rem .11rem .11rem;
+      background-color: #fee475;
+      -webkit-box-shadow: -.03rem -.04rem rgba(251, 157, 44, .52);
+      -moz-box-shadow: -.03rem -.04rem rgba(251, 157, 44, .52);
+      box-shadow: -.03rem -.04rem rgba(251, 157, 44, .52);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /*跑马灯*/
+    .fp {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 5rem;
+      padding: .2rem .2rem;
+      font-size: .22rem;
+      color: #a0550b;
+      margin: -.16rem auto .18rem;
+
+      border-radius: .1rem/.11rem .11rem .1rem .1rem;
+      background-color: #ffba31;
+      -webkit-box-shadow: 0 -.03rem .02rem rgba(177, 66, 6, .18);
+      -moz-box-shadow: 0 -.03rem .02rem rgba(177, 66, 6, .18);
+      box-shadow: 0 -.03rem .02rem rgba(177, 66, 6, .18);
+    }
+
+    #marq-fp {
+      display: block;
+      height: .3rem;
+      width: 100%;
+      line-height: .3rem;
+      font-size: .22rem;
+    }
+
+    /*我的银子*/
+    .yinzi-wrap {
+      margin: auto;
+      width: 5rem;
+      font-size: .22rem;
+      color: #a0550b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .yinzi-wrap .gain-more-btn {
+      display: block;
+      margin: .1rem auto;
+      text-align: center;
+      line-height: .5rem;
+      font-size: .22rem;
+
+      width: 2.07rem;
+      height: .5rem;
+      border-radius: .11rem/.11rem .11rem .1rem .1rem;
+      background-color: #fef0b2;
+      -webkit-box-shadow: 0 -.03rem rgba(251, 157, 44, .52);
+      -moz-box-shadow: 0 -.03rem rgba(251, 157, 44, .52);
+      box-shadow: 0 -.03rem rgba(251, 157, 44, .52);
+    }
+
+    .light {
+      position: relative;
+      width: 5.4rem;
+      height: 3.8rem;
+      background: url(img/light0.png) no-repeat;
+      background-size: 100% 100%;
+      padding-top: .2rem;
+
+      /*border: 20px solid transparent;
+      border-image: url(img/light0.png) 20 round;*/
+
+      margin: .35rem auto;
+    }
+
+    /* 抽奖 */
+    ._zp-wrap {
+      width: 5rem;
+      height: 3.4rem;
+      border-radius: .1rem;
+      background-color: #feaf1f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+    }
+
+    ._zp {
+      width: 4.8rem;
+      height: 3.2rem;
+      background: #feaf1f;
+    }
+
+    ._table {
+      width: 100%;
+      height: 100%;
+    }
+
+    ._table img {
+      display: block;
+    }
+
+    ._table tr td {
+      padding: .01rem;
+    }
+
+    ._table tr td ._pic {
+      overflow: hidden;
+      width: 1.17rem;
+      height: .97rem;
+
+      border-radius: .11rem .10rem .10rem .11rem/.10rem .10rem .11rem .11rem;
+      background-color: #fefffb;
+      -webkit-box-shadow: 0 -.06rem rgba(251, 248, 207, .45);
+      -moz-box-shadow: 0 -.06rem rgba(251, 248, 207, .45);
+      box-shadow: 0 -.06rem rgba(251, 248, 207, .45);
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    ._table tr td.active ._pic {
+      background-color: #ffce79;
+      -webkit-box-shadow: 0 -.06rem rgba(255, 255, 255, .65);
+      -moz-box-shadow: 0 -.06rem rgba(255, 255, 255, .65);
+      box-shadow: 0 -.06rem rgba(255, 255, 255, .65);
+    }
+
+    ._table tr td ._pic img {
+      max-height: .97rem;
+      max-width: 1.17rem;
+    }
+
+    ._table tr td ._jc-btn {
+      width: 2.34rem;
+      height: .97rem;
+      overflow: hidden;
+      margin: auto;
+      border-radius: .1rem/.11rem .11rem .1rem .1rem;
+      background-color: #f93c50;
+      -webkit-box-shadow: 0 -.06rem #e41d32;
+      -moz-box-shadow: 0 -.06rem #e41d32;
+      box-shadow: 0 -.06rem #e41d32;
+    }
+
+    ._table tr td ._jc-btn .start-btn {
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+      width: 2.4rem;
+      height: .97rem;
+      color: #fff;
+      font-size: .42rem;
+      font-weight: bold;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    ._table tr td ._jc-btn .start-btn > div:last-child {
+      font-size: .2rem;
+      font-weight: normal;
+    }
+
+    /*抽奖记录*/
+    .records-wrap {
+    }
+
+    .myprize {
+      width: 100%;
+      font-size: .24rem;
+      background: #fff;
+    }
+
+    .mpsubtitle {
+      background: #f7f7f7;
+      color: #ccc;
+    }
+
+    .ml, .mpsubtitle {
+      height: .55rem;
+      line-height: .55rem;
+      text-align: center;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .ml > span {
+      width: 33%;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+<input type="hidden" id="tag" value=""/>
+<input type="hidden" id="userId" value="12"/>
+<input type="hidden" id="tokenId" value=""/>
+<input type="hidden" id="clientType" value=""/>
+<input type="hidden" id="clientVersion" value=""/>
+
+<div class="loading">
+  <span>正在努力为您加载...</span>
+</div>
+<div class="full-x all hide">
+  <div class="_header-wrap ">
+    <!-- 顶部导航栏 -->
+    <div class="_header _display-flex" id="header">
+      <a class="_flex-none _back" onclick="javascript:history.go(-1);">
+        <img class="_back-icon pull-left" src="https://api.wjdai.com/wechat/Static/images/fancing/back01.png" alt="">
+        <!--<i class="kx-arrow kx-arrow-right">
+          <em></em>
+          <span></span>
+        </i>-->
+      </a>
+      <a class="_xmxq _flex-auto">银子抽奖</a>
+      <span class="_top_right _flex-none"></span>
+    </div>
+  </div>
+  <div class="box-top">
+    <img src="img/bg.png" alt="" class="full-x"/>
+  </div>
+  <div class="box">
+    <div class="b1 clearfix relative"><img class="sbg full-x" src="img/box-top.png" alt=""/></div>
+
+    <div class="b2">
+      <div class="_top_btns">
+        <div class="_top_btn" id="record-btn"><span>抽奖</span><span>记录</span></div>
+        <div class="_top_btn" id="rule-btn"><span>抽奖</span><span>规则</span></div>
+      </div>
+
+      <div class="fp">
+        <marquee behavior="scroll" direction="left" scrolldelay="5" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();" id="marq-fp">
+          还未有用户获得礼品！
+        </marquee>
+      </div>
+
+      <div class="light">
+        <div class="_zp-wrap relative">
+          <div class="_zp" id="lottery">
+            <table class="_table">
+              <tr>
+                <td class="lottery-unit lottery-unit-0">
+                  <div class="_pic rad-4">
+                    <img src="img/choujiang/1.png"/>
+                  </div>
+                </td>
+                <td class="lottery-unit lottery-unit-1">
+                  <div class="_pic rad-4">
+                    <img src="img/choujiang/2.png"/>
+                  </div>
+                </td>
+                <td class="lottery-unit lottery-unit-2">
+                  <div class="_pic rad-4">
+                    <img src="img/choujiang/3.png"/>
+                  </div>
+                </td>
+                <td class="lottery-unit lottery-unit-3">
+                  <div class="_pic rad-4">
+                    <img src="img/choujiang/4.png"/>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="lottery-unit lottery-unit-9">
+                  <div class="_pic rad-4">
+                    <img src="img/choujiang/10.png"/>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <div class="_jc-btn rad-4">
+                    <!--<img class="_btnImg hide" id="start-game" src="img/choujiang/jp_btn.png"/>-->
+                    <div class="_info hide">可抽奖次数：<span id="cjNum">1</span>次</div>
+                <span id="start-game" class="start-btn">
+                  <div>点击抽奖</div>
+                  <div>500银子/次</div>
+                </span>
+                  </div>
+                </td>
+                <td class="lottery-unit lottery-unit-4">
+                  <div class="_pic rad-4">
+                    <img src="img/choujiang/5.png"/>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="lottery-unit lottery-unit-8">
+                  <div class="_pic rad-4">
+                    <img src="img/choujiang/9.png"/>
+                  </div>
+                </td>
+                <td class="lottery-unit lottery-unit-7">
+                  <div class="_pic rad-4">
+                    <img src="img/choujiang/8.png"/>
+                  </div>
+                </td>
+                <td class="lottery-unit lottery-unit-6">
+                  <div class="_pic rad-4">
+                    <img src="img/choujiang/7.png"/>
+                  </div>
+                </td>
+                <td class="lottery-unit lottery-unit-5">
+                  <div class="_pic rad-4">
+                    <img src="img/choujiang/6.png"/>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="yinzi-wrap">
+        <span>我的银子：<span id="yinzi">2223</span></span>
+        <span>
+        <span class="gain-more-btn">获取更多的银子</span>
+        </span>
+      </div>
+    </div>
+    <div class="b3"><img class="sbg full-x" src="img/box-bot.png" alt=""/></div>
+  </div>
+</div>
+<div class="records-wrap hide">
+  <div class="_header-wrap ">
+    <!-- 顶部导航栏 -->
+    <div class="_header _display-flex" id="header2">
+      <a class="_flex-none _back" onclick="javascript:$('.records-wrap').hide();$('.all').show();">
+        <img class="_back-icon pull-left" src="https://api.wjdai.com/wechat/Static/images/fancing/back01.png" alt="">
+        <!--<i class="kx-arrow kx-arrow-right">
+          <em></em>
+          <span></span>
+        </i>-->
+      </a>
+      <a class="_xmxq _flex-auto">抽奖记录</a>
+      <span class="_top_right _flex-none"></span>
+    </div>
+  </div>
+  <div class="myprize">
+    <div class="mpsubtitle"><span>抽奖日期</span><span>所得奖励</span></div>
+    <div class="mpsublist">
+      <div class="ml">
+        <span>2017-01-12 12:22:11</span>
+        <span>获得10元红包</span>
+      </div>
+    </div>
+    <!--<span class="emptyList"><div>您还没有登录<br>快去登录吧</div><div class="btn goLoginBtn" style="">立即登录</div></span>-->
+  </div>
+</div>
+
+<div class="alert alert-gologin">
+  <span class="close-btn"></span>
+
+  <div class="content">
+    <img class="qg-pic" src="img/pet2.png"/>
+
+    <div class="info">您还未登录，请先登录</div>
+
+    <!--<input type="button" class="alert-btn _denglu" value="立即登录"/>-->
+    <span class="alert-btn _denglu">立即登录</span>
+  </div>
+</div>
+
+<!--抽奖结果弹框-->
+<div class="alert alert-result">
+  <span class="close-btn hide"></span>
+
+  <div class="content">
+    <img class="jp-pic hide" id="rimgurl" src="img/prizes/10.png"/>
+
+    <div class="info">中奖啦</div>
+    <div class="info">恭喜您抽中</div>
+    <div class="info"><span id="rname"><span>10</span>元现金</span></div>
+    <div class="alert-btn-group">
+      <span class="alert-btn confirm-btn">继续抽奖</span>
+      <span class="alert-btn nowtz-btn">前去投资</span>
+    </div>
+  </div>
+</div>
+
+<!--您的银子不足，赶紧赚银子;快去投资吧; 提示窗-->
+<div class="alert alert-nochance">
+  <span class="close-btn"></span>
+
+  <div class="content">
+    <div class="alert-title"><img class="alert-title-icon" src="img/title-icon1.png" alt=""/><span>提示</span><img class="alert-title-icon" src="img/title-icon2.png" alt=""/></div>
+    <!--<img class="qg-pic" src="img/pet2.png"/>-->
+
+    <div class="info info1">您的银子不足，赶紧赚银子</div>
+    <div class="info hide">快去投资吧</div>
+    <span class="alert-btn nowtz-btn">前去投资</span>
+  </div>
+</div>
+
+<!--活动规则;提示窗-->
+<div class="alert alert-rules">
+  <span class="close-btn"></span>
+
+  <div class="content">
+    <div class="alert-title"><img class="alert-title-icon" src="img/title-icon1.png" alt=""/><span>活动规则</span><img class="alert-title-icon" src="img/title-icon2.png" alt=""/></div>
+    <ul class="act-info">
+      <li class="item title">
+      </li>
+      <li class="item"><span>1、</span><span>万家贷用户通过投资或者签到获得银子进行抽奖，每500银子可抽奖一次；</span></li>
+      <li class="item"><span>2、</span><span>所获得优惠券奖励请在我的账户中查询；</span></li>
+      <li class="item"><span>3、</span><span>实物奖品将在抽奖获得后7个工作日内，万家贷客服人员将与获奖用户 取得联系并确认发放奖品事宜，如7个工作日内手机无法联系，奖视为放弃领取权利。</span></li>
+      <li class="item"><span>4、</span><span>在抽奖过程中，如发现违规行为，则取消中奖资格；如取消订单，则不返还银子。</span></li>
+      <li class="item"><span>5、</span><span>本活动最终解释权归万家贷所有。如有其它疑问请拨打客服热线：<a href="tel:400-0607-520" class="tel">400-0607-520</a>。</span></li>
+    </ul>
+  </div>
+</div>
+
+<!--银子攻略;提示窗-->
+<div class="alert alert-guides">
+  <span class="close-btn hide"></span>
+
+  <div class="content">
+    <div class="alert-title"><img class="alert-title-icon" src="img/title-icon1.png" alt=""/><span>银子攻略</span><img class="alert-title-icon" src="img/title-icon2.png" alt=""/></div>
+    <div class="info">1、投资后会获得相应的投资银子</div>
+    <span class="alert-btn nowtz-btn">去投资</span>
+
+    <div class="info">2、每日签到即可获得相应签到银子</div>
+    <span class="alert-btn sign-btn">去签到</span>
+
+    <div class="info">3、完成对应的银子任务获得相应的任务积分</div>
+    <span class="alert-btn proj-btn">做任务</span>
+  </div>
+</div>
+</body>
+<script>
+  // 提示信息
+  function fadeInOut(msg) {
+    var fadeInHtml = '<div style="position:fixed;z-index:1000;left:0;top:0;right:0;bottom:0;width:100%;height:100%;" id="errMsgS"><div id="errMsgMain" style="width: 4.2rem;background: rgba(0,0,0,.58);font-size: .3rem;color:#fff;border-radius:4px;text-align:center;padding:.1rem;position:absolute;left:50%;margin-left:-2.1rem;top:50%;margin-top:-.4rem;word-wrap:break-word;font-family: STXihei;">' + msg + '</div></div>';
+    if ($('#errMsgS')) {
+      $('#errMsgS').remove();
+    }
+    $('body').append(fadeInHtml);
+    $("#errMsgS").stop(true, true).show().delay(1500).fadeOut('slow', function () {
+      $('#errMsgS').remove();
+    });
+  }
+  //封装接口
+  $.extend({
+    ajaxJson: function (o) {
+      o.type = o.type || "post";
+      o.dataType = o.dataType || "json";
+      o.contentType = o.contentType || "application/json; charset=UTF-8";
+      //o.headers = o.headers || {"content-type": "application/json", "cache-control": "no-cache"};
+      //o.timeout = o.timeout /*|| "3000"*/;
+      //o.data = JSON.stringify($.extend({}, o.data, {clientType: "wechat", clientVersion: ""}));
+      o.data = JSON.stringify(o.data);
+      o.complete = function (xmlHttpRequest, textStatus) {
+        if (textStatus == "success") {
+          //通过XMLHttpRequest取得请求响应信息
+          var repText = jQuery.parseJSON(xmlHttpRequest.responseText);
+          if (repText.code == "900002") {
+            //fadeInOut(repText.message);
+            loginExpired();
+          }
+        }
+      };
+      $.ajax(o);
+    }
+  });
+
+  function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURIComponent(r[2]);
+    return "";
+  }
+
+  function getUrlparam() {
+    return '?userId=' + $('#userId').val() + '&tag=' + $('#tag').val() + '&tokenId=' + $('#tokenId').val() + '&clientType=' + $('#clientType').val() + '&clientVersion=' + $('#clientVersion').val();
+  }
+
+  function loginExpired() {
+    $("#userId").val("");
+    $("#tokenId").val("");
+    userInfo.userId = "";
+    userInfo.tokenId = "";
+  }
+
+  /**
+   * 未登录的，打开登陆弹框；已登录的，执行callback
+   */
+  function isLogin(callback) {
+    if (userInfo.userId == "") {
+      popGoLogin();
+    } else {
+      if (typeof callback == "function") {
+        callback();
+      }
+    }
+  }
+
+  function goLogin() {
+    if ($("#tag").val() == "app") { //由app进入
+      initURL('login', '活动', location.protocol + "//" + location.host + location.pathname);
+    } else { //weixin
+      location.href = "/wechat/index/register.html?act=d11&target=" + location.protocol + "//" + location.host + location.pathname;
+    }
+  }
+
+  function goInvest() {//立即投资
+    if ($("#tag").val() == "app") { //由app进入
+      initURL('banInvestment', '活动', location.protocol + "//" + location.host + location.pathname);
+    } else { //weixin
+      location.href = "/fancing/home.html";
+    }
+  }
+
+  /**
+   判断活动期间范围
+   /api-rabbitmq/twelveFestival/actTime
+   {"code": "400015", "msg": "活动进行中" }
+   {"code": "400016","msg": "活动已过期"}
+   {"code": "400017","msg": "活动未开始"}
+   var flag = false; // false 活动结束/未开始 true 活动开始
+   */
+  function isActStarted() {
+    var flag = false;
+    $.ajaxJson({
+      url: "/api-rabbitmq/twelveFestival/actTime",
+      data: userInfo,
+      async: false,
+      success: function (json) {
+        if (json.code == "400015") {
+          flag = true;
+        } else {
+          //fadeInOut(json.message);
+          flag = false;
+        }
+      },
+      error: function (json) {
+        console.log("判断活动期间范围接口 暂时不通");
+      }
+    });
+    return flag;
+  }
+
+  var userInfo = {}, drawCount = 1;
+
+  $(function () {
+    $(".loading").hide();
+    $(".all").show();
+    $(".all").css("min-height", $(window).height() + "px");
+
+    $("#tag").val(getQueryString('tag'));
+    $("#userId").val(getQueryString('userId'));
+    $("#tokenId").val(getQueryString('tokenId'));
+    $("#clientType").val(getQueryString('clientType'));
+    $("#clientVersion").val(getQueryString('clientVersion'));
+
+    if (typeof getUser == "function" && getUser() != null) {
+      $("#tag").val('wechat');
+      $("#clientType").val("wechat");
+      $("#clientVersion").val("");
+      $("#userId").val(getUser().userId);
+      $("#tokenId").val(getUser().tokenId);
+    }
+
+    userInfo = {
+      userId: $("#userId").val(),
+      tokenId: $("#tokenId").val(),
+      clientType: $("#clientType").val(),
+      clientVersion: $("#clientVersion").val(),
+      actId: 4 // 接口要的活动id
+    };
+
+    $("#record-btn").bind("click", function () {
+      isLogin(function () {
+        $(".all").hide();
+        $(".records-wrap").show();
+      })
+    });
+
+    $("#rule-btn").bind("click", function () {
+      popRules();
+    });
+
+    $(".gain-more-btn").bind("click", function () {
+      popGuides();
+    });
+  });
+
+  // 幸运抽奖 - 抽奖逻辑
+  var _click = false,   // false 则还有抽奖机会，true则没有抽奖机会
+      jsonPrizes = [
+        {"id": 1, "name": "500银子", "icon": "img/choujiang/1.png"},
+        {"id": 2, "name": "10元红包", "icon": "img/choujiang/2.png"},
+        {"id": 3, "name": "2%加息券", "icon": "img/choujiang/3.png"},
+        {"id": 4, "name": "10元现金", "icon": "img/choujiang/40.png"},
+        {"id": 5, "name": "1000银子", "icon": "img/choujiang/5.png"},
+        {"id": 6, "name": "5元红包", "icon": "img/choujiang/6.png"},
+        {"id": 7, "name": "200银子", "icon": "img/choujiang/7.png"},
+        {"id": 8, "name": "1%加息券", "icon": "img/choujiang/8.png"},
+        {"id": 9, "name": "1元现金", "icon": "img/choujiang/9.png"},
+        {"id": 10, "name": "10元话费", "icon": "img/choujiang/10.png"}
+      ],
+      lottery = {
+        index: -1,  //当前转动到哪个位置，起点位置
+        count: 0, //总共有多少个位置
+        timer: 0, //setTimeout的ID，用clearTimeout清除
+        speed: 20,  //初始转动速度
+        times: 0, //转动次数
+        cycle: 50,  //转动基本次数：即至少需要转动多少次再进入抽奖环节
+        prize: -1,  //中奖位置 控制谁中奖
+        init: function (id) {
+          if ($("#" + id).find(".lottery-unit").length > 0) {
+            $lottery = $("#" + id);
+            $units = $lottery.find(".lottery-unit");
+            this.obj = $lottery;
+            this.count = $units.length;
+            $lottery.find(".lottery-unit-" + this.index).addClass("active");
+          }
+        },
+        roll: function () {
+          var index = this.index;
+          var count = this.count;
+          var lottery = this.obj;
+          $(lottery).find(".lottery-unit-" + index).removeClass("active");
+
+          /*index += 1;
+           if (index > count - 1) {
+           index = 0;
+           }*/
+          /*var tmp = parseInt(Math.random() * count);
+           if (index == tmp) {
+           tmp = parseInt(Math.random() * count);
+           }
+           index = tmp;*/
+
+          index += 1;
+          if (index > count - 1) {
+            index = 0;
+          }
+          $(lottery).find(".lottery-unit-" + index).addClass("active");
+          this.index = index;
+          return false;
+        },
+        stop: function (index) {
+          this.prize = index;
+          return false;
+        }
+      };
+
+  lottery.init('lottery');
+
+  initChoujiang();
+  function initChoujiang() {
+    drawCount = parseInt($("#yinzi").html()) > 500 ? 1 : 0;
+    $("#cjNum").html(drawCount);
+    // 活动结束后，按钮置灰且点击无效果，//此次活动无特别要求
+    if (!isActStarted() && false) {
+      $("#start-game").unbind('click');
+    } else {
+      $("#start-game").unbind('click').bind("click", function () {
+        isLogin(startGame);
+      });
+    }
+  }
+
+  /**
+   ## 1. /api-rabbitmq/redPackages/drawTimes   当日抽奖次数
+
+   ### requestBody：
+   {    "userId":"9999"   #用户id   }
+
+   ### 成功
+   {
+       "code": "000000",
+       "data": 1 /0       #1次，0次机会
+   }
+   ### 未登录
+   {
+   "code": "900002",
+   "msg": 未登录
+   }
+   ### 其他（异常）： 以下接口通用，遇到请反馈。
+
+   {
+   "code": "900000",
+   "msg": 开小差了
+   }
+
+   */
+  function init1() {
+    $("#start-game").html("我要抽奖").unbind('click').bind("click", function () {
+      isLogin(startGame);
+    });
+    $.ajaxJson({
+      url: "/api-rabbitmq/redPackages/drawTimes",
+      data: userInfo,
+      async: false,
+      success: function (json) {
+        if (json.code == "000000") {
+          drawCount = json.data;
+          if (drawCount == "0") {
+            $("#start-game").html("今天已抽过奖").unbind("click");
+            /* } else {
+             $("#start-game").html("我要抽奖").unbind('click').bind("click", function () {
+             isLogin(startGame);
+             });*/
+          }
+        }
+      },
+      error: function (json) {
+        console.log("当日抽奖次数 /api-rabbitmq/redPackages/drawTimes 接口 暂时不通  ");
+        //drawCount = 4;
+      }
+    });
+  }
+  /**
+   ## 2. /api-rabbitmq/redPackages/draw   抽奖
+   ### 成功
+   {
+       "code": "000000",
+       "data": {
+           "rewardId": 1   0~4 ，-->2~30  5，200银子
+       }
+   }
+   ### 失败
+   {
+     "code":"900000"                   |"900002"
+     "msg":"没有抽奖机会"     |"活动已结束"| "未登录"
+   }
+
+   */
+  function startGame() {
+    if (parseInt($("#yinzi").html()) < 500) { //银子不足500的，提示去投资。
+      popNoChance();
+      return;
+    }
+    $('#start-game').unbind('click');
+    $.ajaxJson({
+      url: "/api-rabbitmq/redPackages/draw",
+      data: userInfo,
+      async: false,
+      success: function (json) {
+        if (json.code == "000000") { //已登陆
+          //rewardId 映射 prizeId
+          $("#yinzi").html(json.data.yinzi || 0);
+          drawCount = Math.floor(parseInt($("#yinzi").html()) / 500);
+
+          choujiangStart((json.data.rewardId));
+        } else if (json.code == "900002") {
+          notLogin();
+          popGoLogin();
+          $("#start-game").unbind('click').bind("click", function () {
+            isLogin(startGame);
+          });
+        } else if (json.code == "900000") { //"没有抽奖机会"
+          drawCount = 0;
+          popNoChance();
+          $("#start-game").unbind('click').bind("click", function () {
+            isLogin(startGame);
+          });
+        }
+      },
+      error: function (json) {
+        console.log("抽奖 /api-rabbitmq/redPackages/draw 接口 暂时不通 ");
+
+        choujiangStart(Math.random() * (lottery.count) | 0); //测试抽奖 test only
+        //drawCount > 0 ? drawCount-- : 0;
+        return; // test only
+
+        fadeInOut("网络异常，请稍后再试！");
+        $("#start-game").unbind('click').bind("click", function () {
+          isLogin(startGame);
+        });
+      }
+    });
+
+  }
+
+  function choujiangStart(prizeId) {
+    console.log("test----", prizeId); // test only
+    if (prizeId < 0 || prizeId >= jsonPrizes.length) {
+      return;
+    }
+
+    if (_click) {
+      return false;
+    } else {
+      lottery.speed = 100;
+      lottery.prize = prizeId;
+      roll();
+      _click = true;
+      return false;
+    }
+  }
+
+  function roll() {
+    lottery.times += 1;
+    lottery.roll();
+    if (lottery.times > lottery.cycle + 10 && lottery.prize == lottery.index) {
+      // 弹出中奖信息
+      //alert(jsonPrizes[lottery.prize].name + "  " + jsonPrizes[lottery.prize].id);
+      if (lottery.prize == 15) { // 加油再接再厉
+        popTryAgain();
+      } else {
+        init2prizeUser(); // 重新获取 中奖用户 列表
+        init2myReward(); // 重新获取 我的奖品 列表
+        //$("#rimgurl").attr("src", jsonPrizes[lottery.prize].icon);
+        $("#rname").html(jsonPrizes[lottery.prize].name);
+        popResult();
+      }
+      clearTimeout(lottery.timer);
+      lottery.prize = -1;
+      lottery.times = 0;
+      _click = false;
+      initChoujiang();
+    } else {
+      if (lottery.times < lottery.cycle) {
+        lottery.speed -= 10;
+      } else if (lottery.times == lottery.cycle) {
+        //var index = Math.random() * (lottery.count) | 0;
+        //lottery.prize = index; // 控制谁中奖
+      } else {
+        if (lottery.times > lottery.cycle + 10 && ((lottery.prize == 0 && lottery.index == 7) || lottery.prize == lottery.index + 1)) {
+          lottery.speed += 110;
+        } else {
+          lottery.speed += 20;
+        }
+      }
+      if (lottery.speed < 40) {
+        lottery.speed = 40;
+      }
+      //console.log(lottery.times+'^^^^^^'+lottery.speed+'^^^^^^^'+lottery.prize);
+      lottery.timer = setTimeout(roll, lottery.speed);
+    }
+    return false;
+  }
+
+
+  /**
+   未登录 -
+   抽奖机会0次
+   我的奖品 显示未登录信息
+   */
+  function notLogin() {
+    drawCount = 0;
+    $("#cjNum").html(0);
+    //2幸运大抽奖 我的奖品
+    $(".myprize .mpsublist").html('<span class="emptyList"><div>您还没有登录<br/>快去登录吧</div><div class="btn goLoginBtn" style="">立即登录</div></span>');
+
+    $(".goLoginBtn").unbind("click").bind("click", isLogin);
+  }
+  function init0() {
+    notLogin();
+    $(".winner .wsublist").html('<span class="emptyList"><div>还没有中奖用户<br/>快去投资吧！</div><div class="btn nowtz-btn" style="">立即投资</div></span>');
+    $(".nowtz-btn").unbind("click").bind("click", goInvest);
+  }
+  /**
+   预留接口
+   4. ### /api-rabbitmq/redPackages/drawAward  抽奖纪录获取30条  method =any
+   ### 成功
+   {
+       "code": "000000",
+       "data": [
+           {
+               "awardInfo": "10",
+               "time": 1510553053,
+               "userPhone": "186****5263"
+           },
+           {
+               "awardInfo": "30",
+               "time": 1510552931,
+               "userPhone": "155****0503"
+           }
+       ]
+   }
+   ### 失败
+   {
+     "code":"900000"
+     "msg":"未查到数据"
+   }
+   */
+  function init2prizeUser() {
+    $.ajaxJson({
+      url: "/api-rabbitmq/redPackages/drawAward",
+      data: userInfo,
+      success: function (json) {
+        if (json.code == "000000") {
+          var _list = json.data, len = _list.length, _html = "";
+          if (len == 0) { // 没有中奖用户
+            $(".winner .wsublist").html('<span class="emptyList"><div>还没有中奖用户<br/>快去投资吧！</div><div class="btn nowtz-btn" style="">立即投资</div></span>');
+            $(".nowtz-btn").unbind("click").bind("click", goInvest);
+            return;
+          } else {
+            for (var i = 0; i < len; i++) {
+              _html += '<div class="wl"><span>' + _list[i].userPhone + '</span><span>' + ($.dataFormatMethod.toDATE(_list[i].time * 1000, "yyyy-MM-dd")) + '</span><span>'
+                  + jsonPrizes[_list[i].awardInfo].name + '</span></div>';
+            }
+            if (len < 6) { // 不足6条的页面补齐6条（无数据）
+              for (var i = len; i < 6; i++) {
+                _html += '<div class="wl"><span></span><span></span><span></span></div>';
+              }
+            }
+            $(".winner .wsublist").html(_html);
+            //$(".winner .wl:nth-child(even)").addClass("evencolor");
+            if (len > 6) { // 多于6条的，设置自动滚动
+              if (timer != undefined) {
+                clearInterval(timer);
+              }
+              timer = setInterval(function () {
+                $('.winner .wsublist > .wl:first').animate({
+                  'height': '0',
+                  'opacity': '0'
+                }, '0', function () {
+                  $(this).removeAttr('style').insertAfter('.winner .wsublist > .wl:last');
+                });
+              }, 3000);
+            }
+          }
+        } else {
+          $(".winner .wsublist").html('<span class="emptyList"><div>还没有中奖用户<br/>快去投资吧！</div><div class="btn nowtz-btn" style="">立即投资</div></span>');
+          $(".nowtz-btn").unbind("click").bind("click", goInvest);
+        }
+      },
+      error: function (json) {
+        console.log("4 抽奖纪录获取30条 暂时不通,/api-rabbitmq/redPackages/drawAward");
+      }
+    });
+  }
+  /**
+   预留接口 3. ### /api-rabbitmq/redPackages/myDrawAward  我的抽奖纪录获取30条
+   ### 成功
+   {
+       "code": "000000",
+       "data": [
+           {
+               "awardInfo": "30",  //如果是红包则为金额，如果是银子会显示  200银子
+               "time": 1510552931,
+               "userPhone": "155****0503" //手机号
+           }
+       ]
+   }
+   ### 失败
+   {
+       "code": "900000",
+       "msg": "未查到数据"
+   }   */
+  function init2myReward() {
+
+    $.ajaxJson({
+      url: "/api-rabbitmq/redPackages/myDrawAward",
+      data: userInfo,
+      success: function (json) {
+        if (json.code == "000000") {
+          var _list = json.data, len = _list.length, _html = "";
+          if (len == 0) { // 用户没有中奖
+            $(".myprize .mpsublist").html('<span class="emptyList"><div>你还没有中奖<br/>快去投资吧</div><div class="btn nowtz-btn" style="">立即投资</div></span>');
+            $(".nowtz-btn").unbind("click").bind("click", goInvest);
+          } else {
+            for (var i = 0; i < len; i++) {
+              _html += '<div class="ml"><span>' + $.dataFormatMethod.toDATE(_list[i].time * 1000, "yyyy-MM-dd") + '</span><span>'
+                  + jsonPrizes[_list[i].awardInfo].name + '</span></div>';
+            }
+            if (len < 6) { // 不足6条的页面补齐6条（无数据）
+              for (var i = len; i < 6; i++) {
+                _html += '<div class="ml"><span></span><span></span></div>';
+              }
+            }
+            $(".myprize .mpsublist").html(_html);
+          }
+        } else if (json.code == "900000") {
+          $(".myprize .mpsublist").html('<span class="emptyList"><div>你还没有中奖<br/>快去投资吧</div><div class="btn nowtz-btn" style="">立即投资</div></span>');
+          $(".nowtz-btn").unbind("click").bind("click", goInvest);
+        } else if (json.code == "900002") {
+          notLogin();
+        }
+      },
+      error: function (json) {
+        console.log("3 我的抽奖纪录获取30条 暂时不通,/myDrawAward");
+      }
+    });
+  }
+  /**
+   *  去登陆
+   */
+  function popGoLogin() {
+    $(".close-btn").click();
+    $(".alert-gologin").show();
+
+    $("body").append('<div class="alert-bg"></div>');
+    $(".alert-bg").bind("click", closeAlertBox);
+  }
+  /**
+   * 奖品弹窗
+   */
+  function popResult() {
+    $(".close-btn").click();
+    $(".alert-result").show();
+
+    $("body").append('<div class="alert-bg"></div>');
+    $(".alert-bg").bind("click", closeAlertBox);
+  }
+  /**
+   *  很抱歉，您还未达到领取条件
+   快去投资吧
+   */
+  function popNoChance(msg) {
+    if (msg == undefined) {
+      msg = "您的银子不足，赶紧赚银子";
+    }
+    $(".close-btn").click();
+    $(".info1").html(msg);
+    $(".alert-nochance").show();
+
+    $("body").append('<div class="alert-bg"></div>');
+    $(".alert-bg").bind("click", closeAlertBox);
+  }
+  /**
+   *  活动规则
+   */
+  function popRules() {
+    $(".close-btn").click();
+    $(".alert-rules").show();
+
+    $("body").append('<div class="alert-bg"></div>');
+    $(".alert-bg").bind("click", closeAlertBox);
+  }
+  /**
+   *  银子攻略
+   */
+  function popGuides() {
+    $(".close-btn").click();
+    $(".alert-guides").show();
+
+    $("body").append('<div class="alert-bg"></div>');
+    $(".alert-bg").bind("click", closeAlertBox);
+  }
+  /**
+   * 关闭弹窗
+   */
+  function closeAlertBox() {
+    $(".alert-bg").remove();
+    $(".alert").hide();
+  }
+
+  $(".close-btn, ._nowtz-btn, .alert .confirm-btn").on("click", closeAlertBox);
+</script>
+<script type="text/javascript">
+  var clientType = "";
+  function initURL(obj, title, url) {
+    var u = navigator.userAgent;
+    if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+      clientType = "Android";
+    } else if (u.indexOf('iPhone') > -1) {
+      clientType = "ios";
+    } else if (u.indexOf('Windows Phone') > -1) {
+      clientType = "winphone";
+    }
+
+    document.title = title;
+    if ("ios" == clientType) {
+      iosShow(obj, url);
+
+    } else if ("Android" == clientType) {
+      androidShow(obj, title, url);
+    }
+  }
+
+  function androidShow(obj, title, url) {
+    banner.obj(obj, title, url);
+  }
+
+  function iosShow(obj, url) {
+    var bann = "banner:///" + obj + "::/" + url;
+    window.location.hash = bann;
+  }
+</script>
+</html>

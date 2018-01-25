@@ -1,0 +1,20 @@
+<html>
+<script src="https://test.wjdai.com/wjdai-web/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('input[name=add]').click(function(){
+            var $input = $('input[name=value]'),
+                    v = $input.val();
+            v = parseInt(v);
+            $input.val(v + 1);
+
+        });
+    });
+
+</script>
+<body>
+<input name="value" type="text" value="1" />
+<input name="add" type="button" value="Add" />
+</body>
+</html>
