@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta name="robots" content="none"/>
+  <meta name="format-detection" content="telephone=no, email=no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="万家贷">
+  <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport" id="viewport">
+  <title>红包雨</title>
+  <link rel="shortcut icon" href="https://api.wjdai.com/Skins/images/ico.ico">
+  <link rel="stylesheet" href="https://api.wjdai.com//Skins/css/common.css">
+  <script type="text/javascript" src="https://api.wjdai.com//Skins/js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="https://api.wjdai.com//Skins/js/jquery.form.min.js"></script>
+  <script type="text/javascript" src="https://api.wjdai.com//Skins/js/jquery.data.resource.js"></script>
+  <script type="text/javascript" src="https://api.wjdai.com//Skins/js/underscore-min.js"></script>
+  <script type="text/javascript" src="https://api.wjdai.com//Skins/js/H5/tools.js"></script>
+  <script type="text/javascript" src="https://api.wjdai.com//Skins/js/app-api.js"></script>
+  <script type="text/javascript" src="https://api.wjdai.com/Skins/js/fastclick.js"></script>
+  <script>
+    (function () {
+      // deicePixelRatio ：设备像素
+      var scale = 1 / devicePixelRatio;
+      //设置meta 压缩界面 模拟设备的高分辨率
+      //document.querySelector('meta[name="viewport"]').setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+      //debounce 为节流函数，自己实现。或者引入underscoure即可。
+      var reSize = _.debounce(function () {
+        //var deviceWidth = document.documentElement.clientWidth > 1300 ? 1300 : document.documentElement.clientWidth;
+        var deviceWidth = document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth;
+        //按照640像素下字体为100px的标准来，得到一个字体缩放比例值 6.4
+        document.documentElement.style.fontSize = (deviceWidth / 7.5) + 'px';
+      }, 50);
+      window.onresize = reSize;
+      reSize();
+    })();
+  </script>
+  <link rel="stylesheet" href="css/act.css"/>
+  <link rel="stylesheet" href="css/alert.css"/>
+  <style>
+
+    .hongbaoyu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5000;
+      background-color: rgba(0, 0, 0, .7);
+      display: none;
+    }
+
+    .hby_couten {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+
+    .hby_couten li {
+      position: absolute;
+      /*animation: all 3s linear;*/
+      top: -190px;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    .hby_couten li a {
+      display: block;
+    }
+
+    .mo {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .2);
+      z-index: 100;
+      display: none;
+    }
+
+    .mo .sen {
+      width: 70%;
+      height: 1.5rem;
+      border-radius: .05rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    .mo .sen img {
+      width: 60%;
+      height: 2.4rem;
+      position: absolute;
+      top: 0px;
+      left: 0;
+      right: 0;
+      bottom: 2.5rem;
+      margin: auto;
+      vertical-align: top;
+    }
+
+    .mo .sen h3 {
+      width: 50%;
+      height: .3rem;
+      position: absolute;
+      top: -.35rem;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      text-align: center;
+      color: red;
+      font-size: .3rem;
+      font-weight: bold;
+      z-index: 999;
+    }
+
+    .mo .sen div {
+      width: 26%;
+      height: .5rem;
+      background-color: rgb(174, 222, 244);
+      box-shadow: rgba(174, 222, 244, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.0470588) 0px 0px 0px 1px inset;
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      color: #fff;
+      border-radius: .05rem;
+      text-align: center;
+      line-height: .5rem;
+      text-decoration: none;
+      font-size: .2rem;
+    }
+
+    .hby_backward {
+      width: 100%;
+      /*background: #ccc;*/
+      /*opacity: 0.5;*/
+      position: absolute;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hby_backward span {
+      display: inline-block;
+      /*width: 1rem;
+      height: 1rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      text-align: center;*/
+      color: rgba(0, 0, 0, .5);
+      font-weight: bold;
+      line-height: 1rem;
+      font-size: 2.6rem;
+    }
+
+    #hby_counter_div {
+      position: absolute;
+      top: 18%;
+      right: 0;
+      color: #ff4c45;
+      display: none;
+      font-size: .3rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    #hby_count_down_time {
+      position: absolute;
+      top: 6%;
+      right: 6%;
+      color: #d2c7c4;
+      display: none;
+      font-size: .3rem;
+      width: .8rem;
+      height: .8rem;
+      border: 1px solid #d2c7c4;
+      border-radius: 50%;
+      text-align: center;
+      line-height: .8rem;
+    }
+  </style>
+</head>
+<body>
+<input type="hidden" id="tag" value=""/>
+<input type="hidden" id="userId" value=""/>
+<input type="hidden" id="tokenId" value=""/>
+<input type="hidden" id="clientType" value=""/>
+<input type="hidden" id="clientVersion" value=""/>
+<div class="loading">
+  正在努力为您加载...
+</div>
+<div class="all hide">
+  <div class="head-wp">
+    <img src="img/bannerbg.jpg" alt="" class="top-img full-x relative"/>
+    <span>
+      <div onclick="window.location.href='act1.html' + getUrlparam()" class="active"><img src="img/img1.png" alt="">红包雨</div>
+      <div onclick="window.location.href='act2.html' + getUrlparam()"><img src="img/img2.png" alt="">集卡</div>
+      <div onclick="window.location.href='act3.html' + getUrlparam()"><img src="img/img3.png" alt="">满就送</div>
+      <div onclick="window.location.href='act4.html' + getUrlparam()"><img src="img/img4.png" alt="">争霸赛</div>
+     </span>
+  </div>
+  <div class="main">
+    <div class="section act1">
+      <div class="se-title">
+        <span><img src="img/title1.png" alt="红包雨" class="se-titimg"/></span>
+        <!--<span><b>红包雨</b></span>-->
+      </div>
+
+      <div class="block b1">
+        <div class="b1_txt">
+          活动期间2月5日、2月8日、2月16日-21日、2月23日、3月2日，每日10点整、15点整分别下两场红包雨，游戏开放时长为30分钟，限时10s，两场游戏所有用户均可免费参加。
+        </div>
+        <div class="redpack ongoing">
+          <!--倒计时-->
+          <div class="djs-wrap countDownBlock" id="countDownBlock">
+            <div class="title">本场活动剩余时间</div>
+            <div class="txttimeshow " id="txttimeshow">
+              <div class="djs-timer">
+                <span id="t_h"></span>:
+                <span id="t_m"></span>:
+                <span id="t_s"></span>
+              </div>
+            </div>
+            <span id="txttime" class="txttime hide">100</span>
+          </div>
+
+          <div class="btn2 start_game">开始游戏</div>
+        </div>
+        <div class="redpack started">
+          <span>
+            <div>下一场活动开始</div>
+            <div><b>2018年2月5日15时</b></div>
+          </span>
+        </div>
+        <div class="redpack finished">
+          <span>本次活动已结束</span>
+        </div>
+        <div class="b1_info">游戏规则</div>
+      </div>
+
+      <div class="block b2">
+        <div class="b2_txt"><span>我的可用红包数</span> <span>10个</span></div>
+        <div class="b2_txt"><span>当前可兑换红包</span> <span>5个</span></div>
+      </div>
+
+      <div class="winner-wrap">
+        <div class="win-title"><img src="img/act2-title3.png" alt="" class="full-x"></div>
+        <div class="win-list-none">
+          <img class="" src="img/pet22.png">
+
+          <div>还未有中奖用户</div>
+        </div>
+        <div class="win-list">
+          <div class="win-list-item">恭喜 <span>139****6898</span> 用户获得<span>8</span><span>元</span></div>
+        </div>
+        <div class="tzbtn nowtz-btn">立即投资</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="hongbaoyu">
+    <div id="hby_counter_div">本局获得红包：<span id="hby_counter">0</span>个</div>
+    <div id="hby_count_down_time">0</div>
+    <ul class="hby_couten">
+      <!--<li>
+        <a href="#"><img src="img/hb_1.png"></a>
+      </li>-->
+    </ul>
+    <!--<div class="mo">
+      <div class="sen">
+        <img src="img/gx.png">
+
+        <h3>获得红包3元</h3>
+
+        <div>确定</div>
+      </div>
+    </div>-->
+    <div class="hby_backward">
+      <span></span>
+    </div>
+  </div>
+</div>
+<div class="alert alert-gologin">
+  <span class="close-btn"></span>
+
+  <div class="content">
+    <img class="qg-pic" src="img/pet2.png"/>
+
+    <div class="info">您还未登录，请先登录</div>
+    <span class="alert-btn _denglu">立即登录</span>
+  </div>
+</div>
+<div class="alert alert-actEnd">
+  <div class="content4">
+    <div class="info">活动已结束</div>
+  </div>
+</div>
+<div class="alert alert-sure">
+  <span class="close-btn hide"></span>
+
+  <div class="content">
+    <div class="info">您确定兑换吗？</div>
+    <div class="info">每位用户仅可兑换一件礼品！</div>
+    <div class="alert-btn-group">
+      <span class="alert-btn alert-btn2 btn5">确定</span>
+      <span class="alert-btn alert-btn2 btn6">取消</span>
+    </div>
+  </div>
+</div>
+<!--很抱歉，您还未达到兑换条件，快去投资吧;提示窗-->
+<div class="alert alert-nochance">
+  <span class="close-btn"></span>
+
+  <div class="content">
+    <img class="qg-pic" src="img/pet2.png"/>
+
+    <div class="info info1">很抱歉，您还未达到兑换条件</div>
+    <div class="info">快去投资吧</div>
+    <span class="alert-btn nowtz-btn">立即投资</span>
+  </div>
+</div>
+<div class="alert alert-chai">
+  <span class="close-btn"></span>
+
+  <div class="content">
+    <img class="qg-pic" src="img/pet3.png"/>
+
+    <div class="info">恭喜您 <br> 当前可获得<span>1</span>次拆红包机会</div>
+    <span class="alert-btn confirm-btn">拆拆拆</span>
+  </div>
+</div>
+<!--您已兑换成功！;提示窗-->
+<div class="alert alert-succ">
+  <span class="close-btn"></span>
+
+  <div class="content">
+    <img class="qg-pic" src="img/alert_succ.png"/>
+
+    <div class="info">您已兑换成功！</div>
+    <div class="info info2">现金已发送至您的账户中</div>
+    <span class="alert-btn confirm-btn">确定</span>
+  </div>
+</div>
+<!--红包兑换成功  提示窗-->
+<div class="alert alert-redpack-succ">
+  <span class="close-btn hide"></span>
+
+  <div class="content2">
+    <img class="qg-pic" src="img/alert_succ.png"/>
+
+    <div class="alert-btn-group">
+      <span class="alert-btn btn5">确定</span>
+    </div>
+  </div>
+</div>
+<!--翻牌成功;提示窗-->
+<div class="alert alert-flip-card-succ">
+  <span class="close-btn hide"></span>
+
+  <div class="content2">
+    <img class="qg-pic" src="img/alert_succ.png"/>
+
+    <div class="alert-btn-group">
+      <span class="alert-btn btn5">确定</span>
+    </div>
+  </div>
+</div>
+<!--翻牌 兑换 ;提示窗-->
+<div class="alert alert-card-exchange">
+  <span class="close-btn hide"></span>
+
+  <div class="content">
+    <img class="qg-pic" src="img/alert_hongbao1.png"/>
+
+    <div class="info info3">恭喜您，可兑换<span>20元现金 <br>集齐“福、禄、安、康、寿” <br>可兑换200元现金</span></div>
+
+    <div class="alert-btn-group">
+      <span class="alert-btn alert-btn2 btn5">兑换</span>
+      <span class="alert-btn alert-btn2 btn6">取消</span>
+    </div>
+  </div>
+  <div class="content content3 hide">
+    <img class="qg-pic" src="img/alert_hongbao1.png"/>
+
+    <div class="info info3">恭喜您，获得<span>200元现金</span></div>
+    <span class="alert-btn confirm-btn">确定</span>
+  </div>
+</div>
+<div class="alert alert-act-intro">
+  <span class="close-btn"></span>
+  <div class="content">
+    <div class="act-info-wrap">
+      <ul class="act-info">
+        <li class="item title">
+          <div>活动说明</div>
+        </li>
+        <li class="item"><span>1、</span><span>游戏开启时间：2018年2月5日、2月8日、2月16日-21日、2月23日、3月2日，共10天。</span></li>
+        <li class="item"><span>2、</span><span>每位用户每场仅可参与一次。</span></li>
+        <li class="item"><span>3、</span><span>平台每日10点整、15点整分别下两场红包雨，游戏开放时长为30分钟，限时10s，两场游戏所有用户均可免费参加。</span></li>
+        <li class="item"><span>4、</span><span>用户单场获取游戏红包每累计5个可以拆一次新年红包，下一场游戏开始，剩余未拆游戏红包自动清零。</span></li>
+        <li class="item"><span>5、</span><span>红包奖励即时发送至用户账户。</span></li>
+        <li class="item"><span>6、</span><span>本活动的解释权归万家金融所有，如有疑问请联系在线客服或者拨打客服热线：<a href="tel:400-0607-520" class="tel">400-0607-520</a>。</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+<script src="js/alert.js"></script>
+<script type="text/javascript">
+  var hby_timer, hby_timer_cd, hby_counter = 0, hby_count_down_time = 10, startTime = new Date(), endTime, hby_backward,
+    numz = 4, win, num = 0, hby_timer2;
+  $(document).ready(function () {
+
+    win = (parseInt($(".hby_couten").css("width"))) - 60;
+    $(".mo").css("height", $(document).height());
+    $(".hby_couten").css("height", $(document).height());
+    $(".hby_backward").css("height", $(document).height());
+    $(".hongbaoyu li").css({});
+
+
+    var add;
+    add = function () {
+
+      num++;
+
+
+      if (hby_count_down_time == 0) { // 红包雨游戏倒计时为0 时，隐藏红包雨显示层
+        $("body").attr("style", "");
+        clearInterval(hby_timer2);
+        hby_timer2 = null;
+        $(".hongbaoyu").hide();
+        var n = Math.floor($("#hby_counter").html());
+        if (n <= 5) {
+          popNoChance("很抱歉，您当前可用红包<br>还未达到5个");
+        } else {
+          popChai(Math.floor(n / 5));
+        }
+        initMyRedpack(n, chaiChaiChai);
+        return;
+      }
+
+      if (hby_count_down_time <= 2) {
+        clearTimeout(hby_timer);
+        hby_timer = setTimeout(add, 700);
+        return;
+      }
+
+
+      var hb = parseInt(Math.random() * (5 - 1) + 1);
+      var Wh = 356; // parseInt(Math.random() * (80 - 55) + 55);
+      var Left = parseInt(Math.random() * (win - 356 - 0) + 0);
+      var rot = (parseInt(Math.random() * (45 - (-45)) - 45));
+      $(".hby_couten").append("<li class='li" + num + "'><div><img src='img/hb_" + hb + ".png'></div></li>");
+      $(".li" + num).css({
+        "left": Left,
+      });
+      $(".li" + num + " div img").css({
+        "width": Wh / 100 + "rem",
+        "transform": "rotate(" + rot + "deg)",
+        "-webkit-transform": "rotate(" + rot + "deg)",
+        "-ms-transform": "rotate(" + rot + "deg)", /* Internet Explorer */
+        "-moz-transform": "rotate(" + rot + "deg)", /* Firefox */
+        "-webkit-transform": "rotate(" + rot + "deg)", /* Safari 和 Chrome */
+        "-o-transform": "rotate(" + rot + "deg)" /* Opera */
+      });
+      $(".li" + num).animate({'top': $(window).height() + 20}, 5000, function () {
+        //删掉已经显示的红包
+        $(this).remove()
+      });
+      //点击红包的时候弹出模态层 移除红包&计数器加一
+      $(".li" + num + " div img").click(function () {
+        //$(".mo").css("display", "block");
+        $("#hby_counter").html(++hby_counter);
+        $(this).remove();
+      });
+
+      hby_timer = setTimeout(add, 700);
+    };
+
+    //增加红包
+
+    //setTimeout(add, 3000);
+
+    //倒数计时
+    hby_backward = function () {
+      numz--;
+      if (numz > 0) {
+        $(".hby_backward").show();
+        $(".hongbaoyu").show();
+        $("body").css({'overflow': "hidden"});
+        $(".hby_backward span").html(numz);
+        $("#hby_counter").html(0);
+        num = 0;
+        hby_counter = 0;
+        hby_count_down_time = 10;
+        win = (parseInt($(".hby_couten").css("width"))) - 60;
+        setTimeout(add, 3000);
+      } else {
+        $("#hby_counter").html(0);
+        $("#hby_counter_div").show();
+        $("#hby_count_down_time").html(hby_count_down_time).show();
+
+        $(".hby_backward").hide();
+        hby_timer2 = setInterval(countDownFun, 1000);
+        clearTimeout(hby_timer_cd);
+        return;
+      }
+      hby_timer_cd = setTimeout(hby_backward, 1000)
+    };
+
+    //var numz = 4;
+    //hby_backward();
+
+    countDownFun = function () {
+      $("#hby_count_down_time").html(--hby_count_down_time);
+    }
+  })
+
+</script>
+<script>
+  // 倒计时逻辑
+  var djsFun, djsPre, txttimeshow, djsCall;
+  var _tn = 0, _ts = 0, t_t = 0;
+  var k = $('.txttime').length;
+  var fill2 = function (a) {
+    var s = "" + a;
+    return s.length < 2 ? "0" + a : s;
+  };
+  var fill3 = function (a, i) {
+    var s = "" + a;
+    return (s.length < 2 ? "0" + a : s).split("")[i];
+  };
+  $(function () {
+    txttimeshow = function (mt, i) {
+      var ms = parseInt(mt % 1000 / 10);
+      mt = parseInt(mt / 1000);
+      var s = mt % 60;
+      mt = parseInt(mt /= 60);
+      var m = mt % 60;
+      mt = parseInt(mt /= 60);
+      var h = mt % 24;
+      d = parseInt(mt / 24);
+      /*$(".txttimeshow").eq(i - 1).html('<span class="txtime">'
+       + '<span class="jjj">' + fill3(h, 0) + '</span>' + '<span class="jjj">' + fill3(h, 1) + '</span>' + '<span class="dred">' + ':' + '</span>'
+       + '<span class="jjj">' + fill3(m, 0) + '</span>' + '<span class="jjj">' + fill3(m, 1) + '</span>' + '<span class="dred">' + ':' + '</span>'
+       + '<span class="jjj">' + fill3(s, 0) + '</span>' + '<span class="jjj">' + fill3(s, 1) + '</span>');*/
+      $(".txttimeshow").eq(i - 1).html('<div class="djs-timer"><span id="t_h">' + fill2(h + (d * 24)) + '</span>:<span id="t_m">' + fill2(m) + '</span>:<span id="t_s">' + fill2(s) + '</span></div>');
+    };
+
+    djsPre = function () {
+      k = $('.txttime').length;
+      _tn = 0;
+      _ts = 0;
+      t_t = 0;
+      for (var i = 0; i < k; i++) {
+        var v_t = parseInt($(".txttime").eq(i - 1).text() + "000");
+        _ts = new Date();
+        txttimeshow(v_t, i);
+        $(".txttime").eq(i - 1).text(v_t);
+      }
+    };
+    djsFun = function () {
+      for (var i = 0; i < k; i++) {
+        var t = parseInt($(".txttime").eq(i - 1).text()), _tn = new Date();
+        t = t - _tn.getTime() + _ts.getTime();
+        t = t < 0 ? 0 : t;
+        if (t <= 10) {
+          //$('#countDownBlock').hide();
+          //init4(); // 重新获取每周活动结束后的排名前5的用户
+          //init3(); // 重新获取排名
+          $(".redpack").hide();
+          $(".redpack.started").show();
+          clearInterval(timer2);
+        } else if (t < 210 * 1000) {
+
+        }
+        txttimeshow(t, i);
+      }
+    }
+    djsCall = function () {
+      $(".redpack").hide();
+      $(".redpack.ongoing").show();
+      $(".txttime").eq(0).html(100);
+      djsPre();
+      timer2 = setInterval(djsFun, 10);
+    }
+  });
+</script>
+<script>
+  // 提示信息
+  function fadeInOut(msg) {
+    var fadeInHtml = '<div style="position:fixed;z-index:1000;left:0;top:0;right:0;bottom:0;width:100%;height:100%;" id="errMsgS"><div id="errMsgMain" style="width: 4.2rem;background: rgba(0,0,0,.58);font-size: .3rem;color:#fff;border-radius:4px;text-align:center;padding:.1rem;position:absolute;left:50%;margin-left:-2.1rem;top:50%;margin-top:-.4rem;word-wrap:break-word;font-family: STXihei;">' + msg + '</div></div>';
+    if ($('#errMsgS')) {
+      $('#errMsgS').remove();
+    }
+    $('body').append(fadeInHtml);
+    $("#errMsgS").stop(true, true).show().delay(1500).fadeOut('slow', function () {
+      $('#errMsgS').remove();
+    });
+  }
+
+  //封装接口
+  $.extend({
+    ajaxJson: function (o) {
+      o.type = o.type || "post";
+      o.dataType = o.dataType || "json";
+      o.contentType = o.contentType || "application/json; charset=UTF-8";
+      //o.headers = o.headers || {"content-type": "application/json", "cache-control": "no-cache"};
+      //o.timeout = o.timeout /*|| "3000"*/;
+      //o.data = JSON.stringify($.extend({}, o.data, {clientType: "wechat", clientVersion: ""}));
+      o.data = JSON.stringify(o.data);
+      o.complete = function (xmlHttpRequest, textStatus) {
+        if (textStatus == "success") {
+          //通过XMLHttpRequest取得请求响应信息
+          var repText = jQuery.parseJSON(xmlHttpRequest.responseText);
+          if (repText.code == "900002") {
+            //fadeInOut(repText.message);
+            loginExpired();
+          }
+        }
+      };
+      $.ajax(o);
+    }
+  });
+
+  function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURIComponent(r[2]);
+    return "";
+  }
+
+  function getUrlparam() {
+    return '?userId=' + $('#userId').val() + '&tag=' + $('#tag').val() + '&tokenId=' + $('#tokenId').val() + '&clientType=' + $('#clientType').val() + '&clientVersion=' + $('#clientVersion').val();
+  }
+
+  function loginExpired() {
+    $("#userId").val("");
+    $("#tokenId").val("");
+    userInfo.userId = "";
+    userInfo.tokenId = "";
+  }
+
+  /**
+   * 未登录的，打开登陆弹框；已登录的，执行callback
+   */
+  function isLogin(callback) {
+    if (userInfo.userId == "") {
+      popGoLogin();
+    } else {
+      if (callback && $.isFunction(callback)) {
+        callback();
+      }
+    }
+  }
+
+  function goLogin() {
+    if ($("#tag").val() == "app") { //由app进入
+      initURL('login', '活动', location.protocol + "//" + location.host + location.pathname);
+    } else { //weixin
+      location.href = "/wechat/index/register.html?act=d11&target=" + location.protocol + "//" + location.host + location.pathname;
+    }
+  }
+
+  function goInvest() {//立即投资
+    if ($("#tag").val() == "app") { //由app进入
+      initURL('banInvestment', '活动', location.protocol + "//" + location.host + location.pathname);
+    } else { //weixin
+      location.href = "/wechat/fancing/home.html";
+    }
+  }
+
+  /**
+   是否在活动期间判断 actTime
+   /api-rabbitmq/doubleDan/actTime
+   var flag = false; // false 活动结束/未开始 true 活动开始
+   { "code": "400015", "msg": "活动进行中" }
+   { "code": "400016", "msg": "活动已过期" }
+   { "code": "400014", "msg": "活动未开始" }
+   */
+  function isActStarted() {
+    var _actStatus = 2;  //0 活动未开始；1 活动开始；2 活动已结束；
+    $.ajaxJson({
+      url: "/api-rabbitmq/doubleDan/actTime",
+      data: userInfo,
+      async: false,
+      success: function (json) {
+        switch (json.code) {
+          case "400014":
+            _actStatus = 0;
+            break;
+          case "400015":
+            _actStatus = 1;
+            break;
+          case "400016":
+            _actStatus = 2;
+            //popActEnd();
+            break;
+          default:
+        }
+      },
+      error: function (json) {
+        console.log("是否在活动期间判断 actTime 暂时不通");
+      }
+    });
+    return _actStatus;
+  }
+
+  var userInfo = {},
+    _convertMap = [{"id": 0, "name": "大", "prize": 25},
+      {"id": 1, "name": "奖", "prize": 20},
+      {"id": 2, "name": "双", "prize": 15},
+      {"id": 3, "name": "十", "prize": 10},
+      {"id": 4, "name": "一", "prize": 5}],
+    jsonCompound = {
+      "1": {"name": "福", "prize": 68, "icon": "img/act1_01.png", "icon2": "img/act1_11.png", "alertImg": "img/alert_hongbao5.png"},
+      "2": {"name": "禄", "prize": 28, "icon": "img/act1_02.png", "icon2": "img/act1_12.png", "alertImg": "img/alert_hongbao4.png"},
+      "3": {"name": "安", "prize": 18, "icon": "img/act1_03.png", "icon2": "img/act1_13.png", "alertImg": "img/alert_hongbao3.png"},
+      "4": {"name": "康", "prize": 8, "icon": "img/act1_04.png", "icon2": "img/act1_14.png", "alertImg": "img/alert_hongbao2.png"},
+      "5": {"name": "寿", "prize": 5, "icon": "img/act1_05.png", "icon2": "img/act1_15.png", "alertImg": "img/alert_hongbao1.png"},
+      "6": {"name": "新春快乐 恭喜发财", "prize": 0, "icon": "img/act1_06.png", "icon2": "img/act1_16.png", "alertImg": "img/alert_hongbao6.png"},
+      "0": {"name": "合成", "prize": 200, "icon": "", "icon2": "", "alertImg": "img/alert_hongbao0.png"},
+    },
+    jsonRed = {
+      "1": {"name": "福", "prize": 68, "icon": "img/act1_01.png", "icon2": "img/act1_11.png", "alertImg": "img/alert_hongbao5.png"},
+      "2": {"name": "禄", "prize": 28, "icon": "img/act1_02.png", "icon2": "img/act1_12.png", "alertImg": "img/alert_hongbao4.png"},
+      "3": {"name": "安", "prize": 18, "icon": "img/act1_03.png", "icon2": "img/act1_13.png", "alertImg": "img/alert_hongbao3.png"},
+      "4": {"name": "康", "prize": 8, "icon": "img/act1_04.png", "icon2": "img/act1_14.png", "alertImg": "img/alert_hongbao2.png"},
+      "5": {"name": "寿", "prize": 5, "icon": "img/act1_05.png", "icon2": "img/act1_15.png", "alertImg": "img/alert_hongbao1.png"},
+      "6": {"name": "新春快乐 恭喜发财", "prize": 0, "icon": "img/act1_06.png", "icon2": "img/act1_16.png", "alertImg": "img/alert_hongbao6.png"},
+      "0": {"name": "合成", "prize": 200, "icon": "", "icon2": "", "alertImg": "img/alert_hongbao0.png"},
+    },
+    jsonHBY = {
+      "8元": 1,
+      "18元": 2,
+      "28元": 3,
+      "38元": 4,
+      "58元": 5,
+      "88元": 6,
+      "118元": 7,
+      "188元": 8,
+    };
+  var timer1, timer2, timer3;
+
+  $(function () {
+    $(".loading").hide();
+    $(".all").show().css("min-height", $(window).height() + "px");
+
+    $("#tag").val(getQueryString('tag'));
+    $("#userId").val(getQueryString('userId'));
+    $("#tokenId").val(getQueryString('tokenId'));
+    $("#clientType").val(getQueryString('clientType'));
+    $("#clientVersion").val(getQueryString('clientVersion'));
+
+    if ($("#tag").val() != "app" && getUser && $.isFunction(getUser) && getUser() != null) {
+      $("#tag").val('wechat');
+      $("#clientType").val("wechat");
+      $("#clientVersion").val("");
+      $("#userId").val(getUser().userId);
+      $("#tokenId").val(getUser().tokenId);
+    }
+
+    userInfo = {
+      userId: $("#userId").val(),
+      tokenId: $("#tokenId").val(),
+      clientType: $("#clientType").val(),
+      clientVersion: $("#clientVersion").val(),
+      actId: 7 // 接口要的活动id 当前 7
+    };
+
+    // 清空模拟数据（伪装成未登录 - 初始化
+    notLogin();
+    /*红包雨活动*/
+    $(".redpack").hide();
+    // $(".redpack.finished").show();
+    $(".redpack.started").show();
+    // $(".redpack.ongoing").show();
+    // $(".txttime").eq(0).html(100);
+    // djsPre();
+    // timer2 = setInterval(djsFun, 10);
+
+    // $(".start_game").unbind("click").click(function () {
+    //   isLogin(function () {
+    //     numz = 4;
+    //     hby_backward();
+    //   });
+    // });
+    /*拆拆拆*/
+    $(".b2_txt > span:last-child").eq(0).html("0个");
+    $(".b2_txt > span:last-child").eq(1).html("0个");
+    /*中奖用户 - 初始化为无中奖用户*/
+    $(".win-list").hide();
+    $(".win-list-none").show();
+
+    //功能性
+    $(".goLoginBtn").unbind("click").bind("click", isLogin);
+    $("._denglu").unbind("click").bind("click", goLogin);
+    $(".nowtz-btn").unbind("click").bind("click", goInvest);
+
+    $(".b1_info").unbind("click").bind("click", popActIntro);
+    // 活动结束后， 点击无效果，
+    if (false && isActStarted() == 2) {
+    } else {
+    }
+
+    // 中奖用户列表
+    initWinnerList();
+    // 红包雨状态
+    initHBYState();
+    // 我的可用红包数&当前可兑换红包
+    initMyRedpack();
+
+    $(".block.b2").unbind("click").click(function () {
+      isLogin(function () {
+        chaiChaiChai();
+      })
+    });
+
+    // 分享功能
+    $.ajax({
+      url: "https://res.wx.qq.com/open/js/jweixin-1.0.0.js",
+      dataType: "script",
+      cache: true
+    }).done(function () {
+      $.getScript("js/share.js", function () {
+        console.log("加载分享相关js文件");
+      });
+    });
+  });
+
+  /**
+   未登录 - 我的累计年化投资金额 : 未登录 & 隐藏 中奖奖品 等
+   */
+  function notLogin() {
+    /*//1 我的累计年化投资金额：
+    $("#mtz").html('<span class="goLoginBtn">未登录</span>');
+    // 我的当前排名
+    $(".myRank").html('<span class="goLoginBtn">未登录</span>');
+
+    $(".goLoginBtn").unbind("click").bind("click", isLogin);*/
+  }
+
+  /**
+   清空模拟数据（伪装成未登录
+   */
+  function init0() {
+    notLogin();
+    /*排行榜 清空*/
+    $(".win3-list").hide();
+    $(".win3-list-none").show();
+  }
+
+  /**
+   用户兑奖
+   /api-rabbitmq/luckyDraw/convert  参数 userId rewardId
+   {
+     "code": "000000"
+   }
+   */
+  function cardExchangeFn(_rewardId) {
+    $.ajaxJson({
+      url: "/api-rabbitmq/luckyDraw/convert",
+      data: $.extend({}, userInfo, {rewardId: _rewardId}),
+      async: false,
+      success: function (json) {
+        if (json.code == "000000") {
+          popSucc("现金已发送至您的账户中");
+          resultsFn();
+        } else if (json.code == "900002") {
+          //notLogin();
+          popGoLogin();
+        } else {
+          popNoChance("很抱歉，您还未达到兑换条件");
+        }
+      },
+      error: function (json) {
+        console.log("用户兑奖 接口/api-rabbitmq/luckyDraw/convert 暂时不通 ");
+      }
+    });
+
+  }
+
+  /**
+   拆红包 dismantlingRed
+   /api-rabbitmq/springFetival/dismantlingRed
+   {
+         "code": "000000",
+         "msg": "8元"
+   }
+   { "code": "900000", "msg": "红包个数不足" }
+   msg //红包名称
+   */
+  function chaiChaiChai() {
+    $.ajaxJson({
+      url: "/api-rabbitmq/springFetival/dismantlingRed",
+      data: userInfo,
+      async: false,
+      success: function (json) {
+        if (json.code == "000000") {
+          popRedpackSucc(jsonHBY[json.msg] || 0);
+          initMyRedpack();
+          initWinnerList();
+        } else if (json.code == "900000") {
+          popNoChance("很抱歉，您当前可用红包<br>还未达到5个");
+        }
+      },
+      error: function (json) {
+        console.log("拆红包 dismantlingRed 暂时不通 ");
+      }
+    });
+  }
+
+  /**
+   红包雨入口页面 redRain
+   /api-rabbitmq/springFetival/pub/redRain
+   {
+      "code": "000000",
+      "data":
+      {
+             "nextTime": "2018年02月05日 10时",
+             "time": 0,
+             "status": 0
+      }
+}
+   status // 0 活动未开始 - 显示下一场的时间 1 活动进行中 - time是倒计时时间 2 活动已结束 - 整个获得已结束
+   time //距离活动结束的时间
+   nextTime // 下一场开始的时间
+
+   */
+  function initHBYState() {
+    $.ajaxJson({
+      url: "/api-rabbitmq/springFetival/pub/redRain",
+      data: userInfo,
+      async: false,
+      success: function (json) {
+        if (json.code == "000000") {
+          switch (json.data.status) {
+            case 0:
+              $(".redpack").hide();
+              $(".redpack.started b").html(json.data.nextTime);
+              $(".redpack.started").show();
+              break;
+            case 1:
+              $(".redpack").hide();
+              $(".redpack.ongoing").show();
+              if (timer2 != undefined) {
+                clearInterval(timer2);
+              }
+              $(".txttime").eq(0).html(json.data.time);
+              djsPre();
+              timer2 = setInterval(djsFun, 10);
+
+              $(".start_game").unbind("click").click(function () {
+                isLogin(function () {
+                  initGame();
+                });
+              });
+              break;
+            case 2:
+              $(".redpack").hide();
+              $(".redpack.finished").show();
+              break;
+            default:
+          }
+        }
+
+      },
+      error: function (json) {
+        console.log("红包雨入口页面 redRain  接口 暂时不通 ");
+      }
+    });
+  }
+
+  /**
+   我的可用红包数&当前可兑换红包
+
+   存/取 红包个数 saveRedNumber
+   /api-rabbitmq/springFetival/saveRedNumber
+   {
+      "code": "000000",
+      "data": 10
+}
+   data // 红包个数存成功;入参不传 rewardId，即是取红包个数
+   */
+  function initMyRedpack(rewardId) {
+    $.ajaxJson({
+      url: "/api-rabbitmq/springFetival/saveRedNumber",
+      data: $.extend({}, userInfo, {rewardId: rewardId || ""}),
+      async: false,
+      success: function (json) {
+        if (json.code == "000000") {
+          $(".b2_txt > span:last-child").eq(0).html(json.data || 0 + "个");
+          $(".b2_txt > span:last-child").eq(1).html(Math.floor((json.data || 0) / 5) + "个");
+        } else {
+          //fadeInOut(json.msg);
+          $(".b2_txt > span:last-child").eq(0).html(0 + "个");
+          $(".b2_txt > span:last-child").eq(1).html(0 + "个");
+        }
+      },
+      error: function (json) {
+        console.log("存/取 红包个数 saveRedNumber  接口 暂时不通 ");
+      }
+    });
+  }
+
+  /**
+   点击开始游戏 startGame
+   --- 通知后台用户已经玩过红包雨了。
+   /api-rabbitmq/springFetival/startGame
+   {
+         "code": "000000",
+         "data":
+         {
+                "nextTime": "2018年02月05日 10时",
+                "status": 0
+         }
+   }
+   status // 0 活动未开始 1 活动进行中 - 只有1是正确的状态，打开红包雨活动 2 活动已结束
+   nextTime // 下一场开始的时间
+   */
+  function initGame() {
+    $.ajaxJson({
+      url: "/api-rabbitmq/springFetival/startGame",
+      data: userInfo,
+      success: function (json) {
+        if (json.code == "000000") {
+          switch (json.data.status) {
+            case 0:
+              fadeInOut("您已参加过本场游戏~下一场再见啦~");
+              break;
+            case 1:
+              numz = 4;
+              hby_backward();
+              break;
+            case 2:
+              fadeInOut("您已参加过本场游戏~下一场再见啦~");
+              break;
+            default:
+              fadeInOut("您已参加过本场游戏~下一场再见啦~");
+          }
+        }
+      },
+      error: function (json) {
+        console.log("点击开始游戏 startGame  接口 暂时不通 ");
+      }
+    });
+  }
+
+  /**
+   拆红包 中奖名单 不需要登录 winningList
+   地址   /api-rabbitmq/springFetival/pub/winningList
+   有数据时：
+   {
+      "code": "000000",
+      "data":
+      [
+             {
+                    "ext1": "155****0003",
+                    "ext2": "118元",
+                    "ext3": "",
+                    "ext4": ""
+             },
+             {
+                    "ext1": "155****0003",
+                    "ext2": "8元",
+                    "ext3": "",
+                    "ext4": ""
+             }
+      ]
+}
+   ext1 //手机号
+   ext2 //红包名称
+   */
+  function initWinnerList() {
+    $.ajaxJson({
+      url: "/api-rabbitmq/springFetival/pub/winningList",
+      data: userInfo,
+      success: function (json) {
+        if (json.code == "000000") {
+          /*最近记录20条*/
+          var _list = json.data || [], len = _list.length, _html = "";
+          if (len == 0) { // 没有中奖用户
+            $(".win-list-none").show();
+            $(".win-list").hide();
+          } else {
+            $(".win-list-none").hide();
+            for (var i = 0; i < len; i++) {
+              _html += '<div class="win-list-item">恭喜 <span>' + _list[i].ext1 + '</span> 用户获得<span>' + _list[i].ext2 + '</span></div>'
+            }
+            $(".win-list").html(_html).show();
+
+            // 大于5个 ，做滚动效果
+            if ($(".win-list .win-list-item").length > 5) {
+              if (timer3 != undefined) {
+                clearInterval(timer3);
+              }
+
+              timer3 = setInterval(function () {
+                $('.win-list > .win-list-item:first').animate({
+                  'height': '0',
+                  'opacity': '0'
+                }, '3000', function () {
+                  $(this).removeAttr('style').insertAfter('.win-list > .win-list-item:last');
+                });
+              }, 3000);
+            }
+          }
+        } else {
+
+        }
+      },
+      error: function (json) {
+        console.log("拆红包 中奖名单 不需要登录 winningList 暂时不通,");
+        $(".win-list-none").show();
+        $(".win-list").hide();
+      }
+    });
+  }
+
+  /**
+   *  去登陆
+   */
+  function popGoLogin() {
+    showAlertBg();
+    $(".alert-gologin").show();
+  }
+
+  /**
+   *  活动已结束
+   */
+  function popActEnd() {
+    showAlertBg();
+    $(".alert-actEnd").show();
+
+    setTimeout(function () {
+      $(".alert-bg").click();
+    }, 3000);
+  }
+
+  /**
+   *  是否确定兑换
+   */
+  function popDoSure(callback) {
+    showAlertBg();
+    $(".alert-sure").show();
+    if (callback && $.isFunction(callback)) {
+      $(".alert-sure .btn5").unbind("click").bind("click", function () {
+        closeAlertBox();
+        callback();
+      });
+    } else {
+      $(".alert-sure .btn5").unbind("click").bind("click", closeAlertBox);
+    }
+  }
+
+  /**
+   *  很抱歉，您已经没有翻牌机会了 / 很抱歉，您还未达到合成条件 / 很抱歉，您还未达到兑换条件
+   快去投资吧
+   */
+  function popNoChance(msg) {
+    showAlertBg();
+    if (msg == undefined) {
+      msg = "很抱歉，您已经没有翻牌机会了";
+    }
+    $(".info1").html(msg);
+    $(".alert-nochance").show();
+  }
+
+  function popChai(num, callback) {
+    showAlertBg();
+    if (num == undefined) {
+      num = "1";
+    }
+    $(".alert-chai .info > span").html(num);
+    $(".alert-chai").show();
+    if (callback && $.isFunction(callback)) {
+      $(".alert-chai .alert-btn").unbind("click").bind("click", function () {
+        closeAlertBox();
+        callback();
+      });
+    }
+  }
+
+  /**
+   *  您已兑换成功！
+   现金已发送至您的账户中 /
+   礼品将在活动结束统计完成后1~7个工作日内派发到您手中
+   */
+  function popSucc(msg) {
+    showAlertBg();
+    if (msg == undefined) {
+      msg = "礼品将在活动结束统计完成后1~7个工作日内派发到您手中";
+    }
+    $(".alert-succ .info2").html(msg);
+    $(".alert-succ").show();
+  }
+
+  /**
+   *  红包兑换成功
+   */
+  function popRedpackSucc(index) {
+    showAlertBg();
+    if (index == undefined || index < 1 || index > 8) {
+      index = 1;
+    }
+    $(".alert-redpack-succ .qg-pic").attr("src", "img/alert_redpack" + index + ".png");
+    $(".alert-redpack-succ").show();
+  }
+
+  /**
+   *  翻牌成功
+   */
+  function popFlipCardSucc(index) {
+    showAlertBg();
+    if (index == undefined || index < 1 || index > 6) {
+      index = 6;
+    }
+    $(".alert-flip-card-succ .qg-pic").attr("src", "img/alert_card" + index + ".png");
+    $(".alert-flip-card-succ").show();
+  }
+
+  /**
+   *  单牌兑换
+   *  1 现金68元   2 现金28元   3 现金18元   4 现金8元   5 现金5元   6 新春快乐,恭喜发财
+   *  0 200元现金
+   *  -1 异常
+   *  恭喜您，可兑换<span>20元现金<br>集齐“福、禄、安、康、寿”<br>可兑换200元现金</span>
+   */
+  function popCardExchange(index, callback) {
+    showAlertBg();
+    if (index == undefined || index < 0 || index > 5) {
+      index = 6;
+    }
+
+    // $(".alert-card-exchange .content1 .qg-pic").attr("src", "img/alert_hongbao" + (6 - index) + ".png");
+    // $(".alert-card-exchange .content1 .info3 > span").html((6 - index) * 5 + "元现金");
+    $(".alert-card-exchange .content .qg-pic").attr("src", jsonCompound[index].alertImg);
+    if (index == 0) {
+      $(".alert-card-exchange .content .info3 ").html('恭喜您，获得<span>' + jsonCompound[index].prize + "元现金</span>");
+      $(".alert.alert-card-exchange .btn6").hide();
+      $(".alert.alert-card-exchange .btn5").html("确定");
+    } else {
+      $(".alert-card-exchange .content .info3 ").html('恭喜您，可兑换<span>' + jsonCompound[index].prize + "元现金" + '</span><br>集齐<span>“福、禄、安、康、寿”<br>可兑换200元现金</span>');
+      $(".alert.alert-card-exchange .btn6").show();
+      $(".alert.alert-card-exchange .btn5").html("兑换");
+    }
+    $(".alert-card-exchange").show();
+
+    if (callback && $.isFunction(callback)) {
+      $(".alert-card-exchange .btn5").unbind("click").bind("click", callback);
+    } else {
+      $(".alert-card-exchange .btn5").unbind("click").bind("click", closeAlertBox);
+    }
+  }
+
+  function popActIntro() { //活动说明
+    showAlertBg();
+    $(".alert-act-intro").show();
+  }
+
+  function showAlertBg() {
+    $(".close-btn").click();
+    $("body").append('<div class="alert-bg"></div>');
+    $(".alert-bg").bind("click", closeAlertBox);
+  }
+
+  /**
+   * 关闭弹窗
+   */
+  function closeAlertBox() {
+    $(".alert-bg").remove();
+    $(".alert").hide();
+    $('body').removeAttr('style');
+  }
+
+  $(".close-btn, .nowtz-btn,.alert .confirm-btn, .gb_btn, .closebtn, .confirmbtn, .alert-btn").unbind("click").on("click", closeAlertBox);
+</script>
+<script type="text/javascript">
+  var clientType = "";
+
+  function initURL(obj, title, url) {
+    var u = navigator.userAgent;
+    if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+      clientType = "Android";
+    } else if (u.indexOf('iPhone') > -1) {
+      clientType = "ios";
+    } else if (u.indexOf('Windows Phone') > -1) {
+      clientType = "winphone";
+    }
+
+    document.title = title;
+    if ("ios" == clientType) {
+      iosShow(obj, url);
+
+    } else if ("Android" == clientType) {
+      androidShow(obj, title, url);
+    }
+  }
+
+  function androidShow(obj, title, url) {
+    banner.obj(obj, title, url);
+  }
+
+  function iosShow(obj, url) {
+    var bann = "banner:///" + obj + "::/" + url;
+    window.location.hash = bann;
+  }
+</script>
+</html>
