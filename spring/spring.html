@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" >
+    <meta name="renderer" content="webkit">
+    <meta name="baidu-site-verification" content="Ly3IqxqiZh" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="format-detection" content="telphone=no, email=no"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <meta name="robots" content="index,follow"/>
+    <meta name="apple-mobile-web-app-title" content="万家贷走进万家">
+    <meta name="description" content="万家贷走进万家、有保障的互联网理财投资服务,50元起投！100%本息担保！万家贷为有资金需求和理财需求的个人搭建了一个透明、稳定、高效的P2P网络互动平台。万家贷是最专业,最安全的互联网金融P2P(人人贷)网络借贷平台，万家贷有严格的风险控制，银行资金托管，保障资金的安全，您可以成为出借人投资理财,获得较高年收益率回报。"/>
+    <meta name="keywords" content="行业新闻,投资理财,网络理财,个人理财,P2P理财,网络投资平台,网贷之家,网贷平台,p2p网贷,网络借贷,民间借贷,100%本息保障,万家贷,借贷平台,拍拍贷,人人贷,互联网金融,投融资"/>
+    <title>11.11零元购  三重好礼来袭-【万家贷】_p2p理财产品_p2p理财平台_网络理财_国资背景</title>
+    <script src="https://static.wjdai.com/wjdai-web/js/jquery-1.10.2.min.js"></script>
+    <link href="https://static.wjdai.com/wjdai-web/css/common.css" rel="stylesheet" />
+    <link href="css/spring.css"  type ="text/css" rel="stylesheet" />
+    <link href="https://static.wjdai.com/wjdai-web/activity/2017d11/css/flipclock.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://static.wjdai.com/wjdai-web/activity/2017d11/js/flipclock.js"></script>
+    <script type="text/javascript" src="https://static.wjdai.com/wjdai-web/activity/2017d11/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="https://static.wjdai.com/wjdai-web/activity/2017d11/js/divscroll.js"></script>
+    <style type="text/css">
+        .hongbaoyu1 {
+            margin: 0 ;
+            padding: 0;
+            position: fixed;
+            top:0;
+            width:100%;
+            height: 100%;
+            overflow-y: hidden;
+            background:rgba(0,0,0,.5);
+            background-size:  100%;
+            z-index: 5000;
+
+        }
+        .hongbaoyu {
+            margin: 0 auto;
+            padding: 0;
+            width:700px;
+            height: 100%;
+            overflow-y: hidden;
+            background:red;
+           /* background-size:  100%;*/
+            z-index: 5000;
+        }
+        .couten {
+            width: 599px;
+            height: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+            padding-right: 101px;
+        }
+        .couten li {
+            position: absolute;
+            /*animation: all 3s linear;*/
+            top:-100px;
+            -webkit-tap-highlight-color:  rgba(0, 0, 0, 0);
+        }
+        .couten li a{
+            display: block;
+        }
+        .backward{
+            width: 700px;
+            background:#ccc;
+            opacity: 1;
+            position: absolute;
+            top: 0;
+
+        }
+        .backward span{
+
+            background: rgba(255, 255, 255, 0) none repeat scroll 0 0;
+            left: 50%;
+            margin-left: -350px;
+            margin-top: -450px;
+            position: fixed;
+            top: 50%;
+            z-index: 902;
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            line-height: 100px;
+            font-size: 100px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var _length=$('.hongbaoyu').offset().left;
+            var win = (parseInt($(".couten").css("width"))) - 60;
+            $(".mo").css("height", $(document).height());
+            $(".couten").css("height", $(document).height());
+            $(".backward").css("height", $(document).height());
+            $("li").css({});
+
+
+
+            var num = 0;
+            var add;
+            add = function () {
+
+                num++;
+
+
+                if (hby_count_down_time == 0) { // 红包雨游戏倒计时为0 时，隐藏红包雨显示层
+                    $("body").attr("style", "");
+                    clearInterval(hby_timer2);
+                    hby_timer2 = null;
+                    $(".hongbaoyu").hide();
+                    var n = Math.floor($("#hby_counter").html());
+                    if (n <= 5) {
+                        popNoChance("很抱歉，您当前可用红包<br>还未达到5个");
+                    } else {
+                        popChai(Math.floor(n / 5));
+                    }
+                    initMyRedpack(n, chaiChaiChai);
+                    return;
+                }
+
+                if (hby_count_down_time <= 2) {
+                    clearTimeout(hby_timer);
+                    hby_timer = setTimeout(add, 700);
+                    return;
+                }
+
+
+                var hb = parseInt(Math.random() * (5 - 1) + 1);
+                var Wh = 356; // parseInt(Math.random() * (80 - 55) + 55);
+                var Left = parseInt(Math.random() * (win - 356 - 0) + 0);
+                var rot = (parseInt(Math.random() * (45 - (-45)) - 45));
+                $(".hby_couten").append("<li class='li" + num + "'><div><img src='img/hb_" + hb + ".png'></div></li>");
+                $(".li" + num).css({
+                    "left": Left,
+                });
+                $(".li" + num + " div img").css({
+                    "width": Wh / 100 + "rem",
+                    "transform": "rotate(" + rot + "deg)",
+                    "-webkit-transform": "rotate(" + rot + "deg)",
+                    "-ms-transform": "rotate(" + rot + "deg)", /* Internet Explorer */
+                    "-moz-transform": "rotate(" + rot + "deg)", /* Firefox */
+                    "-webkit-transform": "rotate(" + rot + "deg)", /* Safari 和 Chrome */
+                    "-o-transform": "rotate(" + rot + "deg)" /* Opera */
+                });
+                $(".li" + num).animate({'top': $(window).height() + 20}, 5000, function () {
+                    //删掉已经显示的红包
+                    $(this).remove()
+                });
+                //点击红包的时候弹出模态层 移除红包&计数器加一
+                $(".li" + num + " div img").click(function () {
+                    //$(".mo").css("display", "block");
+                    $("#hby_counter").html(++hby_counter);
+                    $(this).remove();
+                });
+
+                hby_timer = setTimeout(add, 700);
+            };
+
+            //增加红包
+
+            //setTimeout(add,3000);
+
+            //倒数计时
+            hby_backward = function () {
+                numz--;
+                if (numz > 0) {
+                    $(".hby_backward").show();
+                    $(".hongbaoyu").show();
+                    $("body").css({'overflow': "hidden"});
+                    $(".hby_backward span").html(numz);
+                    $("#hby_counter").html(0);
+                    num = 0;
+                    hby_counter = 0;
+                    hby_count_down_time = 10;
+                    win = (parseInt($(".hby_couten").css("width"))) - 60;
+                    setTimeout(add, 3000);
+                } else {
+                    $("#hby_counter").html(0);
+                    $("#hby_counter_div").show();
+                    $("#hby_count_down_time").html(hby_count_down_time).show();
+
+                    $(".hby_backward").hide();
+                    hby_timer2 = setInterval(countDownFun, 1000);
+                    clearTimeout(hby_timer_cd);
+                    return;
+                }
+                hby_timer_cd = setTimeout(hby_backward, 1000)
+            };
+
+            countDownFun = function () {
+                $("#hby_count_down_time").html(--hby_count_down_time);
+            }
+
+        })
+    </script>
+</head>
+<body>
+<input type="hidden" id="baseURL" value=""/>
+<input type="hidden" id="baseUrl" value=""/>
+<input type="hidden" id="base_url" value=""/>
+<input type="hidden" id="userId" value=""/><!-- 登录用户 -->
+<input type="hidden" id="uid" value=""/><!--链接跟值  链接标识符 paramData-->
+<input type="hidden" id="iId" value=""/>
+<input type="hidden" id="puid" value=""/>
+<input type="hidden" id="tag" value=""/>
+<input type="hidden" id="isLogin" value=""/>
+<!-- 中间部分 -->
+<div>
+    <div class="hello">
+        <!--bg-->
+        <div class="top_banner"></div>
+        <div class="ele_banner   ">
+            <div class="relative con_relative">
+                <div class="absolute con_main" >
+                    <!--zero activity-->
+                    <div class="first_activity" >
+                        <div  class="first_box">
+                            <div class=" zero_title_box"></div>
+                        </div>
+                        <div class="zero_contain_box">
+                            <div class="zero_con_tit">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈啊</div>
+                            <div class="zaro_box zaro_boxing hide">
+                                <div class=" zeao_act_box  hide">
+                                    <div class="zero_act_title">本场活动剩余时间</div>
+                                    <div class="zero_act_act">
+                                        <div class="zero_act_time zero_text">23</div>
+                                        <div class="zero_act_dian"></div>
+                                        <div class="zero_act_time zero_text">23</div>
+                                        <div class="zero_act_dian"></div>
+                                        <div class="zero_act_time zero_text">23</div>
+                                    </div>
+                                </div>
+                                <div class="zero_btn pointer hide"> 开始游戏</div>
+
+                            </div>
+                            <div class="zaro_box zaro_unbox ">
+
+                                <div class=" zeao_act_box1">
+                                    <div class="refreshBtn ">刷新</div>
+                                     <div class="zero_text zero_text1">2018年02月10日10点</div>
+                                </div>
+
+
+                            </div>
+                            <div class="zaro_box zaro_boxed hide">
+                                <div class=" zeao_act_box2">
+                                    本次活动已结束
+                                </div>
+                            </div>
+                            <div class="zero_act_bot">
+                                <div class="zero_bot1">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+                                <div class="zero_bot2">游戏规则</div>
+                            </div>
+                        </div>
+                        <div class="zero_bottom_box">
+                            <div class="zero_bottom_left">
+                                <div class="mt-160">我的可用红包个数：<span>1个</span></div>
+                                <div class="">我的可用红包个数：<span>1个</span></div>
+                                <div class="zero_btn2 pointer"></div>
+                            </div>
+                            <div class="zero_bottom_right">
+                                <div class="mt-70 user_yu " >
+                                    <div class="user_yu_has hide">
+                                        <div class="gift_user">恭喜<span >134****1258</span>用户获得<span>8元</span></div>
+                                        <div class="gift_user">恭喜<span >134****1258</span>用户获得<span>8元</span></div>
+                                        <div class="gift_user">恭喜<span >134****1258</span>用户获得<span>8元</span></div>
+                                        <div class="gift_user">恭喜<span >134****1258</span>用户获得<span>8元</span></div>
+                                        <div class="gift_user">恭喜<span >134****1258</span>用户获得<span>8元</span></div>
+                                    </div>
+                                    <div class="user_yu_no">
+                                          <div class="yu_no"><img src="https://test.wjdai.com/wjdai-web/activity/spring/img/song.png" style="width: 100%; "></div>
+                                        <div class="yu_text">还未有中奖用户！</div>
+                                    </div>
+                                </div>
+                                <div class="first_btn444 pointer" style="margin: 0 auto"> 立即投资</div>
+                            </div>
+                        </div>
+                        <div class="zero_last_text">温馨提示：下一场游戏开始，剩余未拆游戏红包自动清零</div>
+
+                    </div>
+                    <!--first activity-->
+                    <div class="first_activity" id="first_activity">
+                        <div  class="first_box">
+                            <div class=" first_title_box"></div>
+                            <div  class="mt-85 hidden w-1200">
+                                <div id="box" class="box viewport-flip mr-50" title="点击翻面">
+                                    <div class="list flip zheng out"></div>
+                                    <div  class="list flip fan"><img src="img/first_pai1.png" alt="纸牌背面" /></div>
+                                </div>
+                                <div  class="float-left">
+                                    <div class="f-30 c-fff bold mt-20">你还有<span class="c-fada1" id="drawAmount">0次</span>机会</div>
+                                    <div  class="mt-10 c-fff first_right_text">活动期间每人单笔年化投资金额满2000元即可获得一次翻牌机会（不包括<br>新手标），另外活动期间用户通过分享链接邀请好友首笔投资成功（投资金<br>额≥5000元）后，增加1次翻牌机会（每位用户仅可获赠一次翻牌机会）。</div>
+                                    <div  class="mt-45 mb-45 first_btn1 pointer  " id="first_btn1" style="width:220px; height:80px"></div>
+                                    <div  class="float-left f-18 first_kuang" id="first_kuang">您还未登录，请先登录~</div>
+                                    <div class="float-left f-28 first_btn2 pointer" data-clipboard-action="copy" data-clipboard-target="#first_kuang" id="first_btn2">复制链接</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div  class="first_get_pic"></div>
+                        <div  class="c-fff mb-50 first_get_text">每个字牌可单独兑换相应现金或集齐<span style="color: #f1a042; font-weight:bold;">"福"、"禄"、"安"、"康"、"寿"</span>后，点击合成即可获得大奖！</div>
+                        <div  class="hidden relative " style="height: 265px;">
+                            <div  class="  unget  unget0 unget_fu dui_unget absolute" ></div>
+                            <div  class=" unget  unget1 unget_lu dui_unget absolute"></div>
+                            <div  class=" unget  unget2 unget_an dui_unget absolute"></div>
+                            <div  class="  unget  unget3 unget_kang dui_unget absolute"></div>
+                            <div  class="   unget  unget4 unget_shou dui_unget absolute"></div>
+                            <div  class=" hide   absolute  unget unget5 get_fu dui_get" >
+                                <div class="absolute bold first_num" id="first_num0">2</div>
+                                <div class="absolute first_btn3 pointer "  id="duihuan_btn0"></div>
+                            </div>
+                            <div  class=" hide  absolute  unget unget6 get_lu dui_get">
+                                <div class="absolute  bold first_num" id="first_num1" >2</div>
+                                <div class="absolute first_btn3 pointer"   id="duihuan_btn1"></div>
+                            </div>
+                            <div class="  hide  absolute unget unget7 get_an dui_get">
+                                <div class="absolute  bold first_num" id="first_num2">2</div>
+                                <div class="absolute first_btn3 pointer" id="duihuan_btn2"></div>
+                            </div>
+                            <div  class=" hide absolute  unget unget8 get_kang dui_get">
+                                <div class="absolute  bold first_num" id="first_num3">2</div>
+                                <div class="absolute first_btn3 pointer"  id="duihuan_btn3"></div>
+                            </div>
+                            <div  class=" hide absolute  unget unget9 get_shou dui_get">
+                                <div class="absolute  bold first_num" id="first_num4">2</div>
+                                <div class="absolute first_btn3 pointer" id="duihuan_btn4"></div>
+                            </div>
+                        </div>
+                        <div  class=" bold first_btn4 m-a-40 pointer"  id="hecheng_btn">点击合成</div>
+                        <div class="hidden">
+                            <!--<div  class="float-left first_laba"> </div>-->
+                            <div  class="hidden first_laba_box">
+                            </div>
+                        </div>
+                        <div class="gift_user_box">
+                            <div class="first_zhong_pic"></div>
+                            <div id="first_zhong_box">
+                            </div>
+                            <div class=" first_btn444 m-a-50 pointer" id="invest_btn1" onclick="forInviest(this)">立即投资</div>
+                        </div>
+
+                    </div>
+                    <!-- second activity-->
+                    <div class="second_activity mt-130" id="second_activity">
+                        <div  class="hidden w-1200">
+                            <div  class=" second_box">
+                                <!--<div class="float-left second_title_pic"></div>-->
+                                <div class=" second_title_box" >
+                                </div>
+                            </div>
+                            <div class="c-fff f-30  second_log" >我的累计年化投资额：<span class="c-fada1" id="ling_login">未登录</span></div>
+                            <div class="c-fff f-30  second_log hide second_log_unlogin" style="margin-top:10px">我的累计年化投资额：<span class="c-fada1" id="ling_yuan"></span></div>
+                            <div class="">
+                                <div  class=" first_laba_box1">
+                                </div>
+                            </div>
+                            <div  class="second_gift_unget1 second_gift"  ></div>
+                            <div class="second_gift_btn_box1 hidden mt-20" id="second_gift1">
+                                <div class="second_gift_btn22">
+                                    <div class="second_gift_btn pointer" onclick='zeroex(1)'>点击兑换</div>
+                                </div>
+                                <div class="second_gift_btn22">
+                                    <div class="second_gift_btn pointer" onclick='zeroex(2)'>点击兑换</div>
+                                </div>
+                                <div class="second_gift_btn22">
+                                    <div class="second_gift_btn pointer" onclick='zeroex(3)'>点击兑换</div>
+                                </div>
+                                <div class="second_gift_btn22">
+                                    <div class="second_gift_btn pointer" onclick='zeroex(4)'>点击兑换</div>
+                                </div>
+                            </div>
+                            <div  class="second_gift_unget2 second_gift mt-40"  ></div>
+                            <div class="second_gift_btn_box1 hidden mt-20" id="second_gift2">
+                                <div class="second_gift_btn22">
+                                    <div class="second_gift_btn pointer" onclick='zeroex(5)'>点击兑换</div>
+                                </div>
+                                <div class="second_gift_btn22">
+                                    <div class="second_gift_btn pointer" onclick='zeroex(6)'>点击兑换</div>
+                                </div>
+                                <div class="second_gift_btn22">
+                                    <div class="second_gift_btn pointer" onclick='zeroex(7)'>点击兑换</div>
+                                </div>
+                                <div class="second_gift_btn22">
+                                    <div class="second_gift_btn pointer" onclick='zeroex(8)'>点击兑换</div>
+                                </div>
+                            </div>
+                            <div class="act_shuo_title pointer act_shuo_title1"></div>
+                            <div class="act_shuo">
+                                1、活动时间：2018年2月5日-3月4日    <br>
+                                2、活动期间，用户达到指定累积年化投资额即可领取相应实物大奖，每位用户仅可兑换一件礼品。<br>
+                                3、活动期间，用户所有投资记录均加入累积年化投资额（包括本页面所有活动）。<br>
+                                4、本活动所有实物奖品产生的售后问题与万家金融无关，所有奖品均来自正规网购平台或实体官方旗舰店，如遇问题，客服给予协助。<br>
+                                5、实物奖品待活动结束统计完成后7个工作日内派发给中奖用户。 <br>
+                                6、本活动的解释权归万家金融所有，如有疑问请联系在线客服或者拨打客服热线：400-0607-520。
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                    <!--third activity-->
+                    <div class="third_activity" id="third_activity">
+                        <div  class="third_box">
+                            <div  class="third_title_box hidden mb-80"></div>
+                        </div>
+                    </div>
+                    <div class="third_contain_box">
+                        <div class="zhou_box hide">
+                            <div class="zhou_pic"></div>
+                            <div class="zhou_bang_box">
+                                <div class="hidden zhou_bang_title_box">
+                                    <div class="zhou_bang_title_left title_act pointer">1周投资排行榜</div>
+                                    <div class="zhou_bang_title_right title_act pointer ">总排行榜</div>
+                                </div>
+                                <div class="red_box">
+                                    <div class="third_my">
+                                        <span class="third_my_rank">我的排名：<span>第--名</span></span>
+                                        <span class="third_my_rank">我的累计年化投资额：<span>--元</span></span>
+                                    </div>
+                                    <div class="first_btn444 float-left mt-40 ">立即冲榜</div>
+                                </div>
+                                <div class="zhou_bang_user_box">
+                                    <div class="zhou_bang_title1_box">
+                                        <div class="title_user">排名</div>
+                                        <div class="title_phone">用户名</div>
+                                        <div class="title_money">累计年化投资额</div>
+                                    </div>
+                                    <div class="zhou_bang_total_box">
+                                        <div class="zhou_bang_contion_box hide">
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="zhou_box">
+                            <div class="zong_pic"></div>
+                            <div class="zhou_bang_box">
+                                <div class="hidden zhou_bang_title_box">
+                                    <div class="zhou_bang_title_left  pointer">1周投资排行榜</div>
+                                    <div class="zhou_bang_title_right title_act pointer">总排行榜</div>
+                                </div>
+                                <div class="red_box">
+                                    <div class="third_my">
+                                        <span class="third_my_rank">我的排名：<span>第--名</span></span>
+                                        <span class="third_my_rank">我的累计年化投资额：<span>--元</span></span>
+                                    </div>
+                                    <div class="first_btn444 float-left mt-40">立即冲榜</div>
+                                </div>
+                                <div class="zhou_bang_user_box">
+                                    <div class="zhou_bang_title1_box">
+                                        <div class="title_user">排名</div>
+                                        <div class="title_phone">用户名</div>
+                                        <div class="title_money">累计年化投资额</div>
+                                    </div>
+                                    <div class="zhou_bang_total_box">
+                                        <div class="zhou_bang_contion_box hide">
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+                                            <div class="zhou_bang_title1_box1">
+                                                <div class="title_user1">1</div>
+                                                <div class="title_phone1">134****458</div>
+                                                <div class="title_money1">236698<span class="f-16">（元）</span></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="act_shuo_title pointer"></div>
+                        <div class="act_shuo">
+                            1、活动时间：2018年2月5日-3月4日    <br>
+                            2、活动期间，用户达到指定累积年化投资额即可领取相应实物大奖，每位用户仅可兑换一件礼品。<br>
+                            3、活动期间，用户所有投资记录均加入累积年化投资额（包括本页面所有活动）。<br>
+                            4、本活动所有实物奖品产生的售后问题与万家金融无关，所有奖品均来自正规网购平台或实体官方旗舰店，如遇问题，客服给予协助。<br>
+                            5、实物奖品待活动结束统计完成后7个工作日内派发给中奖用户。 <br>
+                            6、本活动的解释权归万家金融所有，如有疑问请联系在线客服或者拨打客服热线：400-0607-520。
+                        </div>
+                    </div>
+                    <div  class="f-18 the_last_text">理财有风险，投资需谨慎</div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <!--弹窗-->
+    <div class="bg-alertt hide" id="bg_alertt" ></div>
+    <div class="sider_bar_box">
+
+        <a class="sider_text sider_text1 c-fff show" href="#zero_activity">翻牌集字</a>
+        <a class=" sider_text sider_text2 c-fff show" href="#first_activity">巅峰排行榜</a>
+        <a class="sider_text sider_text2 c-fff show" href="#second_activity">零元购</a>
+        <a class=" sider_text sider_text2 c-fff show" href="#third_activity">巅峰排行榜</a>
+
+    </div>
+
+
+    <div class="alert_gift_box222 hide">
+        <div class="alert_red_close_box relative">
+            <div class="alert_red_close absolute pointer"></div>
+        </div>
+        <div class="alert_text_box">
+            <div>红包雨游戏规则</div>
+            <div>1、游戏开启时间：2018年2月5日、2月8日、2月16日-21日、2月23日、3月2日，共10天。<br>
+                2、每位用户每场仅可参与一次。  <br>
+                3、平台每日10点整、15点整分别下两场红包雨，游戏开放时长为30分钟限时10s，两场游戏所有用户均可免费参加。         <br>
+                4、用户单场获取游戏红包每累计5个可以拆一次新年红包，下一场游戏开始，剩余未拆游戏红包自动清零。<br>
+                5、红包奖励即时发送至用户账户。<br>
+                6、本活动的解释权归万家金融所有，如有疑问请联系在线客服或者拨打客服热线：400-0607-520。</div>
+
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+
+        $(function(){
+            $(window).scroll(function(){//活动锚点定位
+                if(700>$(window).scrollTop()){
+                    $('.sider_bar_box').fadeOut();
+                }else if(500<$(window).scrollTop()){
+                    $('.sider_bar_box').fadeIn();
+                    if($('.first_activity').offset().top<$(window).scrollTop()&&$(window).scrollTop()<$('.second_activity').offset().top){
+                        $('.sider_text').eq(0).addClass('c-fada');
+                        $('.sider_text').eq(0).siblings().removeClass('c-fada');
+                    }else if($('.second_activity').offset().top<$(window).scrollTop()&&$(window).scrollTop()<$('.third_activity').offset().top){
+                        $('.sider_text').eq(1).addClass('c-fada');
+                        $('.sider_text').eq(1).siblings().removeClass('c-fada');
+                    }else if($('.third_activity').offset().top<$(window).scrollTop()&&$(window).scrollTop()<$('.last_activity').offset().top){
+                        $('.sider_text').eq(2).addClass('c-fada');
+                        $('.sider_text').eq(2).siblings().removeClass('c-fada');
+                    }else{
+                        $('.sider_text').removeClass('c-fada');
+
+                    }
+                }
+
+            })
+            $('.third_con_box').perfectScrollbar();//滚动条
+            timer1();
+            timer2();
+            timer3();
+            ForCopy();
+            Forduihuan1();
+            firsthe();
+            chance();
+            zero();
+            lingla();
+            thirduser();
+            thirdlogin();
+            //ForGaostart();
+            ForActivity();
+
+        }) ;
+        var root='';
+
+        var jsonL = [
+            {'id':0, 'pic':'<img src="https://static.wjdai.com/wjdai-web/activity/2017d11/img/da.png" alt="纸牌正面" />','text':'“大”','url':'https://static.wjdai.com/wjdai-web/activity/2017d11/img/dui_da.png','className':'get_da','removeName':'unget_da','num':'25元现金'},
+            {'id':1, 'pic':'<img src="https://static.wjdai.com/wjdai-web/activity/2017d11/img/jiang.png" alt="纸牌正面" />','text':'“奖”','url':'https://static.wjdai.com/wjdai-web/activity/2017d11/img/dui_jiang.png','className':'get_jiang','removeName':'unget_jiang','num':'20元现金'},
+            {'id':2, 'pic':'<img src="https://static.wjdai.com/wjdai-web/activity/2017d11/img/shuang.png" alt="纸牌正面" />','text':'“双”','url':'https://static.wjdai.com/wjdai-web/activity/2017d11/img/dui_shuang.png','className':'get_shuang','removeName':'unget_dshuang','num':'15元现金'},
+            {'id':3, 'pic':'<img src="https://static.wjdai.com/wjdai-web/activity/2017d11/img/shi.png" alt="纸牌正面" />','text':'“十”','url':'https://static.wjdai.com/wjdai-web/activity/2017d11/img/dui_shi.png','className':'get_shi','removeName':'unget_shi','num':'10元现金'},
+            {'id':4, 'pic':'<img src="https://static.wjdai.com/wjdai-web/activity/2017d11/img/yi.png" alt="纸牌正面" />','text':'“一”','url':'https://static.wjdai.com/wjdai-web/activity/2017d11/img/dui_yi.png','className':'get_yi','removeName':'unget_yi','num':'5元现金'},
+            {'id':5, 'pic':'<img src="https://static.wjdai.com/wjdai-web/activity/2017d11/img/yi.png" alt="纸牌正面" />','text':'“一”','url':'https://static.wjdai.com/wjdai-web/activity/2017d11/img/dui_yi.png','className':'get_yi','removeName':'unget_yi','num':'500元现金'}
+        ];
+
+
+        function ForActivity(){//是否在整个活动期内
+            $.ajaxJson({
+                url: $('#baseUrl').val() + '/api-rabbitmq/luckyDraw/actTime',
+                data:{
+                    userId:$('#userId').val(),
+                    actId:2
+                },
+                dataType: "json",
+                success: function (data){
+                    if(data.code=="400014"){//整个活动未开始
+                        $('#gao_time').show();
+                        $('#gao_same,#gao_end').hide();
+                        $('#first_btn1,#hecheng_btn,#goin_btn,.second_btn1').show();
+                        $('#gao_time_btn').click(function(){
+                            window.open(root+'/activity/2017d11/home2.html')
+                        })
+                    }else if(data.code=="400016"){  //整个活动结束
+                        $('#gao_end').show();
+                        $('#gao_time,#gao_same').hide() ;
+                        $('#first_btn1').show().unbind('click').html('已结束').removeClass('first_btn1 pointer').addClass('first_btn11');
+                        $('#hecheng_btn').show().unbind('click').html('已结束').removeClass('first_btn4 pointer').addClass('first_btn44');
+                        $('#goin_btn').show().unbind('click').html('已结束').removeClass('first_btn4 pointer').addClass('first_btn44');
+                        $('.second_btn1').hide();
+                        $('.get_jiang').removeClass('get_jiang').addClass('overget_jiang');
+                        $('.get_da').removeClass('get_da').addClass('overget_da') .remove();
+                        $('.get_shuang').removeClass('get_shuang').addClass('overget_shuang');
+                        $('.get_shi').removeClass('get_shi').addClass('overget_shi');
+                        $('.get_yi').removeClass('get_yi').addClass('overget_yi');
+                        $('.first_btn3').unbind('click').removeClass('pointer').attr('disabled','disabled');
+                        dianfengbang();
+
+                    }else if(data.code=="400015"){//整个活动进行中
+                        //$('#gao_same').show();
+                        //$('#gao_time,#gao_end').hide() ;
+                        ForGaostart();
+                        $('#first_btn1,#hecheng_btn,#goin_btn').show();
+                    }
+                }
+            })
+        }
+
+        function ForGaostart(){//高标是否开始状态
+            $.ajaxJson({
+                url: $('#baseUrl').val() +  "/api-rabbitmq/luckyDraw/getDate",
+                data:{
+                    userId:$('#userId').val(),
+                    actId:2
+                },
+                dataType: "json",
+                success: function (json){
+                    var _time = json.data * 1000, _time1 = 1510329600000/*(new Date("2017-11-11 00:00:00")).getTime()*/, _time2 = 1510416000000 /*(new Date("2017-11-12 00:00:00")).getTime()*/;
+                    if((_time1-_time)>0){//活动未开始
+                        clock.setTime(Math.floor(_time1-_time)/1000);
+                        clock.setCountdown(true);
+                        clock.start();
+                        $('#gao_time').show();
+                        $('#gao_same,#gao_end').hide();
+                        $('#gao_time_btn').click(function(){
+                            window.open(root+'/activity/2017d11/home2.html')
+                        })
+                    }else if((_time-_time2)>0){  //活动结束
+                        $('#gao_end').show();
+                        $('#gao_time,#gao_same').hide() ;
+                    }else{//活动进行中
+                        $('#gao_same').show();
+                        $('#gao_time,#gao_end').hide() ;
+                        $('#gao_same_btn').click(function(){
+                            window.open(root+'/activity/2017d11/home2.html')
+                        })
+                    }
+                }
+            })
+        }
+
+        $('#first_btn1').click(function () {//点击
+            ForDraw(); //用户翻牌
+        })
+
+        function chance(){
+            $.ajax({
+                url: $('#baseUrl').val() +  "/api-rabbitmq/luckyDraw/drawAmount",
+                data:{
+                    userId:$('#userId').val()
+                },
+                dataType: "json",
+                type:'post',
+                success: function (json){
+                    if(json.code=="000000"){//登录
+                        $('#drawAmount').html(json.data+'次');
+                    }
+                }
+            })
+        }
+
+        function ForDraw(){//用户翻牌
+            $.ajax({
+                url: $('#baseUrl').val() +  "/api-rabbitmq/luckyDraw/draw",
+                data:{
+                    userId:$('#userId').val(),
+                    auth:1,
+                    rewardId:{}
+                },
+                dataType: "json",
+                type:'post',
+                success: function (json){
+
+                    if(json.code=="900002"){
+                        unlogin(2,"1");//翻牌未登录
+                    } else{
+                        if(json.code=="000000"){
+                            var data=json.data;
+                            //if(data.drawAmount&&data.drawAmount>0){//翻牌有机会
+                            $('#drawAmount').html(data.drawAmount+'次');
+                            var navigatorName = "Microsoft Internet Explorer";
+                            if( navigator.appName == navigatorName ){
+                                $('.fan').hide();
+                                $('.zheng').show();
+                                var rewardId1=data.rewardId;
+                                fanpai(rewardId1);//翻牌结果
+                            }else{
+                                $('.fan').addClass("out").removeClass("in");
+                                setTimeout(function() {
+                                    $('.zheng').addClass("in").removeClass("out");
+                                }, 225);
+                                var rewardId1=data.rewardId;
+                                fanpai(rewardId1);//翻牌结果
+                            }
+
+                            // }
+                        }else{
+                            unlogin(1,"2");//翻牌没机会
+                        }
+                    }
+                }
+            })
+        }
+
+
+        function copyF(){
+            var clipboard = new Clipboard('#first_btn2');
+            clipboard.on('success', function(e) {
+                $('.alert_gift_box').remove();
+                duihuanalert(0,3,3)
+            });
+            clipboard.on('error', function(e) {
+                duihuanalert(1,2,3)
+            });
+        }
+
+
+        function  ForCopy() {
+            $.ajax({
+                url: $('#baseUrl').val() +  "/api-rabbitmq/luckyDraw/invite",
+                data:{
+                    userId:$('#userId').val(),
+                    auth:1,
+                },
+                dataType: "json",
+                type:'post',
+                success: function (json){
+                    if(json.code=="000000"){//登录
+                        $('#first_kuang').html('https://api.wjdai.com/app/pages/invite.html?invite='+json.msg);
+                        $('#first_btn2').click(function(){
+
+                            copyF();
+                        })
+                    }else if(json.code=="900002"){
+                        $('#first_btn2').click(function(){
+                            unlogin(2,"1");
+                        })
+                    }
+                }
+            })
+
+        }
+
+        function unlogin(o,a) {//是否登录，翻牌无机会、奖项合成弹框
+            $('#bg_alertt').show();
+            var htmlU='';
+            htmlU+='<div class="alert_gift_box2">';
+            htmlU+='<div class="alert_red_close_box relative">';
+            htmlU+='<div class="alert_red_close absolute pointer"></div></div>';
+            htmlU+='<div class="alert_gift1_pic "><img src="https://static.wjdai.com/wjdai-web/activity/2017d11/img/song4.png" style="width: 100%"></div>'
+            htmlU+=' <div class="alert_gift_text2">';
+            if(o==1){
+                htmlU+='很抱歉，您已经没有翻牌机会了快去投资吧！'
+            }else if(o==2){
+                htmlU+='您还未登录，请先登录'
+            } else if(o==3){
+                htmlU+='很抱歉，您还未达到合成条件，快去投资吧'
+            } else if(o==4){
+                htmlU+='很抱歉，您还未达到兑换条件，快去投资吧'
+            }
+            htmlU+='</div>';
+            if(a=="1"){
+                htmlU+='<div class="alert_gift_btn2 pointer f-16 " id="login_btn" onclick="forLogin(this)"> 立刻登录</div>'
+            }else if(a=='2'){
+                htmlU+=' <div class="alert_gift_btn2 pointer f-16  " id="invist_btn" onclick="forInviest(this)"> 立即投资</div>'
+            }else if(a=='3'){
+                htmlU+=' <div class="alert_gift_btn2 pointer f-16  " id="invist_btn" onclick="forInviest1(this)"> 立即投资</div>'
+            }
+            htmlU+='</div>'
+            //console.log(htmlU);
+            $('body').append(htmlU);
+            $('.alert_red_close').click(function(){
+                $('.alert_gift_box2').remove();
+                $('#bg_alertt').hide();
+            })
+        }
+
+        function fanpai(o){//翻出哪张牌
+            var pic,text,url,className,removeName;
+            $.each(jsonL, function(i,value) {
+                if (jsonL[i].id == o) {
+                    pic=jsonL[i].pic;
+                    text=jsonL[i].text;
+                    url=jsonL[i].url;
+                    className=jsonL[i].className;
+                    removeName=jsonL[i].removeName;
+                }
+            });
+            $('.zheng').html(pic);
+            var htmlA='';
+            htmlA+=' <div class="alert_gift_box4 hide"  >';
+            htmlA+=' <div class="alert_gift3_pic "><img src="'+url+'" style="width: 100%"></div>';
+            htmlA+='<div class="alert_gift_text4">';
+            htmlA+=' 恭喜您，获得<span style="color: #ff030e">'+text+'</span>字';
+            htmlA+='</div>';
+            htmlA+='<div class="alert_gift_btn5  f-16" id="dui_btn'+o+'">确定</div></div>';
+            //console.log(htmlA);
+            $('body').append(htmlA);
+            var t=setTimeout("$('#bg_alertt,.alert_gift_box4').fadeIn()",1000) ;
+            $('#dui_btn'+o).click(function(){
+                $('.alert_gift_box4').remove();
+                $('#bg_alertt').hide();
+                var navigatorName = "Microsoft Internet Explorer";
+                if( navigator.appName == navigatorName ){
+                    $('.fan').show();
+                    $('.zheng').hide();
+                }else{
+                    $('.zheng').removeClass('in').html('').addClass('out');
+                    $('.fan').removeClass('out')
+                }
+
+                Forduihuan1(o);  //五张单牌刷新
+            })
+        }
+
+        function Forduihuan1(o) {//翻出的5张牌各有几张
+            $.ajax({
+                url:$('#baseUrl').val() + '/api-rabbitmq/luckyDraw/present',
+                data:{
+                    userId:$('#userId').val(),
+                    actId:2,
+                    rewardId:o
+                },
+                dataType: "json",
+                type:'post',
+                success: function (json){
+                    if(json.code=="900002"){//未登录
+                        $('.dui_unget').show();
+                        $('.dui_get').hide();
+                    } else if(json.code=='000000'){//登录
+                        var data=json.data;
+                        var userMap=data.userMap;
+                        if(userMap){
+                            $('.dui_get').hide();
+                            $.each(userMap, function(i,value) {
+                                if (userMap[i]>0 ){
+                                    //$('.dui_unget'+i).hide();
+                                    //$('.dui_get').hide();
+                                    $('.unget'+(i-0+5)).show();
+                                    $('#first_num'+i).html(userMap[i]);
+                                }
+                                $('#duihuan_btn'+i).click(function(){
+                                    $('.alert_gift_box3').remove();
+                                    duihuanpai(i);//翻出的牌里单个牌兑换
+                                })
+                            });
+                        }else{
+                            $('.dui_unget').show();
+                            $('.dui_get').hide();
+                        }
+                    }
+                }
+            })
+        }
+
+        function duihuanpai(i) {//兑换单个牌
+            $('#bg_alertt').show();
+            var a=25-i*5
+            var htmlB='';
+            htmlB+='<div class="alert_gift_box3 " >';
+            htmlB+= ' <div class="alert_gift2_pic "><img src="https://static.wjdai.com/wjdai-web/activity/2017d11/img/red_'+a+'.png" style="width: 100%"></div>';
+            htmlB+='<div class="alert_gift_text3 ">恭喜您，可兑换<span style="color: #ff030e"><span>'+a+'</span>元现金<br>集齐“大、奖、双、十、一”可兑换500元现金</span></div>';
+            htmlB+=' <div class="alert_btn_box hidden "><div class="alert_gift_btn3  f-16 float-left pointer" id="huan_dui'+i+'" > 兑换</div><div class="alert_gift_btn4  f-16 float-right pointer"> 取消</div></div> </div>'
+            //console.log(htmlB);
+            $('body').append(htmlB);
+            $('#huan_dui'+i).click(function(){
+                $('.alert_gift_box3').remove();
+                duihuanalert(1,1,0 ,i)//弹框
+            })
+            $('.alert_gift_btn4').click(function(){
+                $('#bg_alertt').hide();
+                $('.alert_gift_box3,.alert_gift_box').remove();
+            })
+        }
+
+
+
+        function duihuanalert(o,a,b,i) {//确定兑换、复制、兑换是否成功弹框
+            $('#bg_alertt').show();
+            var htmlC='';
+            htmlC+='<div class="alert_gift_box" >';
+            htmlC+=' <div class="alert_gift_pic relative">';
+            htmlC+='<img src="';
+            if(o==0){
+                htmlC+='https://static.wjdai.com/wjdai-web/activity/2017d11/img/right_ok.png';
+            } else if(o==1) {
+                htmlC+='https://static.wjdai.com/wjdai-web/activity/2017d11/img/wrong_no.png';
+            }
+            htmlC+='" style="width: 100%">';
+            htmlC+='</div>';
+            htmlC+=' <div class="alert_gift_text">';
+            if(a==1){
+                htmlC+='您确定要兑换吗？';
+            }else if(a==2){
+                htmlC+='复制失败！<br>请手动复制链接！';
+            }else if(a==3){
+                htmlC+='复制成功！<br>赶紧去粘贴网址分享吧！';
+            }else if(a==4) {
+                htmlC+='您已兑换成功！<br>现金已发放到您的账户中。';
+            }else if(a==5) {
+                htmlC+='您已兑换成功！<br>礼品将在活动结束统计完成后1-7个工作日内派发到您手中。';
+            }
+            htmlC+='</div>';
+            if(b==0){
+                htmlC+='<div class="alert_btn_box hidden ">';
+                htmlC+='<div class="alert_gift_btn3  f-16 float-left pointer" id="dui_sure'+i+'"> 确定</div>';
+                htmlC+='<div class="alert_gift_btn4  f-16 float-right pointer"> 取消</div>';
+                htmlC+='</div>';
+            } else if(b==1) {
+                htmlC+='<div class="alert_gift_btn pointer f-18" id="gift_sure"> 确定</div>';
+            }else if(b==2){
+                htmlC+='<div class="alert_btn_box hidden ">';
+                htmlC+='<div class="alert_gift_btn3  f-16 float-left pointer" id="ling_sure'+i+'"> 确定</div>';
+                htmlC+='<div class="alert_gift_btn4  f-16 float-right pointer"> 取消</div>';
+                htmlC+='</div>';
+            }else if(b==3){
+                htmlC+='<div class="alert_gift_btn pointer f-18" id="gift_sure1"> 确定</div>';
+            }else if(b==4){
+                htmlC+='<div class="alert_gift_btn pointer f-18" id="gift_sure22"> 确定</div>';
+            }
+            htmlC+='</div>';
+            $('body').append(htmlC);
+            $('#dui_sure'+i).click(function(){
+                $('.alert_gift_box').remove();
+                $('#bg_alertt').hide();
+                duihuansure(i)//确定是否兑换
+            })
+
+            $('#gift_sure').click(function(){
+                $('.alert_gift_box').remove();
+                $('#bg_alertt').hide();
+                $('#first_zhong_box').html(' ');
+                $('.first_laba_box,.first_laba_box1').html(' ');
+                Forduihuan1();
+                firsthe();
+                lingla();
+            })
+            /* $('#ling_sure'+i).click(function(){
+             $('.alert_gift_box').remove();
+             $('#bg_alertt').hide();
+             zerofour(i);
+             })  */
+            $('#gift_sure1').click(function(){
+                $('.alert_gift_box').remove();
+                $('#bg_alertt').hide();
+                $('.first_laba_box').html(' ');
+                $('#first_zhong_box').html(' ');
+                Forduihuan1();
+                firsthe();
+            })
+            $('.alert_gift_btn4').click(function(){
+                $('#bg_alertt').hide();
+                $('.alert_gift_box3,.alert_gift_box').remove();
+            })
+        }
+
+
+        function duihuansure(i) {//确定是否兑换
+            $.ajax({
+                url: $('#baseUrl').val() + '/api-rabbitmq/luckyDraw/convert ',
+                data:{
+                    userId:$('#userId').val(),
+                    actId:2,
+                    rewardId:i,
+                    auth:1
+                },
+                dataType: "json",
+                type:'post',
+                success: function (data){
+                    if(data.code==000000){
+                        duihuanalert(0,4,1);
+                    }
+                }
+            })
+        }
+
+        function forLogin(){
+            window.location.href=root+'/activity/2017d11/home.do';
+        }
+        function forInviest(){
+            window.location.href=root+'/invest/directProject/home.html';
+        }
+        function forInviest1(){
+            window.open(root+'/activity/2017d11/home3.html')
+        }
+
+        $('#hecheng_btn').click(function(){
+            $.ajax({
+                url: $('#baseUrl').val() + '/api-rabbitmq/luckyDraw/compose',
+                data:{
+                    userId:$('#userId').val(),
+                    actId:2,
+                    auth:1
+                },
+                dataType: "json",
+                type:'post',
+                success: function (data){
+                    if(data.code==000000){//兑换成功
+                        duihuanalert(0,4,3);
+                    }else if(data.code==900002){
+                        unlogin(2,'1');
+                    }else{
+                        unlogin(4,'2');
+                    }
+                }
+            })
+        })
+
+        function firsthe(){
+            $.ajax({
+                url: $('#baseUrl').val() + '/api-rabbitmq/luckyDraw/present',
+                data:{
+                    userId:$('#userId').val(),
+                    actId:2,
+                },
+                dataType: "json",
+                type:'post',
+                success: function (json){
+                    var data=json.data;
+                    var convertMap=data.convertMap;
+                    var composeList=data.composeList;
+                    var htmlS='',htmlC='';
+                    if(convertMap&&convertMap.length>0){//最近兑奖20记录
+                        var num='';
+                        var text='';
+                        htmlS+='<div  class="hidden  first_zhong_box relative " id="first_zhong">';
+                        for( var j =0 ;j<convertMap.length; j++){
+                            $.each(jsonL, function(i,value) {
+                                if (jsonL[i].id ==convertMap[j].rewardId) {
+                                    num=jsonL[i].num;
+                                    text=jsonL[i].text;
+                                }
+                            });
+                            htmlS +=' <div  class="float-left f-20 c-fff first_zhong_text"> 恭喜<span class="c-fada">'+convertMap[j].ext3;
+                            htmlS+='</span>用户翻出<span class="c-fada">'+text+'</span>字已兑换<span class="c-fada">'+num+'</span></div>';
+                        }
+                        htmlS+='<div  class="absolute first_zhong_xian"></div>';
+                        htmlS+='</div>';
+                        //console.log(htmlS);
+                    }else{
+                        htmlS+='<div  id=" first_unzhong" >';
+                        htmlS+='<div class="first_unzhong_pic"></div>';
+                        htmlS+='<div class="f-30 c-fff first_unzhong_text">还未有中奖用户</div>';
+                        htmlS+='</div>';
+                    }
+                    $('#first_zhong_box').append(htmlS);
+
+                    if(composeList&&composeList.length>0){
+                        //htmlC+='<marquee behavior="scroll" direction="left" scrolldelay="5" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();" >';
+                        $.each(composeList,function(i,value){
+                            htmlC+='<div  class=" c-fff f-22 ml-20  first_laba_text">恭喜 <span class="c-fada">';
+                            htmlC+=composeList[i];
+                            htmlC+='</span> 用户完成合成可获得 <span class="c-fada">500元现金</span></div>';
+                        })
+                        // htmlC+='</marquee>';
+                    }else{
+                        htmlC+='<div  class=" c-fff f-22 ml-20 float-left first_laba_text">还未有用户获得合成奖励！</div>';
+                    }
+                    $('.first_laba_box').append(htmlC);
+
+
+                }
+            })
+
+        }
+
+        function zero(){//零元购兑换礼物
+            $.ajax({
+                url: $('#baseUrl').val() + '/api-rabbitmq/luckyDraw/zeroInvest ',
+                data:{
+                    userId:$('#userId').val(),
+                    auth:1,
+                    actId:2
+                },
+                dataType: "json",
+                type:'post',
+                success: function (json){
+                    if(json.code==900002){//未登录
+                        $('#second_gift').addClass('second_gift_unget').removeClass('second_gift_get');
+                        $('.second_btn1').show();
+                        $('.second_dui_pic1,.second_dui_pic2,.second_dui_pic3,.second_dui_pic4').hide();
+                    }else if(json.code==000000) {//登录成功
+                        var data=json.data;
+                        $('.second_log_unlogin').show();
+                        $('#ling_yuan').html(data.reviewMoney+'元')
+                        var data=json.data;
+                        $('#ling_login').html(data.investMoneyTotal+'元');
+                        if(data.status==1){//用户已兑换
+                            $('#second_gift').removeClass('second_gift_unget').addClass('second_gift_get');
+                            $('.second_btn1').hide().unbind('click');
+                            var i=data.reward;
+                            $('.second_dui_pic1,.second_dui_pic2,.second_dui_pic3,.second_dui_pic4').hide();
+                            $('.second_dui_pic'+i).show();
+                            $('#goin_btn').html('您已兑换').unbind('click').removeClass('pointer');
+                        }else if(data.status==0){//用户未兑换
+                            $('#second_gift').addClass('second_gift_unget').removeClass('second_gift_get');
+                            $('.second_btn1').show();
+                            $('.second_dui_pic1,.second_dui_pic2,.second_dui_pic3,.second_dui_pic4').hide();
+                        }
+                    }else if(json.code==500000){
+                        $('#ling_login').html('0.00元');
+                        $('.second_log_unlogin').show();
+                        $('#ling_yuan').html('0.00元')
+                        $('.second_btn1').show();
+                    }
+                }
+            })
+        }
+
+        function zeroex(i){
+            $.ajax({
+                url: $('#baseUrl').val() + '/api-rabbitmq/luckyDraw/zeroConvert',
+                data:{
+                    userId:$('#userId').val(),
+                    auth:1,
+                    rewardId:i,
+                    actId:2
+                },
+                dataType: "json",
+                success: function (data){
+                    if(data.code==900002){//未登录
+                        unlogin(2,'1')
+                    }else if(data.code==000000) {//登录成功
+                        if(data.result==0){//兑换失败
+                            duihuanalert(1,1,2,i);
+                            $('#ling_sure'+i).click(function(){
+                                $('.alert_gift_box').remove();
+                                $('#bg_alertt').hide();
+                                unlogin(4,'3')
+                            })
+                        }else if(data.result==1){//兑换成功
+                            duihuanalert(1,1,2,i);
+                            $('#ling_sure'+i).click(function(){
+                                $('.alert_gift_box').remove();
+                                $('#bg_alertt').hide();
+                                duihuanalert(0,5,4);
+                                $('#gift_sure22').click(function(){
+                                    $('.alert_gift_box').remove();
+                                    $('#bg_alertt').hide();
+                                    $('.first_laba_box1').html(' ');
+                                    lingla();
+                                    $('#second_gift').removeClass('second_gift_unget').addClass('second_gift_get');
+                                    $('.second_btn1').hide().unbind('click');
+                                    $('.second_dui_pic1,.second_dui_pic2,.second_dui_pic3,.second_dui_pic4').hide();
+                                    $('.second_dui_pic'+i).show();
+                                    $('#goin_btn').html('您已兑换').unbind('click').removeClass('pointer');
+                                })
+                            })
+
+                        }
+                    }
+                }
+            })
+        }
+
+
+        function lingla(){
+            $.ajax({
+                url: $('#baseUrl').val() + '/api-rabbitmq/luckyDraw/zeroConResult',
+                data:{
+                    userId:$('#userId').val(),
+                    actId:2
+                },
+                dataType: "json",
+                success: function (json){
+                    var data=json.data;
+                    var list=data.list;
+                    var htmlA='';
+                    if(list&&list.length>0){//有用户
+                        for(var i=0; i<list.length; i++){
+                            //htmlA+='<marquee behavior="scroll" direction="left" scrolldelay="5" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();">';
+                            htmlA+='<div  class=" c-fff f-22 ml-20 float-left first_laba_text">恭喜 <span class="c-fada">';
+                            htmlA+=list[i].ext1;
+                            htmlA+='</span> 用户获得 <span class="c-fada">';
+                            htmlA+=list[i].ext2;
+                            htmlA+='</span></div>';
+                            //htmlA+='</marquee>';
+                        }
+                    }else {//没用户
+                        htmlA+=' <div  class=" c-fff f-22 ml-20 float-left first_laba_text">还未有用户获得礼品！</div>'
+                    }
+                    $('.first_laba_box1').append(htmlA);
+                }
+            })
+        }
+
+
+        function dianfengbang(){
+            $.ajax({
+                url: $('#baseUrl').val() + '/api-rabbitmq/luckyDraw/activityOver',
+                data:{
+                    userId:$('#userId').val(),
+                    actId:2
+                },
+                dataType: "json",
+                type:'post',
+                success: function (data){
+                    var iphone=data.iphone;
+                    var gold=data.gold;
+                    var watch=data.watch;
+                    var robot=data.robot;
+                    var cooker=data.cooker;
+                    giftbang(iphone,1);
+                    giftbang(gold,2);
+                    giftbang(watch,3);
+                    giftbang(robot,4);
+                    giftbang(cooker,5);
+
+                }
+            })
+        }
+
+        function giftbang(a,d){
+            g=a.split(';');
+            b=(a.split(';')).slice(0,1);
+            c=(a.split(';')).slice(-1,2);
+            //$('.third_bang_kuang').html(' ');
+            var html='';
+            if(!a){
+                html+='<div class=" float-left int_uning mt-30 ml-80">很遗憾，无人达标</div>';
+                html+='<img src="https://static.wjdai.com/wjdai-web/activity/2017d11/img/song3.png" class="third_song1 float-right mt-15 mr-90">';
+
+            }else{
+                html+='<div class="f-30 bold  c-fada float-left mt-25 ml-50">';
+                html+=b;
+                html+='</div>';
+                html+='<div class="float-right mt-25 mr-35 pt-2">累计年化';
+                html+=c;
+                html+='</div>';
+            }
+            $('#bang'+d).html(html);
+        }
+
+
+
+
+        function thirdlogin(){
+            $.ajax({
+                url: $('#baseUrl').val() + '/api-rabbitmq/luckyDraw/myAnnual',
+                data:{
+                    userId:$('#userId').val(),
+                    actId:2
+                },
+                dataType: "json",
+                success: function (json){
+                    if(json.code==000000){
+                        var data=json.data;
+                        $('#my_inviest_unlogin').hide();
+                        $('#my_inviest_login').show();
+                        if(data&&data.annualMoney>0){
+                            $('#third_login').html(data.annualMoney+'元');
+                        }else{
+                            $('#third_login').html('0.00元');
+                        };
+                        if(data.prize==1){
+                            $('#third_gift').html('可获得Apple iPhone X');
+                        }else if(data.prize==2){
+                            $('#third_gift').html('中国黄金AU9999 （10g）');
+                        }else if(data.prize==3){
+                            $('#third_gift').html('Apple Watch');
+                        }else if(data.prize==4){
+                            $('#third_gift').html('科沃斯扫地机器人DT85');
+                        }else if( data.prize==5){
+                            $('#third_gift').html('美的电炖锅WBZS16')
+                        }else{
+                            $('#third_gift').html('暂未获得奖品，继续努力哦~');
+                        }
+                    } else if(json.code==900002){
+                        $('#my_inviest_unlogin').show();
+                        $('#my_inviest_login').hide();
+                    }else if(json.code==500000){
+                        $('#my_inviest_unlogin').hide();
+                        $('#third_login').html('0.00元');
+                        $('#third_gift').html('暂未获得奖品，继续努力哦~')
+                    }
+                }
+            })
+        }
+        $('#goin_btn').click(function(){
+            window.open(root+'/activity/2017d11/home3.html')
+        })
+
+
+
+        function thirduser(){
+            $.ajax({
+                url: $('#baseUrl').val() + '/api-rabbitmq/luckyDraw/tyrantStanding',
+                data:{
+                    userId:$('#userId').val(),
+                    actId:2
+                },
+                dataType: "json",
+                success: function (json){
+                    var data=json.data;
+                    var htmlE='';
+                    if(data&&data.length>0){
+                        htmlE+=' <div id="gift_user">';
+                        for(i=0; i<data.length; i++){
+                            htmlE+='<div  class="h-74"><div  class="float-left third_pai">'+data[i].id+'</div>';
+                            htmlE+='<div class="float-left third_phone c-fada">'+data[i].ext1+'</div>';
+                            htmlE+=' <div class="float-left third_money">'+data[i].ext2+'元</div></div>';
+                            htmlE+='<div class="third_xian" ></div>';
+                        }
+                        htmlE+='</div>';
+                    }else{
+                        htmlE+='<div class="mt-100 ">';
+                        htmlE+='<div class="first_unzhong_pic"></div>';
+                        htmlE+='<div class="f-30 c-fff first_unzhong_text">还未有中奖用户</div>';
+                        htmlE+='</div>';
+                    }
+                    $('.third_con_box').append(htmlE);
+                }
+            })
+        }
+
+
+
+
+
+
+
+
+
+
+        function timer1(){
+            var timer1 = setInterval(function () {
+                if($('.first_laba_box > .first_laba_text').length>1){
+                    $('.first_laba_box > .first_laba_text:lt(1)').animate({
+                        'margin-left': '-30px',
+                        'opacity': '0'
+                    }, '0', function () {
+                        $(this).removeAttr('style').insertAfter('.first_laba_box > .first_laba_text:last');
+                    }).animate({
+                        'width': '570px',
+                        'opacity': '1'
+                    }, '0');
+                }
+            },3000);
+        }
+
+        function timer2(){
+            var timer2 = setInterval(function () {
+                if($('.first_laba_box1 > .first_laba_text').length>1){
+                    $('.first_laba_box1 > .first_laba_text:lt(1)').animate({
+                        'margin-left': '-30px',
+                        'opacity': '0'
+                    }, '0', function () {
+                        $(this).removeAttr('style').insertAfter('.first_laba_box1 > .first_laba_text:last');
+                    }).animate({
+                        'width': '570px',
+                        'opacity': '1'
+                    }, '0');
+                }
+            },3000);
+        }
+
+        function timer3(){
+            var timer3 = setInterval(function () {
+                if($('.first_zhong_box >.first_zhong_text').length>10){
+                    $('.first_zhong_box > .first_zhong_text:lt(2)').animate({
+                        'height': '0',
+                        'opacity': '0'
+                    }, '0', function () {
+                        $(this).removeAttr('style').insertAfter('.first_zhong_box > .first_zhong_text:last');
+                    });
+                }
+            },3000);
+        }
+
+
+
+
+        var clock;
+        clock = $('.clock').FlipClock({
+            clockFace: 'DailyCounter',
+            autoStart: false,
+            countdown: true,
+            callbacks: {
+                stop: function () {
+                    $('#gao_same').show();
+                    $('#gao_time,#gao_end').hide();
+                    $('#gao_same_btn').click(function(){
+                        window.open(root+'/activity/2017d11/home2.html')
+                    })
+                }
+            }
+        });
+        /* clock.setTime(Num3);
+         clock.setCountdown(true);
+         clock.start(); */
+
+
+    </script>
+</div>
+<div class="alert_gift_box2 hide">
+    <div class="alert_red_close_box relative"><div class="alert_red_close absolute pointer"></div></div><div class="alert_gift1_pic "><img src="https://static.wjdai.com/wjdai-web/activity/2017d11/img/song4.png" style="width: 100%"></div> <div class="alert_gift_text2">很抱歉，您还未达到兑换条件，快去投资吧</div> <div class="alert_gift_btn2 pointer f-16  " id="invist_btn" onclick="forInviest1(this)"> 立即投资</div>
+</div>
+<div class="alert_gift_box5 hide">
+    <div class="alert5_text">恭喜您，获得<span>118</span>元红包</div>
+    <div class="alert5_text2">118元</div>
+    <div class="alert5_box">
+        <div class="alert5_btn pointer"></div>
+    </div>
+</div>
+<!--<div class="hongbaoyu1">
+    <div class="hongbaoyu">
+        <ul class="couten">
+            &lt;!&ndash;<li>
+                <a href="#"><img src="img/hb_1.png"></a>
+            </li>&ndash;&gt;
+        </ul>
+        <div class="backward">
+            <span></span>
+        </div>
+    </div>
+
+</div>
+
+<!-- 底部 -->
+
+</body>
+</html>

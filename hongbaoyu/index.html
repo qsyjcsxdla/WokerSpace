@@ -17,11 +17,11 @@
 <!--		<script type="text/javascript" src="js/jquery.rotate.min.js"></script>-->
 		<!--<link rel="stylesheet" type="text/css" href="css/sweet-alert.css">-->
 		<style type="text/css">
-			body {
-				margin: 0;
+			.hongbaoyu {
+				margin: 0 auto;
 				padding: 0;
 				position: relative;
-				width: 100%;
+				width:700px;
 				height: 100%;
 				overflow-y: hidden;
 				background:url(img/bj.jpg) no-repeat top left ;
@@ -153,8 +153,8 @@
 				var num = 0;
 				var add;
 				add = function () {
-					var hb = parseInt(Math.random() * (3 - 1) + 1);
-					var Wh = parseInt(Math.random() * (70 - 30) + 20);
+					var hb = parseInt(Math.random() * (5 - 1) + 1);
+					var Wh = parseInt(Math.random() * (200 - 100) + 100);
 					var Left = parseInt(Math.random() * (win - 0) + 0);
 					var rot = (parseInt(Math.random() * (45 - (-45)) - 45));
 					console.log(rot+'deg')
@@ -177,24 +177,8 @@
 						//删掉已经显示的红包
 						$(this).remove()
 					});
-					//点击红包的时候弹出模态层
-					$(".li" + num).click(function () {
-						//$(".mo").css("display", "block");
-						$("#counter").html(++counter);
-						$(this).remove();
-					});
 
-					if (num % 5 == 0) {
-						$("#count_down_time").html(--count_down_time);
-					}
-					endTime = new Date();
-					console.log("---", endTime.getTime(), "---", num);
-					if (endTime.getTime() - startTime.getTime() >= 15000) {
-						clearTimeout(timer);
-						timer = null;
-						return;
-					}
-					timer = setTimeout(add, 200)
+					timer = setTimeout(add, 150)//单位时间生成红包
 				};
 				
 				//增加红包
@@ -221,20 +205,16 @@
 
 	</head>
 	<body>
+	<div class="hongbaoyu">
 		<ul class="couten">
 			<!--<li>
 				<a href="#"><img src="img/hb_1.png"></a>
 			</li>-->
 		</ul>
-		<div class="mo">
-			<div class="sen">
-				<img src="img/gx.png">
-				<h3>获得红包3元</h3>
-				<div>确定</div>
-			</div>
-		</div>
 		<div class="backward">
 			<span></span>
-		</div>		
+		</div>
+	</div>
+
 	</body>
 </html>
